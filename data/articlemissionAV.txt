@@ -1,0 +1,40 @@
+GÉNÉRALITÉS
+	Objet de la mission
+	Nature des avoisinants
+EXAMEN_DES_RENSEIGNEMENTS_ET_DES_DOCUMENTS_FOURNIS_PAR_LE_MAÎTRE_D_OUVRAGE
+	Reconnaissance des structures avoisinantes
+		Rapports d’investigations et/ou diagnostics
+		Constats d’état des lieux
+		Repérage de la distribution des charges de la structure   avoisinante
+		Evaluation de la répartition des charges au niveau de l’assise des structures porteuses de l’avoisinant
+		Nature et altimétrie des planchers de l’avoisinant
+	Reconnaissances de sols et des fondations des bâtiments avoisinants
+		Reconnaissances de sols sous les bâtiments avoisinants
+		Niveau altimétrique des fondations des immeubles mitoyens
+		Nature et implantation des fondations des immeubles mitoyens
+		Réseaux divers contigus
+	Etude géotechnique – influence des avoisinants
+		Principe des fondations du bâtiment à construire tenant compte des avoisinant
+		Avis du BET de sols sur la faisabilité des solutions de terrassement
+EXAMEN_DES_DISPOSITIONS_PRISES_PAR_LES_CONCEPTEURS_ET_CONSTRUCTEURS
+	Influence à long terme du bâtiment à construire sur les ouvrages avoisinants
+		Pompage permanent
+		Tassement induit par les fondations du bâtiment à construire
+		Modification du régime hydraulique environnant
+	Influence de la méthodologie d'exécution des travaux de la construction du futur bâtiment sur les ouvrages avoisinants
+		Rabattement de nappe en phase travaux
+		Terrassement - phasage
+		Soutènement – blindage de la fouille
+		Protection contre les infiltrations
+		Suivi de la méthodologie d'exécution de l'ouvrage par l'entreprise
+	Avoisinants - transmission des efforts.
+		Efforts transmis par les ouvrages avoisinants
+		Efforts transmis sur les ouvrages avoisinants
+	Reprise en sous-œuvre 
+		Processus d'exécution des travaux
+		Reprise des charges des ouvrages avoisinants
+		Déplacement en tête de parois
+	Réalisation des parois périmétriques d’infrastructure
+		Processus d'exécution des travaux (2)
+		Reprise des charges des ouvrages avoisinants (2)
+		Déplacement en tête de parois (2)

@@ -1,0 +1,30 @@
+[
+    {
+        "email": "karim.ghernaout@gmail.com",
+        "first_name": "Karim",
+        "last_name": "GHERNAOUT",
+        "password": "kghernaout",
+        "pseudo": "Karim"
+    },
+    {
+        "email": "fhapme@gmail.com",
+        "first_name": "Hans",
+        "last_name": "FAVI",
+        "password": "mfavi",
+        "pseudo": "Hans"
+    },
+    {
+        "email": "yazidbenham@gmail.com",
+        "first_name": "Yazid",
+        "last_name": "BENHAMOUCHE",
+        "password": "ybenhamouche",
+        "pseudo": "Yazid"
+    },
+    {
+        "email": "bettaharrachid123@gmail.com",
+        "first_name": "Rachid",
+        "last_name": "BETTAHAR",
+        "password": "rbettahar",
+        "pseudo": "Rachid"
+    }
+]

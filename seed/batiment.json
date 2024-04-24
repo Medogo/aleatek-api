@@ -1,0 +1,142 @@
+[
+{
+    "model": "Dashbord.batiment",
+    "pk": 1,
+    "fields": {
+        "libelle": "Centre de Sante"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 2,
+    "fields": {
+        "libelle": "Atelier/Petite Industrie"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 3,
+    "fields": {
+        "libelle": "Barrage et digues"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 4,
+    "fields": {
+        "libelle": "Bâtiment administratif"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 5,
+    "fields": {
+        "libelle": "Bâtiment agricole non spécialisé"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 6,
+    "fields": {
+        "libelle": "Bâtiment de bureau (+ parking)"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 7,
+    "fields": {
+        "libelle": "Bâtiment de culte"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 8,
+    "fields": {
+        "libelle": "Centre de loisirs"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 9,
+    "fields": {
+        "libelle": "Centre  logistique"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 10,
+    "fields": {
+        "libelle": "Commerce de surface limitée"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 11,
+    "fields": {
+        "libelle": "Crèche"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 12,
+    "fields": {
+        "libelle": "Crematorium"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 13,
+    "fields": {
+        "libelle": "Entrepôt"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 14,
+    "fields": {
+        "libelle": "Equipement culturel"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 15,
+    "fields": {
+        "libelle": "Équipent sportif de plein air"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 16,
+    "fields": {
+        "libelle": "Établissement d'enseignement"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 17,
+    "fields": {
+        "libelle": "Établissemtn hospitalier"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 18,
+    "fields": {
+        "libelle": "Établissement pénitentiaire"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 19,
+    "fields": {
+        "libelle": "Fosse à tisser"
+    }
+},
+  {
+    "model": "Dashbord.batiment",
+    "pk": 20,
+    "fields": {
+        "libelle": "Foyer logement"
+    }
+}
+  ]

@@ -1,0 +1,35 @@
+ENTREPOTS_COUVERTS_ET_PLATEFORME_LOGISTIQUE_ARRÊTÉ_DU_5_AOÛT_2002_MODIFIÉ
+	Dispositions relatives à l'exploitation de l'entrepôt
+		Ventilation des locaux
+		- Locaux convenablement ventilés pour éviter risque d'atmosphère explosive
+		- Locaux de recharge de batteries chariots automoteurs
+		- Débouché des ventilations
+		- Conduits de ventilation avec clapets coupe-feu à la séparation des cellules
+		Chaufferie
+		- Chaufferie dans un local exclusivement réservé à cet effet et isolé
+		- Communication éventuelle avec l'entrepôt 
+		- Equipements à l'extérieur de la chaufferie
+		Moyens de chauffage
+		- Chauffage des entrepôts et locaux annexes
+		- Chauffage par air chaud pulsé de type indirect
+		- Chauffage électrique
+		- Chauffage des bureaux de quais
+INSTALLATION_DE_COMBUSTION_D_UNE_PUISSANCE_THERMIQUE_A_2_MW_ET_A_20_MW_ARRÊTÉ_DU_25_JUILLET_1997
+	Implantation et aménagement
+		Alimentation en combustible (art. 2.12)
+		- Protection des canalisations contre les agressions extérieures
+		- Dispositif de coupure manuelle extérieur
+		- Signalisation du dispositif de coupure manuelle
+		- Dispositif de coupure automatique pour gaz
+		- Electrovannes gaz asservies à des détecteurs gaz et à un pressostat
+		- Appareil de réchauffage d'un combustible liquide
+		- Robinet d'arrêt sur chaque appareil de combustion
+		Contrôle de la combustion (art. 2.13)
+		- Dispositifs de contrôle du bon fonctionnement
+		- Dispositif de contrôle de flamme pour chaudières à combustible liquide ou gazeux
+ATELIERS_DE_CHARGE_D_ACCUMULATEURS_PUISSANCE_A_10K_W_ARRÊTÉ_DU_29_MAI_2000
+	Implantation - Aménagement
+		Ventilation
+		- Locaux convenablement ventilés
+		- Débouché de la ventilation
+		- Débit d'extraction

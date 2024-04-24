@@ -1,0 +1,4 @@
+DSIPOSITION APPLICABLES A TOUS LES ERP
+    Classement des etablissements
+    GN 1 - Classement des etablissements
+    GN 2 - Classement des groupements d'etablissements ou des etablissements en plusieurs batiments voisin non isoles entre eux

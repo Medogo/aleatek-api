@@ -1,0 +1,354 @@
+HYPOTHESES GENERALES
+	Données relatives à l'agressivité de l'environnement
+		Données sur l'ambiance extérieure
+		- Atmosphères extérieures
+		- Atmosphères marines
+		- Atmosphères spéciales
+		Données sur l'ambiance intérieure
+		- Critères d'agressivité des locaux
+		- Critères d'entretien des locaux
+		- Hygrométrie, température des locaux
+PARTITIONS
+	Cloisons – Doublages
+		Cloisons de distribution
+		- Nature de la cloison
+		- Stabilité de la cloison
+		- Résistance aux chocs
+		- Compatibilité avec les déformations de la structure
+		- Compatibilité avec la destination des locaux
+		- Dispositions prévues pour fixation d'équipements
+		Cloisons de doublages
+		- Nature de la cloison (2)
+		- Stabilité de la cloison (2)
+		- Conditions de non condensation dans le doublage
+		- Résistance aux chocs (2)
+		- Compatibilité avec les déformations de la structure (2)
+		- Compatibilité avec la destination des locaux (2)
+		- Dispositions prévues pour fixation d'équipements (2)
+		Cloisons amovibles et/ou démontables
+		- Nature de la cloison (3)
+		- Stabilité de la cloison (3)
+		- Résistance aux chocs (3)
+		- Compatibilité avec les déformations de la structure  (1)
+		- Compatibilité avec la destination des locaux (3)
+		- Dispositions prévues pour fixation d'équipements (3)
+		Cloisons mobiles
+		- Nature de la cloison (4)
+		- Stabilité de la cloison (4)
+		- Dispositifs de suspension
+		- Résistance aux chocs (4)
+		- Compatibilité avec les déformations de la structure  (2)
+		- Compatibilité avec la destination des locaux (4)
+	Plafonds
+		Plafonds traditionnels en plâtre
+		- Adéquation et compatibilité du support
+		- Composition et mise en œuvre des armatures
+		- Composition et mise en œuvre de l'enduit
+		- Traitement des points singuliers
+		Plafonds suspendus
+		- Adéquation du support
+		- Nature du plafond et système technique
+		- Compatibilité aux charges appliquées
+		- Compatibilité à l'hygrométrie des locaux
+		- Traitement des points singuliers (2)
+	Planchers techniques
+		Planchers surélevés
+		- Capacité du support à reprendre les charges appliquées
+		- Adéquation du support (2)
+		- Compatibilité du support avec produit de collage
+		- Stabilité du plancher par rapports aux charges appliquées
+		- Reprise du poids des équipements techniques
+		- Traitement des points singuliers (3)
+	Menuiseries intérieures
+		Portes intérieures
+		- Compatibilité des huisseries avec les cloisons
+		- Adéquation des portes intérieures
+		- Adéquation des portes séparant des locaux à ambiances différentes
+		Autres menuiseries intérieures
+		- Compatibilité avec la destination des locaux (5)
+		- Durabilité des matériaux
+		- Trappes pour comble
+		Ouvrages ou éléments d'équipement dissociables de la structure
+		Escaliers
+		- Durabilité des matériaux (2)
+		- Compatibilité avec la destination des locaux (6)
+		- Stabilité générale de l'escalier
+		- Principe de fixation des escaliers
+		Garde-corps
+		- Durabilité des matériaux (3)
+		- Compatibilité avec la destination des locaux (7)
+		- Stabilité des garde-corps
+		- Principe de fixation des garde-corps
+		- Dispositions complémentaires relatif aux éléments verriers
+REVETEMENTS
+	Revêtements de sol
+		Données sur l'exploitation des locaux
+		- Sollicitations d'usage des locaux
+		- Locaux à risques identifiés
+		Enduit de préparation de sols intérieurs
+		- Adéquation du support (3)
+		- Compatibilité de l'enduit avec la destination des locaux
+		- Compatibilité de l'enduit avec le revêtement
+		Chapes
+		- Adéquation du support (4)
+		- Compatibilité de la chape avec la destination des locaux
+		- Nature et conformité de la sous-couche
+		- Compatibilité sous-couche avec la destination des locaux
+		- Compatibilité de la chape avec le revêtement de sol
+		- Nature et conformité de la chape à son référentiel
+		- Présence de canalisations
+		- Traitements des joints
+		Revêtements carrelage et analogues
+		- Adéquation du support (5)
+		- Adéquation du mode de pose avec l'âge du support
+		- Nature et adéquation du revêtement
+		- Compatibilité du revêtement avec la destination des locaux
+		- Choix du mode de pose
+		- Pose collée : choix de la colle
+		- Pose collée : mode de pose
+		- Compatibilité sous-couche avec la destination des locaux (2)
+		- Traitement des joints
+		Revêtements carrelage et analogues - Dispositions en rénovation
+		- Existence d'une étude de reconnaissance du support
+		- Adéquation et compatibilité du support ancien
+		- Traitement et préparation du support
+		- Validation de la méthode de rénovation
+		Revêtements de sol en bois et assimilés
+		- Adéquation du support avec le mode de pose
+		- Nature et adéquation du revêtement (2)
+		- Adéquation du revêtement avec la destination des locaux
+		- Mode de pose du revêtement
+		- Traitement des joints (2)
+		Revêtements de sol souples - Textile ou PVC
+		- Adéquation du support (6)
+		- Nature et adéquation du revêtement (3)
+		- Adéquation du revêtement avec la destination des locaux (2)
+		- Travaux préparatoires
+		- Adéquation du produit de collage
+		- Mode de pose du revêtement (2)
+		- Traitement des remontées en plinthes
+		Revêtements de sol coulés
+		- Nature et composition du revêtement
+		- Adéquation du support (7)
+		- Adéquation du revêtement avec la destination des locaux (3)
+		- Traitement des joints (3)
+		Sols industriels
+		- Adéquation entre le système proposé et les contraintes d'exploitation des locaux
+		- Compatibilité du système de sol industriel avec la conception du support
+		Etanchéité intérieure
+		- Conception du local
+		- Nature du procédé
+		- Compatibilité du procédé avec les revêtements envisagés
+	Revêtements muraux intérieurs
+		Enduits intérieurs au plâtre
+		- Adéquation du support (8)
+		- Composition de l'enduit
+		- Mise en œuvre de l'enduit
+		- Adaptabilité de l'enduit au support
+		- Traitement des points singuliers (4)
+		Revêtements muraux céramiques ou assimilés
+		- Compatibilité du support / la destination des locaux
+		- Adéquation du revêtement mural – format
+		- Adéquation du produit de collage (2)
+		- Compatibilité du produit de collage en fonction du revêtement
+		Revêtements muraux minces
+		- Adéquation du support (9)
+		- Nature et adéquation du revêtement  (2)
+		- Compatibilité du revêtement avec la destination des locaux (2)
+		- Adéquation du produit de collage (3)
+		- Mode de pose du revêtement (3)
+		Revêtements muraux en bois et dérivés
+		- Adéquation du support (10)
+		- Nature et conformité du revêtement
+		- Compatibilité du revêtement avec la destination des locaux (3)
+		- Compatibilité du support en fonction du revêtement
+INSTALLATIONS ELECTRIQUES
+	Installations électriques (*)
+		Poste de livraison d'énergie ou d'abonné
+		- Dispositions constructives parois extérieures
+		- Dispositions constructives cloisons intérieures
+		- Compatibilité du sol par rapport aux charges à reprendre
+		- Dispositions par rapport aux risques d'inondation ou infiltration d'eau
+		- Etanchéité du local
+		- Prise de terre
+		- Caniveaux de passage de câbles
+		- Cuvelage de rétention
+		- Ventilation des locaux
+		Prises de terre
+		- Mode de réalisation
+		- Compatibilité avec la résistivité du sol
+		Installation électrique enterrée
+		- Compatibilité des câbles en pose enterrée
+		- Conditions de pose des câbles enterrés
+		- Compatibilité des chambres de tirage
+		Installation électrique encastrée
+		- Compatibilité conduits par rapport à la nature de la paroi
+		- Conditions de pose des conduits
+		- Dispositions particulières pour les cloisons non porteuses
+		- Dispositions conduits en contact avec l'isolant thermique
+		Installation électrique apparente
+		- Mode de pose et de montage
+		- Compatibilité du mode de pose avec le support
+		- Définition des contraintes sur l'ouvrage porteur
+		- Dispositions vis-à-vis des chocs
+THERMIQUE
+	Plomberie – sanitaire
+		Alimentation en eau
+		- Analyse de l'eau
+		- Adéquation des tuyauteries à la nature de l'eau
+		- Adéquation des tuyauteries d'alimentation en eau
+		- Qualité vis-à-vis de l'ambiance extérieure
+		- Adéquation des tuyauteries de nature différente
+		- Incorporation des tuyauteries dans l'ouvrage
+		- Tuyauteries enterrées
+		- Tuyauteries apparentes
+		- Tuyauteries - Traversée des parois
+		- Dispositions vis-à-vis de la dilatation
+		- Adéquation de la robinetterie
+		Evacuation d'eau
+		- Adéquation des canalisations
+		- Adéquation des canalisations à la nature de l'eau
+		- Qualité vis-à-vis de l'ambiance extérieure (2)
+		- Incorporation des canalisations dans l'ouvrage
+		- Canalisations enterrées
+		- Canalisations apparentes
+		- Canalisations - Traversée des parois
+		- Dispositions vis-à-vis de la dilatation (2)
+		- Ventilation primaire
+	Chauffage
+		Stockages hydrocarbures
+		- Nature et type de stockage
+		- Adéquation de la cuve de stockage
+		- Dispositions relatives aux cuves enterrées
+		- Dispositions relatives au local
+		- Nature des conduits de distribution
+		- Mode de passage des conduits de distribution
+		Planchers chauffants par câbles électriques
+		- Adéquation du matériel proposé
+		- Compatibilité de la structure et du support
+		- Durabilité de l'installation
+		- Dispositions générales de réalisation
+		- Dispositions concernant l'enrobage des éléments de chauffage
+		Planchers chauffants à eau chaude
+		- Adéquation du matériel proposé (2)
+		- Compatibilité de la structure et du support (2)
+		- Dispositions générales de réalisation (2)
+		- Dispositions concernant l'enrobage des éléments de chauffage (2)
+		- Compatibilité de l'enrobage avec les tubes de chauffage
+	Canalisations de transports de chaleur ou de froid
+		Canalisations de transport enterrées
+		- Caniveaux – Implantation
+		- Résistance mécanique des caniveaux
+		- Traitement des eaux d'infiltration
+		- Dilatation
+		- Protection des canalisations en fonction du fluide
+		- Protection contre les actions extérieures
+		- Pénétration dans le bâtiment
+		Canalisations de transports en élévation
+		- Définition des supports des canalisations
+		- Dilatation (2)
+		- Protection des canalisations en fonction du fluide (2)
+		- Protection contre les actions extérieures (2)
+	Ventilation et traitement d'air
+		Ventilation
+		- Définition du poids des équipements techniques
+		- Compatibilité du support avec le poids des équipements
+		- Adéquation des composants
+		- Dispositions relatives à la fixation des équipements
+		- Dispositions relatives aux vibrations des équipements
+		- Dispositions relatives aux traversées de parois
+		- Dispositions relatives aux entrées d'air
+		- Dispositions relatives aux rejets d'air
+		- Evacuation de l'eau condensée
+		Climatisation
+		- Définition du poids des équipements techniques (2)
+		- Compatibilité du support avec le poids des équipements (2)
+		- Adéquation des composants (2)
+		- Dispositions relatives à la fixation des équipements (2)
+		- Dispositions relatives aux vibrations des équipements (2)
+		- Dispositions relatives aux traversées de parois (2)
+		- Dispositions relatives aux entrées d'air (2)
+		- Dispositions relatives aux rejets d'air (2)
+	Installation de gaz combustible
+		Distribution gaz
+		- Adéquation / compatibilité des tubes, raccords, accessoires
+		- Pose apparente – Principe
+		- Pose apparente - protection contre les chocs
+		- Pose apparente - En vide sanitaire
+		- Dispositions relatives aux traversées de parois (3)
+		- Dispositions relatives à l'incorporation dans l'ouvrage
+		- Pose enterrée – Principe
+		- Pose enterrée - Compatibilité avec l'agressivité du sol
+		Appareils de production à gaz
+		- Fixation appareils de production / Paroi support
+		- Evacuation des produits de combustion
+	Installations frigorifiques
+		Bâtiments frigorifiques / Chambres froides ou régulées
+		- Fonction clos et couvert
+		- Définition du flux thermique
+		- Risques liés aux phénomènes de condensation
+		- Stabilité des parois et des plafonds – rigidité
+		- Aptitude et durabilité du revêtement intérieur
+		- Résistance aux chocs (5)
+		- Adéquation du matériau isolant
+		- Protection du matériau isolant
+		- Compatibilité de la porte à l'ambiance / condition d'utilisation
+		- Protection des structures sous chambre froide
+		- Portes - traitement des seuils pour locaux < à 0°C
+		- Châssis vitrés
+		Appareils de production de froid
+		- Définition des caractéristiques des appareils
+		- Compatibilité du support avec le poids des équipements (3)
+		- Compatibilité de l'appareil avec son milieu ambiant
+		Circuits frigorifiques
+		- Définition des températures de service et nature des fluides
+		- Caractéristiques des tuyauteries
+		- Caractéristiques de l'isolation des tuyauteries
+		- Dispositions relatives à une pose apparente
+		- Dispositions relatives aux traversées de parois (4)
+		- Dispositions relatives à l'incorporation dans l'ouvrage (2)
+		- Dispositions relatives à une pose enterrée
+		- Dispositions relatives aux chocs
+	Fumisterie
+		Conduits de fumées
+		- Stabilité générale du conduit
+		- Résistance à la température des produits de combustion
+		- Résistance à la pression
+		- Résistance à la condensation
+		- Résistance à la corrosion
+		- Conditions d'étanchéité
+		- Protection du conduit en extérieur
+		- Résistance du conduit au transfert de chaleur
+		- Dispositions relatives aux traversées de parois (5)
+		Conduits de fumées existants
+		- Compatibilité du conduit existant avec son utilisation
+		- Etanchéité et la vacuité du conduit
+		- Stabilité générale du conduit existant
+		- Prolongement du conduit existant
+		Cheminées
+		- Matériaux constituant le foyer
+		- Matériaux constituant l'avaloir
+		- Habillage du foyer
+		- Trappe d'obturation
+		- Amenée d'air frais
+		- Conduits de raccordement
+		- Conformité de la paroi d'adossement de la cheminée
+		- Soubassement / Assise
+EQUIPEMENTS
+	Transports mécaniques
+		Ascenseurs et monte charge
+		- Charges et efforts sur la structure porteuse
+		- Compatibilité des parois de la gaine
+		- Fond de cuvette
+		- Etanchéité de la cuvette
+		Escaliers mécaniques et trottoirs roulants
+		- Définition des efforts de l'équipement sur l'ouvrage
+		- Compatibilité des parois avec les efforts à reprendre
+	Portails
+		Portails (sous portails)
+		- Constitution des portails
+		- Durabilité vis-à-vis de l'ambiance extérieure
+		- Performances des portes
+		- Stabilité des portails
+		- Mode de pose et fixation
+		- Traitement des seuils

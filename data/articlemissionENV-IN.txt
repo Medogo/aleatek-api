@@ -1,0 +1,176 @@
+ENTREPOTS_COUVERTS_ET_PLATEFORME_LOGISTIQUE_ARRÊTÉ_DU_5_AOÛT_2002_MODIFIÉ
+	Implantation - accessibilité
+		Implantation des entrepôts
+		- Eloignement des parois extérieures de l'entrepôt par rapport aux constructions tiers
+		- Implantation des entrepôts ouverts 
+		- Pas d'habitation à l'exception du logement éventuel pour le gardien de l'entrepôt
+		Accessibilité des entrepôts
+		- Accessible en permanence par les services d'incendie et de secours
+		- Voie-engin sur le périmètre de l'entrepôt
+		- Accès à toutes les issues par chemin stabilisé depuis la voie-engin
+		- Voie échelle prévus pour chaque façade
+	Dispositions relatives au comportement au feu des entrepôts
+		Murs extérieurs
+		- Constitution des murs extérieurs
+		Toiture
+		- Eléments de support de la toiture
+		- Isolation thermique en toiture
+		- Classement de la toiture
+		- Dispositifs d'éclairage naturels
+		Résistance au feu des structures
+		- Stabilité au feu des structures
+		- Ruine en chaîne de la structure du bâtiment
+		- Degré coupe-feu des planchers
+		- Structures à simple RDC
+		Escaliers intérieurs
+		- Encloisonnement des cages d'escaliers
+		- Débouché des cages d'escalier directement sur l'extérieur ou circulation encloisonnée
+		- Portes d'accès donnant sur les escaliers
+		Ateliers d'entretien du matériel
+		- Isolement des locaux ateliers
+		- Portes de communication
+		Bureaux et locaux sociaux
+		- Isolement des locaux bureaux ou sociaux
+		- Porte de communication
+		Désenfumage des cellules de stockage
+		- Superficie maxi des cantons de désenfumage
+		- Ecran de cantonnement
+		- Dispositifs d'évacuation en partie haute
+		- Commande des exutoires
+		- Amenée d'air frais
+	Compartimentage et aménagement du stockage
+		Entrepôt compartimenté en cellules de stockage
+		- Parois séparant les cellules de stockage
+		- Percements dans les murs ou parois séparatives
+		- Ouvertures dans les murs ou parois séparatives
+		- Portes de communication entre cellules
+		- Dépassement des parois séparatives de la couverture
+		- Bande de protection sur la toiture
+		- Colonne sèche le long des parois séparatives en alternative aux bandes de protection sur toiture
+		- Dépassement des parois séparatives en façade
+		Taille des cellules de stockage
+		- Limitation de la taille des cellules
+		- Augmentation de la taille des cellules par décision préfectorale
+	Stockage des matières dangereuses dans des cellules particulières
+		Sol des aires et des locaux de stockage ou de manipulation de matières dangereuses
+		- Sol incombustible
+		Réservoirs ou récipients contenant des matières susceptibles de réagir dangereusement ensemble
+		- Pas d'association à la même cuvette de rétention 
+		Recueille de l'ensemble des eaux et écoulements
+		- Orifice d'écoulement munis d'un dispositif automatique d'obturation
+		- Volume nécessaire au confinement
+	Moyens de lutte contre l'incendie
+		Détection automatique d'incendie
+		- Dans les cellules de stockage
+		- Transmission de l'alarme à l'exploitant
+		- Détecteurs adaptés aux produits stockés
+		Moyens de lutte contre l'incendie appropriés aux risques et conformes aux normes en vigueur
+		- Détermination des points d'eau nécessaires et implantation
+		- Extincteurs portatifs
+		- Robinets d'incendie armés
+		- Système d'extinction automatique d'incendie
+	Dispositions relatives à l'exploitation de l'entrepôt
+		Issues de secours
+		- Dégagement permettant une évacuation rapide et sure
+		- Nombre d'issues
+		- Distance à parcourir pour atteindre une issue 
+		- Verrouillage des issues
+INSTALLATION_DE_COMBUSTION_D_UNE_PUISSANCE_THERMIQUE_A_2_MW_ET_A_20_MW_ARRÊTÉ_DU_25_JUILLET_1997
+	Implantation et aménagement
+		Implantation
+		- Conditions d'éloignement (art. 2.1)
+		- Non respect des conditions d'éloignement (art. 2.1)
+		- Implantation des appareils de combustion destinés à la production d'énergie (art. 2.1)
+		- Appareils de combustion placés en extérieur (art. 2.1)
+	Intégration dans le paysage (art. 2.2)
+		Interdiction d'activités au-dessus des installations (art. 2.3)
+		- Tiers superposés
+		- Sous-sol des bâtiments tiers
+		Comportement au feu des bâtiments (art. 2.4)
+		- Structure R60
+		- Murs extérieurs A2-s1, d0
+		- Sol incombustible (A1fl)
+		Désenfumage des locaux en cas d'incendie (art. 2.4)
+		- Dispositifs en partie haute pour évacuation des fumées et gaz dégagés en cas d'incendie
+		- Commandes d'ouverture manuelle
+		Comportement aux risques d'explosion des bâtiments (art. 2.4)
+		- Limitation des effets de l'explosion à l'extérieur du local
+		Comportement au feu des constructions vis-à-vis de locaux contigus ou non respect des conditions d'éloignement (art. 2.4)
+		- Parois, couverture et plancher haut REI 120 (CF 2h)
+		- Porte intérieure EI 30 (CF 1/2h) avec ferme-porte
+		- Porte sur extérieur EI 30 (CF 1/2h)
+		Accessibilité (art. 2.5)
+		- Accessibilité aux services d'incendie et de secours
+		- Aire de stationnement éventuelle pour les véhicules de service
+		- Espace libre suffisant autour des appareils de combustion
+		Ventilation (art. 2.6)
+		- Locaux ventilés pour éviter la formation d'une atmosphère explosive ou nocive
+		- Ventilation assurant en permanence un balayage du local
+		Rétention des aires et locaux de travail (art. 2.9)
+		- Sol étanche et incombustible
+		- Recueil des eaux de lavage et produits répandus accidentellement
+		Cuvettes de rétention (art. 2.10)
+		- Capacité de rétention
+		- Stockage sous le niveau du sol
+		- Stockage en réservoirs fixes aériens
+		- Capacités intermédiaires ou nourrices alimentant les appareils de combustion
+		- Stockage par récipients de 250 litres maxi de capacité unitaire
+		- Cuvette de rétention étanche et résistante aux produits contenus
+		Issues (art. 2.11)
+		- Evacuation dans deux directions opposées
+		- Portes ouvrant vers l'extérieur du local et manoeuvrables de l'intérieur
+		- Balisage de l'accès aux issues
+		Aménagement particulier (art. 2.14)
+		- Communication entre chaufferie gaz et autres locaux
+		Détection de gaz - détection incendie (art. 2.15)
+		- Dispositif de détection de gaz déclenchant une alarme en cas de dépassement du seuil de danger
+		- Dispositif de détection de gaz coupant les alimentations en gaz et électricité
+		- Dispositif de détection incendie pour les installations en sous-sol
+		Modification d'une installation existante (art. 2.16)
+		- Non application des dispositions des articles 2.1 à 2.5, 2.11 et 2.14 en cas de remplacement d'appareils de combustion
+	Risques
+		Moyens de lutte contre l'incendie (art. 4.2)
+		- Extincteurs pour combustibles liquides et solides
+		- Extincteurs pour combustibles gazeux
+		- Réserve de sable avec pelle pour combustibles liquides ou solides
+		- Appareils d'incendie complémentaires en fonction des dangers présentés
+		- Extincteurs automatiques
+		Localisation des risques (art. 4.3)
+		- Détermination de la nature des risques (à charge de l'exploitant)
+		Emplacements présentant des risques d'explosion (art. 4.4)
+		- Matériels électriques compatibles avec les risques d'explosion
+		- Protection des canalisations électriques
+		Interdiction des feux (art. 4.5)
+		"Permis de travail" et/ou "Permis de feux" (art. 4.6)
+		Consignes de sécurité (art. 4.7)
+ATELIERS_DE_CHARGE_D_ACCUMULATEURS_PUISSANCE_A_10K_W_ARRÊTÉ_DU_29_MAI_2000
+	Implantation - Aménagement
+		Implantation des bâtiments vis-à-vis des tiers
+		- Distance à respecter vis-à-vis des tiers
+		Comportement au feu des bâtiments
+		- Résistance au feu des murs et planchers hauts
+		- Couverture
+		- Portes intérieures
+		- Porte donnant vers l'extérieur
+		- Autres matériaux
+		- Dispositifs de désenfumage en partie haute
+		- Commande de désenfumage
+		Accessibilité
+		- Accessible pour permettre l'intervention des services d'incendie et de secours
+		- Desservi par une voie-engin
+		- Desservi par une voie-échelle
+		- Local fermé, une des façades équipée d'ouvrants
+		Rétention des aires et locaux de travail
+		- Sol incombustible (2)
+	Risques (2)
+		Moyens de secours contre l'incendie
+		- Détermination des points d'eau nécessaires et implantation (2)
+		- Extincteurs portatifs (2)
+		- Moyens d'alerte
+		- Plans des locaux
+		Localisation des risques
+		- Définition des parties d'installation présentant des risques spécifiques
+		- Présence de détecteur d'hydrogène dans les parties d'installation présentant un risque spécifique
+		Seuil de concentration limite en hydrogène
+		- Pour installations équipées de détecteurs d'hydrogène interruption automatique de l'opération de charge et déclenchement de l'alarme
+		- Pour installations non équipées de détecteurs d'hydrogène interruption des systèmes d'extraction d'air, opération de charge et déclenchement de l'alarme

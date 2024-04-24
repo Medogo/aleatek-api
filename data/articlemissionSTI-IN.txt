@@ -1,0 +1,431 @@
+DISPOSITIONS CONSTRUCTIVES EN INCENDIE
+	Généralités
+		R.4216-1 - Champs d'application
+		R.4216-2 -Conception du bâtiment permettant l'évacuation rapide ou différée si nécessaire, l'accès des services de secours.
+		- R.4216-2-1 - Espaces d'attente sécurisé (EAS) ou espaces équivalents dans les bâtiments neufs ou parties neuves de ces bâtiments comprenant des lieux de travail    -  à tous le niveaux accessibles aux personnes handicapées à l'exception des sous-sol et des locaux à risques particuliers -  protection contre les fumées, le rayonnement thermique et la ruine du bâtiment pendant une durée de 1 heure
+		- R.4216-2-2 - Solutions équivalentes à l'EAS : -  paliers d'escalier encloisonnés est désenfumés (mentionnés art R.4216-26) avec porte coupe-feu de degré 1 H -  local d'attente d'ascenseur avec porte coupe-feu de degré 1 H -  espace à l'air libre
+		- R.4216-2-3 - Cas d'exonérations d'EAS : -  rez-de-chaussée avec nombre suffisant de dégagements accessibles aux personnes handicapées -  niveaux comprenant au moins deux compartiments de capacité d'accueil équivalente
+		R.4216-4 - Effectif théorique
+		- Effectif du personnel majoré de l'effectif du public éventuel
+		Conception - Desserte - Distribution (2)
+		R.4216-3 - Isolement par rapport aux tiers
+		- Effondrement  éventuel du bâtiment tiers n’entraine pas celui du bâtiment contrôlé
+		- Conditions d’isolement fixées par la réglementation des tiers
+DEGAGEMENTS
+	Dispositions générales
+		R.4216-5 - Largeur des dégagements
+		- Largeur minimale proportionnée au nombre de personnes à évacuer
+		- Dégagements de 1UP ou 2UP
+		R.4216-6 et R.4227-4 - Conception des dégagements
+		- Libre et sans obstacles
+		- Répartis correctement
+		- Eviter les culs-de-sac
+		- Absence de marches isolées (R.4216-12)
+		R.4216-11 - Distance maximale à parcourir
+		- Distance pour atteindre un escalier inférieure ou égale à 40m
+		- Débouché des escaliers à moins de 20m d’une sortie sur l’extérieur
+		- Cul-de-sac inférieur ou égal à 10m
+		R.4216-7 - Saillies et dépôts
+		- Absence de réduction de la largeur des dégagements
+		R.4216-8 - Calcul des dégagements
+		- Nombre et largeur des dégagements
+		R.4216-9 - Calcul des dégagements des locaux situés en sous-sol
+		- Présence de locaux correspondant à la définition de local en sous-sol
+		- Majoration des dégagements
+		R.4216-10 - Enfouissement maximal
+		- Enfouissement inférieur ou égal à 6m sauf exception
+		R.4227-6 - Portes utilisées pour l'évacuation
+		- Ouvrant dans le sens de la sortie (plus de 50 personnes)
+		- Ouverture par simple manœuvre
+		- Porte verrouillé manœuvrable de l'intérieur et sans clé
+		R.4227-7 - Portes de types spéciaux
+		- Non prise en compte dans les dégagements
+		- Coulissantes motorisées ouverture à sécurité positive et énergie intrinsèque
+		R.4227-8 - Ascenseurs, monte-charge, chemins ou tapis roulants
+		- Non prise en compte dans les dégagements (2)
+		R.4227-13 - Signalisation des sorties
+		- Signalisation indiquant la sortie la plus proche
+		- Mention « Sortie de secours » pour dégagements non utilisés pendant le travail
+		R.4227-14 - Eclairage de sécurité
+		- Eclairage de sécurité permettant l’évacuation
+	Escaliers
+		R.4227-9 - Conception des escaliers
+		- Prolongés jusqu’au niveau d’évacuation
+		- Revêtement des parois et des marches (A.31/05/94)
+		R.4227-10 - Rampe ou main-courante
+		- Nombre de rampe ou main-courante fonction de la largeur
+		R.4227-11 - Escaliers desservant les sous-sols
+		- Dissociation escaliers desservant les sous-sols et les étages
+		R.4216-12 - Marches et paliers d'escalier
+		- Non glissantes
+		- Contre-marche ou recouvrement de 0,05m
+		- Interdiction de 1 ou 2 marches isolées
+		- Dimensions conformes aux règles de l’art
+		- Volées limitées à 25 marches
+		- Largeur des paliers et des volées égales
+		- Longueur des paliers supérieur à 1m si volées non contrariées
+		- Balancement continu entre étages pour escaliers tournants
+		- Dimensions des marches sur ligne de foulée à 0,60m conformes aux règles de l’art
+		- Giron extérieur inférieur ou égal à 0,42m
+DESENFUMAGE
+	Dispositions générales (2)
+		R.4216-13 - Désenfumage des locaux
+		- Locaux en RDC ou en étage de surface supérieure à 300m2
+		- Locaux en sous-sol de surface supérieure à 100m2
+		- Locaux aveugles de surface supérieure à 100m2
+		- Compartiments
+		- Tous les escaliers
+		R.4216-14 et Art.12 - A.05/08/92 - Dispositifs de désenfumage naturel
+		- Dispositifs d’amenée d’air frais (AF)
+		- Dispositifs d’évacuation des fumées (AC) :
+		- Surface géométrique des ouvertures :
+		- Surface utile d’évacuation (SUE) :
+		- Dispositif d’ouverture manoeuvrable depuis le plancher
+		- Respect des principes d’exécution de l’I.T. 246
+		A. 05/08/92 - Art.14 - Cas particulier des Atriums
+		- Respect de l'IT 263
+LOCAUX OU SONT ENTREPOSEES OU MANIPULEES DES MATIERES INFLAMMABLES
+	Emploi des matières inflammables
+		R.4216-21 - Régles applicables
+		R.4216-22 - Locaux ou emplacements ou sont entreposées ou manipulées des substances dangereuses.
+		- Ventilation permanente appropriée
+		R.4216-23 - Conception des locaux ou emplacements ou sont entreprosées ou manipulées des substances dangereuses
+		- Poste de travail à 10m au plus d’une sortie sur l’extérieur
+		- Poste de travail à 10m au plus d’une sortie sur un local donnant sur l’extérieur
+		- Porte ouvrant dans le sens de la fuite
+		- Fenêtres munies de grilles ou grillages s’ouvrant facilement depuis l’intérieur
+MOYENS DE PREVENTION ET DE LUTTE CONTRE L'INCENDIE
+	Moyens d'extinction
+		R.4227-29 - Extincteurs portatifs
+		- Extincteurs à eau pulvérisée de 6l (1 pour 200m²)
+		- Un extincteur par niveau
+		- Extincteurs appropriés aux risques
+		R.4227-30 - RIA, colonnes sèches, colonnes humides, installations fixes d’extinction automatique ou installations de détection si nécessaire
+		R.4227-31 - Dispositifs non automatiques d’accès facile
+		R.4227-32 - Bac à sable (ou terre meuble)
+		R.4727-33 - Signalisation durable et appropriée
+	Système d'alarme
+		R.4227-34 - Système d'alarme sonore  et perceptible aux employés en situation de handicap
+		- Equipement d'alarme sonore (Art.14 - A.04/11/93) complété par un  système d'alarme adapté au handicap des  personnes  employées dans l'entreprise (D2009-1272 du 21/10/2009)
+		- Emplacement des déclencheurs manuels
+		R.4227-35 - Alarme générale donnée par bâtiment
+		R.4227-36 - Signal sonore d'alarme
+		- Signal sonore spécifique
+		- Signal sonore audible en tout point du bâtiment
+		- Autonomie du signal sonore
+	Consignes de sécurité incendie
+		R.4727-37 - Affichage des consignes de sécurité incendie
+		R.4727-38 - Indication des consignes de sécurité incendie
+IT 263 - ATRIUMS - DISPOSITIONS CONSTRUCTIVES ET DESENFUMAGE NATUREL
+	Dispositions constructives relatives aux grands atriums
+		AT1 - Atrium à l'air libre (§ 1.1)
+		- Plus petite dimension inférieure ou égale à la hauteur de la façade la plus haute
+		AT2 - Atrium couvert (§ 1.2)
+		- Plus petite dimension inférieure ou égale à la hauteur de la façade la plus haute (2)
+		AT3 - Dimensions (§ 1.3, 1.4.2.1)
+		- Plus petite dimension supérieure ou égale à racine carrée de 7 H et supérieure ou égale à 7 m
+		- Section du vide entre éléments de construction supérieure à la moitié de la section de base
+		AT4 - Produits verriers (minéraux ou de synthèse) (§ 2.2)
+		- Couverture maxi M2 avec tolérance M4 si surface inférieure à 10 %
+		- Couverture matière plastique ou vitrage de sécurité
+		- Verticaux éventuels en bordure d'atrium maxi M2
+		AT5 - Façades (§2.3, 2.4)
+		- Respect du C+D (CO21 § 3b)
+		- Revêtements M2 (atriums couverts)
+		- Revêtements M1 (si locaux à sommeil en périphérie)
+		AT6 - Circulations (§2.5)
+		- Les escaliers non encloisonnés ne sont pas considérés comme des dégagements protégés
+		- Bâtiments avec locaux à sommeil distance à parcourir (d) depuis la porte d'une chambre :   - distance inférieure ou égale à 15m pour atteindre un escalier protégé ou un dégagement protégé si circulations ouvertes    - distance inférieure ou égale à 40m pour atteindre un escalier si circulations séparées de l'atrium par un élément verrier M2
+		- Bâtiments sans locaux à sommeil distance à parcourir entre la porte d'un local et un escalier protégé : distance inférieure ou égale à 40m
+		AT7 - Extinction automatique à eau (§3.2.1)
+		- Si l'activité principale entraine le classement en établissement à risque particulier, sprinklage dans les locaux adjacents de type M, T, S
+	Désenfumage  - isolement des locaux
+		AT8 - Atriums à l'air libre
+		AT9 - Désenfumage mécanique des atriums couverts
+		AT10 - Désenfumage naturel des atriums couverts
+		- Surface libre des exutoires supérieure ou égale au 1/100ème de Sb avec un minimum de 2m2 si potentiel calorifique réduit
+		- Surface libre exutoires supérieure ou égale au 1/15ème Sb si potentiel calorifique non réduit
+		- Surface libre des amenées d'air frais au moins égale à surface libre des évacuations
+		AT11 - Détection automatique d'incendie dans l'atrium
+		AT12 - Détection automatique d'incendie dans les volumes adjacents
+		- Circulations
+		- Locaux ouverts sur l'atrium
+		AT13 - Distribution des locaux sur l'atrium
+		AT14 - Désenfumage des volumes adjacents
+		- Circulations horizontales : désenfumage mécanique
+		- Locaux fermés donnant sur une circulation ouverte sur l'atrium : cf.  IT 246 si demandé par dispositions particulières
+		- Locaux de surface inférieure à 300 m2 ouverts sur la circulation donnant sur l'atrium : seule la circulation est désenfumée, mécaniquement
+		- Locaux ouverts sur l'atrium : désenfumage mécanique
+	Dispositions constructives relatives aux petits atriums
+		AT15 - Dimensions (§ 4.1)
+		- Bâtiment R+2 ou R+1 avec sous-sol et hauteur du plancher bas le plus élevé par rapport au niveau bas de l'atrium inférieur ou égal à 8m
+		- Soit dimensions plus petit vide supérieures à 5 x 5m    Soit plus petite dimension supérieure à 5m et, à chaque niveau, surface du vide entre éléments de construction supérieure ou égal à la moitié de la surface de base
+		AT16 - Désenfumage de l'atrium
+		- Désenfumage naturel : surface libre d'évacuation supérieure ou égale au 1/100ème avec mini 2m2
+		- Surface libre des amenées d'air frais supérieure ou égale à la surface libre des évacuations
+		- Désenfumage mécanique
+		AT17 - Désenfumage des volumes adjacents
+DISPOSITIONS CONSTRUCTIVES EN INCENDIE (2)
+	Généralités (2)
+		R.4216-1 - Champs d'application (2)
+		R.4216-2 -Conception du bâtiment permettant l'évacuation rapide ou différée si nécessaire, l'accès des services de secours. (2)
+		- R.4216-2-1 - Espaces d'attente sécurisé (EAS) ou espaces équivalents dans les bâtiments neufs ou parties neuves de ces bâtiments comprenant des lieux de travail    -  à tous le niveaux accessibles aux personnes handicapées à l'exception des sous-sol et des locaux à risques particuliers -  protection contre les fumées, le rayonnement thermique et la ruine du bâtiment pendant une durée de 1 heure (2)
+		- R.4216-2-2 - Solutions équivalentes à l’EAS : -  paliers d'escalier encloisonnés est désenfumés (mentionnés art R.4216-26) avec porte coupe-feu de degré 1 H -  local d'attente d'ascenseur avec porte coupe-feu de degré 1 H -  espace à l'air libre
+		- R.4216-2-3 - Cas d'exonérations d'EAS : -  rez-de-chaussée avec nombre suffisant de dégagements accessibles aux personnes handicapées -  niveaux comprenant au moins deux compartiments de capacité d'accueil équivalente (2)
+		R.4216-4 - Effectif théorique (2)
+		- Effectif du personnel majoré de l'effectif du public éventuel (2)
+	Conception - Desserte - Distribution
+		R.4216-2 - Desserte
+		- Une façade desservie par une voie engins
+		- Une façade desservie par une voie échelle raccordée à la voie publique par une voie engins (Art.3 - A.05/08/92)
+		- Baies accessibles à chaque niveau
+		- Sortie normale au niveau d’accès des secours
+		R.4216-24 - Résistance au feu des structures
+		- Stabilité au feu des structures
+		- Degré coupe-feu des planchers
+		- Degré coupe-feu planchers sur vide sanitaire non aménageable (Art.5 - A.05/08/92)
+		R.4216-3 - Isolement par rapport aux tiers (2)
+		- Effondrement  éventuel du bâtiment tiers n’entraine pas celui du bâtiment contrôlé (2)
+		- Conditions d’isolement fixées par la réglementation des tiers (2)
+		R.4216-24 et Art.4 - A.05/08/92 - Isolement par rapport aux tiers
+		- Espace libre d'au moins 5 m
+		- Effondrement  éventuel du bâtiment tiers n’entraine pas celui du bâtiment contrôlé (3)
+		- Résistance au feu de la paroi d'isolement
+		- Résistance au feu porte d’intercommunication
+		- Façade non aveugle d’un tiers dominant la couverture
+		- Mur dominant un tiers dont la couverture n’est pas PF 1/2h
+		- Isolement à un parc de stationnement - résistance au feu de la paroi
+		- Isolement à un parc de stationnement - communication
+		- Conditions d’isolement fixées par la réglementation des tiers (R.4216-1)
+		R.4216-27 et Art.6.1 - A.05/08/92 - Distribution intérieure - cloisonnement traditionnel
+		- Résistance au feu parois entre locaux et dégagement
+		- Résistance au feu parois entre locaux à risques courants
+		- Bloc-portes et éléments verriers des baies équipant les parois
+		- Recoupement circulations horizontales de grande longueur
+		R.4216-27 et Art.6.2 - A.05/08/92 - Distribution intérieure - compartiments
+		- Nombre et surface des compartiments
+		- Résistance au feu des parois verticales
+		- Communications et issues
+		- Dispositif de communication
+		R.4216-27 et Art.6.3 - A.05/08/92 - Locaux à risques particuliers
+		- Résistance au feu des murs et planchers
+		- Portes d'intercommunication
+	Règles et matériaux de construction
+		R.4216-27 et Art.9.1 - A.05/08/92 - Revêtements muraux des locaux et dégagements
+		- Matériaux M2
+		- Lambris sur tasseaux M3, vide rempli en matériau M0
+		- Papiers collés et peinture sur matériaux incombustibles
+		- Papiers collés et peinture sur support combustible
+		R.4216-27 et Art.9.2/3 - A.05/08/92 - Plafonds et plafonds suspendus des locaux et dégagements
+		- Stabilité sous variations de pression dues au désenfumage mécanique
+		- Matériaux M1
+		- Matériau M2 dans les dégagements admis sur 25% de la surface
+		- Matériau pleins M3 dans les locaux admis sur 25% de la surface
+		- Plafonds suspendus ajourés M2 si surface des pleins < 50%
+		- Suspente et fixations des plafonds suspendus
+		- Parties translucides et transparentes incorporées dans le plafond
+		R.4216-27 et Art.9.4 - A.05/08/92 - Revêtements de sol
+		- Matériaux au moins M4
+		R.4216-27 et Art.9.6 - A.05/08/92 - Revêtement en matériaux isolants
+		- Isolants en matériaux M1 en plénum ou combles
+		- Isolants en matériaux M1 si en contact avec l’air
+		- Respect du Guide de l’isolation par l’intérieur
+		R.4216-27 et Art.9.7 - A.05/08/92 - Aménagements - Décoration - mobilier
+		- Eléments de décoration en relief fixés sur parois verticales en matériaux M2 dans dégagements protégés
+		- Eléments de décoration en relief fixés sur parois verticales en matériaux M2 si surface > à 20% dans locaux et dégagements
+		- Eléments flottants de surface supérieure à 0,5m² dans locaux de surface supérieure à 50m² en matériaux M1
+		- Tentures, portières, rideaux et voilages interdits en travers des dégagements
+		- Tentures, portières, rideaux et voilages en matériaux M1 dans escaliers encloisonnés
+		- Tentures, portières, rideaux et voilages en matériaux M2 dans dégagements et locaux de surface supérieure à 50 m2
+		- Cloisons extensibles, coulissantes ou amovibles en matériaux M0 à M3
+		- Gros mobiliers, agencement principal, planchers légers en superstructures : Disposition et ossature au moins en matériaux M3
+		R.4216-28 et Art.7a - A.05/08/92 - Combles et plénums
+		- Recoupés par matériau M0 ou paroi PF 1/4h
+		- Superficie et plus grande dimension
+		- Protégés par un réseau fixe d’extinction automatique
+		- Entièrement dans un compartiment
+		R.4216-28 et Art.7b - A.05/08/92 - Conduits et gaines
+		- Conduits de distribution et reprise d'air en matériaux M0
+		- Calorifuge des conduits en extérieur en matériau M1
+		- Résistance au feu à la traversée des parois (sauf conduits diamètre inférieur ou égal à 125mm ou conduits d’eau en charge) :
+		- Conduits placés dans gaines faites en matériau M0 et PFt 30’ (CF 1/4h)
+		- Clapet CF 1/4h
+		- Gaines verticales recoupées tous les 2 niveaux par matériau M0
+		- Trappes sur conduits ou gaines
+		- Traversée des parois d’isolement avec un tiers ou un parking
+DEGAGEMENTS (2)
+	Dispositions générales (3)
+		R.4216-5 - Largeur des dégagements (2)
+		- Largeur minimale proportionnée au nombre de personnes à évacuer (2)
+		- Dégagements de 1UP ou 2UP (2)
+		R.4216-6 et R.4227-4 - Conception des dégagements (2)
+		- Libre et sans obstacles (2)
+		- Répartis correctement (2)
+		- Eviter les culs-de-sac (2)
+		- Absence de marches isolées (R.4216-12) (2)
+		R.4216-11 - Distance maximale à parcourir (2)
+		- Distance pour atteindre un escalier inférieure ou égale à 40m (2)
+		- Débouché des escaliers à moins de 20m d’une sortie sur l’extérieur (2)
+		- Cul-de-sac inférieur ou égal à 10m (2)
+		R.4216-7 - Saillies et dépôts (2)
+		- Absence de réduction de la largeur des dégagements (2)
+		R.4216-8 - Calcul des dégagements (2)
+		- Nombre et largeur des dégagements (2)
+		R.4216-9 - Calcul des dégagements des locaux situés en sous-sol (2)
+		- Présence de locaux correspondant à la définition de local en sous-sol (2)
+		- Majoration des dégagements (2)
+		R.4216-10 - Enfouissement maximal (2)
+		- Enfouissement inférieur ou égal à 6m sauf exception (2)
+		R.4227-6 - Portes utilisées pour l'évacuation (2)
+		- Ouvrant dans le sens de la sortie (plus de 50 personnes) (2)
+		- Ouverture par simple manœuvre (2)
+		- Porte verrouillé manœuvrable de l'intérieur et sans clé (2)
+		R.4227-7 - Portes de types spéciaux (2)
+		- Non prise en compte dans les dégagements (3)
+		- Coulissantes motorisées ouverture à sécurité positive et énergie intrinsèque (2)
+		R.4227-8 - Ascenseurs, monte-charge, chemins ou tapis roulants (2)
+		- Non prise en compte dans les dégagements (4)
+		R.4227-13 - Signalisation des sorties (2)
+		- Signalisation indiquant la sortie la plus proche (2)
+		- Mention « Sortie de secours » pour dégagements non utilisés pendant le travail (2)
+		R.4227-14 - Eclairage de sécurité (2)
+		- Eclairage de sécurité permettant l’évacuation (2)
+	Dégagements protégés
+		R.4216-26 et Art.8 - A.05/08/92 - Dégagements protégés
+		- Protection des escaliers (mécaniques ou non) et des ascenseurs
+		- Absence de protection des escaliers admis
+		- Encloisonnement commun à un escalier et à un ascenseur
+	Escaliers (2)
+		R.4227-9 - Conception des escaliers (2)
+		- Prolongés jusqu’au niveau d’évacuation (2)
+		- Revêtement des parois et des marches (A.31/05/94) (2)
+		R.4227-10 - Rampe ou main-courante (2)
+		- Nombre de rampe ou main-courante fonction de la largeur (2)
+		R.4227-11 - Escaliers desservant les sous-sols (2)
+		- Dissociation escaliers desservant les sous-sols et les étages (2)
+		R.4216-26 et Art.8.1 - A.05/08/92 - Escaliers encloisonnés
+		- Résistance au feu de la paroi constituant la cage
+		- Blocs-portes de la cage d'escalier
+		- Absence de conduit autre que les canalisations électriques propres à l’escalier
+		- Pas d’accès à des locaux annexes
+		- Colonnes sèches si plancher bas du niveau le plus haut est à plus de 18m
+		- Matériaux M1 en parois verticales, plafonds et rampants
+		- Matériaux M3 pour les marches et les paliers de repos
+		R.4216-26 et Art.8.2 - A.05/08/92 - Escaliers à l'air libre
+		- Au moins 1 face ouverte sur toute la hauteur
+		- Surface des Vides supérieure ou égale à 50% de la surface de la face ouverte
+		R.4216-12 - Marches et paliers d'escalier (2)
+		- Non glissantes (2)
+		- Contre-marche ou recouvrement de 0,05m (2)
+		- Interdiction de 1 ou 2 marches isolées (2)
+		- Dimensions conformes aux règles de l’art (2)
+		- Volées limitées à 25 marches (2)
+		- Largeur des paliers et des volées égales (2)
+		- Longueur des paliers supérieure à 1m si volées non contrariées
+		- Balancement continu entre étages pour escaliers tournants (2)
+		- Dimensions des marches sur ligne de foulée à 0,60m conformes aux règles de l’art (2)
+		- Giron extérieur inférieur ou égal à 0,42m (2)
+		R.4216-26 et Art.8.1 - A.05/08/92 - Encloisonnement des ascenseurs
+		- Cage continue jusqu'au niveau d'évacuation
+		- Résistance au feu des parois de la cage
+		R.4216-26 et Art.8.2 - A.05/08/92 - Ascenseurs à l'air libre
+		- Au moins 1 face ouverte sur toute la hauteur (2)
+		- Surface des Vides supérieure ou égale à 50% de la surface de la face ouverte (2)
+DESENFUMAGE (2)
+	Dispositions générales (4)
+		R.4216-13 - Désenfumage des locaux (2)
+		- Locaux en RDC ou en étage de surface supérieure à 300m2 (2)
+		- Locaux en sous-sol de surface supérieure à 100m2 (2)
+		- Locaux aveugles de surface supérieure à 100m2 (2)
+		- Compartiments (2)
+		- Tous les escaliers (2)
+		R.4216-14 et Art.12 - A.05/08/92 - Dispositifs de désenfumage naturel (2)
+		- Dispositifs d’amenée d’air frais (AF) (2)
+		- Dispositifs d’évacuation des fumées (AC) : (2)
+		- Surface géométrique des ouvertures : (2)
+		- Surface utile d’évacuation (SUE) : (2)
+		- Dispositif d’ouverture manœuvrable depuis le plancher
+		- Respect des principes d’exécution de l’I.T. 246 (2)
+		A. 05/08/92 - Art.14 - Cas particulier des Atriums (2)
+		- Respect de l'IT 263 (2)
+LOCAUX OU SONT ENTREPOSEES OU MANIPULEES DES MATIERES INFLAMMABLES (2)
+	Emploi des matières inflammables (2)
+		R.4216-21 - Règles applicables
+		R.4216-22 - Locaux ou emplacements ou sont entreposées ou manipulées des substances dangereuses. (2)
+		- Ventilation permanente appropriée (2)
+		R.4216-23 - Conception des locaux ou emplacements où sont entreposées ou manipulées des substances dangereuses
+		- Poste de travail à 10m au plus d’une sortie sur l’extérieur (2)
+		- Poste de travail à 10m au plus d’une sortie sur un local donnant sur l’extérieur (2)
+		- Porte ouvrant dans le sens de la fuite (2)
+		- Fenêtres munies de grilles ou grillages s’ouvrant facilement depuis l’intérieur (2)
+MOYENS DE PREVENTION ET DE LUTTE CONTRE L'INCENDIE (2)
+	Moyens d'extinction (2)
+		R.4227-29 - Extincteurs portatifs (2)
+		- Extincteurs à eau pulvérisée de 6l (1 pour 200m²) (2)
+		- Un extincteur par niveau (2)
+		- Extincteurs appropriés aux risques (2)
+		R.4227-30 - RIA, colonnes sèches, colonnes humides, installations fixes d’extinction automatique ou installations de détection si nécessaire (2)
+		R.4227-31 - Dispositifs non automatiques d’accès facile (2)
+		R.4227-32 - Bac à sable (ou terre meuble) (2)
+		R.4727-33 - Signalisation durable et appropriée (2)
+	Système d'alarme (2)
+		R.4227-34 - Système d'alarme sonore  et perceptible aux employés en situation de handicap (2)
+		- Equipement d'alarme sonore (Art.14 - A.04/11/93) complété par un  système d'alarme adapté au handicap des  personnes  employées dans l'entreprise (D2009-1272 du 21/10/2009) (2)
+		- Emplacement des déclencheurs manuels (2)
+		R.4227-35 - Alarme générale donnée par bâtiment (2)
+		R.4227-36 - Signal sonore d'alarme (2)
+		- Signal sonore spécifique (2)
+		- Signal sonore audible en tout point du bâtiment (2)
+		- Autonomie du signal sonore (2)
+	Consignes de sécurité incendie (2)
+		R.4727-37 - Affichage des consignes de sécurité incendie (2)
+		R.4727-38 - Indication des consignes de sécurité incendie (2)
+IT 263 - ATRIUMS - DISPOSITIONS CONSTRUCTIVES ET DESENFUMAGE NATUREL (2)
+	Dispositions constructives relatives aux grands atriums (2)
+		AT1 - Atrium à l'air libre (§ 1.1) (2)
+		- Plus petite dimension inférieure ou égale à la hauteur de la façade la plus haute (3)
+		AT2 - Atrium couvert (§ 1.2) (2)
+		- Plus petite dimension inférieure ou égale à la hauteur de la façade la plus haute (4)
+		AT3 - Dimensions (§ 1.3, 1.4.2.1) (2)
+		- Plus petite dimension supérieure ou égale à racine carrée de 7 H et supérieure ou égale à 7 m (2)
+		- Section du vide entre éléments de construction supérieure à la moitié de la section de base (2)
+		AT4 - Produits verriers (minéraux ou de synthèse) (§ 2.2) (2)
+		- Couverture maxi M2 avec tolérance M4 si surface inférieure à 10 % (2)
+		- Couverture matière plastique ou vitrage de sécurité (2)
+		- Verticaux éventuels en bordure d'atrium maxi M2 (2)
+		AT5 - Façades (§2.3, 2.4) (2)
+		- Respect du C+D (CO21 § 3b) (2)
+		- Revêtements M2 (atriums couverts) (2)
+		- Revêtements M1 (si locaux à sommeil en périphérie) (2)
+		AT6 - Circulations (§2.5) (2)
+		- Les escaliers non encloisonnés ne sont pas considérés comme des dégagements protégés (2)
+		- Bâtiments avec locaux à sommeil distance à parcourir (d) depuis la porte d'une chambre :   - distance inférieure ou égale à 15m pour atteindre un escalier protégé ou un dégagement protégé si circulations ouvertes    - distance inférieure ou égale à 40m pour atteindre un escalier si circulations séparées de l'atrium par un élément verrier M2 (2)
+		- Bâtiments sans locaux à sommeil distance à parcourir entre la porte d'un local et un escalier protégé : distance inférieure ou égale à 40m (2)
+		AT7 - Extinction automatique à eau (§3.2.1) (2)
+		- Si l'activité principale entraine le classement en établissement à risque particulier, sprinklage dans les locaux adjacents de type M, T, S (2)
+	Désenfumage  - isolement des locaux (2)
+		AT8 - Atriums à l'air libre (2)
+		AT9 - Désenfumage mécanique des atriums couverts (2)
+		AT10 - Désenfumage naturel des atriums couverts (2)
+		- Surface libre des exutoires supérieure ou égale au 1/100ème de Sb avec un minimum de 2m2 si potentiel calorifique réduit (2)
+		- Surface libre exutoires supérieure ou égale au 1/15ème Sb si potentiel calorifique non réduit (2)
+		- Surface libre des amenées d'air frais au moins égale à surface libre des évacuations (2)
+		AT11 - Détection automatique d'incendie dans l'atrium (2)
+		AT12 - Détection automatique d'incendie dans les volumes adjacents (2)
+		- Circulations (2)
+		- Locaux ouverts sur l'atrium (2)
+		AT13 - Distribution des locaux sur l'atrium (2)
+		AT14 - Désenfumage des volumes adjacents (2)
+		- Circulations horizontales : désenfumage mécanique (2)
+		- Locaux fermés donnant sur une circulation ouverte sur l'atrium : cf.  IT 246 si demandé par dispositions particulières (2)
+		- Locaux de surface inférieure à 300 m2 ouverts sur la circulation donnant sur l'atrium : seule la circulation est désenfumée, mécaniquement (2)
+		- Locaux ouverts sur l'atrium : désenfumage mécanique (2)
+	Dispositions constructives relatives aux petits atriums (2)
+		AT15 - Dimensions (§ 4.1) (2)
+		- Bâtiment R+2 ou R+1 avec sous-sol et hauteur du plancher bas le plus élevé par rapport au niveau bas de l'atrium inférieur ou égal à 8m (2)
+		- Soit dimensions plus petit vide supérieures à 5 x 5m    Soit plus petite dimension supérieure à 5m et, à chaque niveau, surface du vide entre éléments de construction supérieure ou égal à la moitié de la surface de base (2)
+		AT16 - Désenfumage de l'atrium (2)
+		- Désenfumage naturel : surface libre d'évacuation supérieure ou égale au 1/100ème avec mini 2m2 (2)
+		- Surface libre des amenées d'air frais supérieure ou égale à la surface libre des évacuations (2)
+		- Désenfumage mécanique (2)
+		AT17 - Désenfumage des volumes adjacents (2)

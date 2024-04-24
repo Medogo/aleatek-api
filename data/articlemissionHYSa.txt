@@ -1,0 +1,206 @@
+AERATION_ET_ASSAINISSEMENT_DES_LOCAUX_CODE_DU_TRAVAIL
+	Locaux à pollution non spécifique
+		R.4222-4 - Ventilation des locaux à pollution non spécifique
+		- Ventilation naturelle permanente
+		- Ventilation mécanique
+		R.4222-5 - Ventilation naturelle
+		- Ouvrants donnant directement sur l'extérieur avec dispositifs de commande accessibles
+		- Volume du local
+		R.4222-6 - Ventilation mécanique
+		- Débit minimal d'air neuf introduit pour les bureaux
+		- Débit minimal d'air neuf introduit pour les locaux sans travail physique
+		- Débit minimal d'air neuf introduit pour les locaux de restauration
+		- Débit minimal d'air neuf introduit pour les locaux de vente
+		- Débit minimal d'air neuf introduit pour les locaux de réunion
+		- Débit minimal d'air neuf introduit pour les ateliers
+		- Débit minimal d'air neuf introduit pour les locaux avec travail physique léger
+		- Débit minimal d'air neuf introduit pour les autres ateliers et locaux
+		R.4222-7 - Ventilation des circulations et locaux occupés épisodiquement
+		- Possibilité de ventilation par l'intermédiaire des locaux à pollution non spécifique sur lesquels ils ouvrent
+		R.4222-8 - Epuration et filtration de l'air
+		- Filtration de l'air introduit après recyclage
+		- Non prise en compte de l'air recyclé pour le calcul du débit minimal d'air neuf
+		- Arrêt du recyclage en cas de panne du système de filtration
+		R.4222-9 - Air recyclé
+		- Interdiction d'introduction dans un local à pollution non spécifique d'air recyclé provenant d'un local à pollution spécifique
+	Aération et assainissement
+		R.4212-1 - Application des articles R.4222-4 à R.4222-9
+		R.4212-2 - Installation de ventilation
+		- Renouvellement d'air en tout point du local
+		- Conception des installations de ventilation permettant d'éviter toute gêne dans les zones de travail
+		R.4212-3 - Entretien des équipements
+		- Dispositions à prendre pour permettre un entretien régulier des équipements de ventilation
+		R.4212-4 - Constitution des conduits d'air
+		- Interdiction de conduit d'air dont les parois intérieures comportent des matériaux pouvant se désagréger ou se décomposer en émettant des poussières ou des substances dangereuses pour la santé des travailleurs
+		R.4212-5 - Filtration et protection des locaux à pollution non spécifique
+		- Dispositif de filtration sur l'air neuf admis mécaniquement en cas de risque de pollution par particules solides
+		- Dispositions empêchant que l'air pollué en provenance d'un local à pollution spécifique ne puisse pénétrer dans un local à pollution non spécifique
+		R.4212-6 - Ventilation des locaux sanitaires
+		- Débit d'air minimal pour pièce à usage individuel
+		- Débit d'air minimal pour pièce à usage collectif
+		R.4212-7 - Notice d'instructions et entretien
+AERATION_DES_LOCAUX_REGLEMENT_SANITAIRE_DEPARTEMENTAL_TYPE
+	Art. 63.1 - Disposition de caractère général
+		Principe de ventilation des locaux
+		Prises d'air neuf
+		Rejets d'air vicié
+		Interdiction de recycler l'air extrait des locaux à pollution spécifique
+	Art. 63.2 - Dispositions relatives à la ventilation commune à plusieurs locaux
+		Transit éventuel de l'air extrait des locaux à pollution non spécifique
+	Art. 64.1 - Ventilation mécanique ou naturelle des locaux à pollution non spécifique
+		Débit d'air neuf minimal pour les locaux
+		Locaux à présence humaine épisodique ne pouvant pas être ventilés par les locaux adjacents
+		Possibilité de ventilation modulée ou discontinue en cas d’occupation très variable des locaux
+		Possibilité d'arrêt de la ventilation pendant l'inoccupation des locaux
+		Prises d'air neuf (2)
+		Recyclage par groupes de locaux
+	Art. 64.2 - Ventilation mécanique ou naturelle des conduits des locaux à pollution spécifique
+		Débit d'air minimal pour pièce à usage individuel
+		Débit d'air minimal pour pièce à usage collectif
+		Débit d'air minimal pour cuisines collectives
+		Dispositif de captation au voisinage de l'émission
+		Cas de l'impossibilité de dispositif de captation en cuisine
+		Possibilité de ventilation modulée ou discontinue en cas de pollution spécifique très variable
+		Possibilité d'arrêt de la ventilation lorsque cesse la pollution spécifique
+	Art. 65 Prescriptions relatives aux installations et à leur fonctionnement
+		Filtration (après préfiltration éventuelle) de l'air introduit mécaniquement
+		Présence d'un dispositif permettant le contrôle permanent d'encrassement du filtre
+		Dispositifs de traitement d'air spécifiques (autres que ceux destinés à la filtration, au chauffage, au refroidissement, à l'humidification ou à la déshumidification)
+		Nettoyage ces circuits d'air avant mise en service
+	Art. 66 Ventilation par ouvrants extérieurs
+		Locaux à pollution non spécifique autorisés
+		Locaux à pollution spécifique autorisés
+		Surface minimale des ouvrants extérieurs
+CONCEPTION_DES_RESEAUX_INTERIEURS_RACCORDES_SUR_RESEAU_PUBLIC_CODE_DE_LA_SANTE_PUBLIQUE
+	R.1321-49 II - Interdiction de canalisation en plomb ou tout autre élément en plomb dans les installations de distribution d'eau destinée à la consommation humaine.
+	R.1321-53 - Dispositifs de traitement complémentaire de la qualité de l'eau sur l'installation collective
+		Possibilité de traitement complémentaire sur une partie des eaux délivrées dans l'immeuble desservi
+		Obligation de procurer au consommateur final une eau non soumise à un traitement complémentaire
+		Utilisation de produits et procédés bénéficiant d'une autorisation du ministère chargé de la santé (R.1321-50)
+	R.1321-57 - Interdiction d'alimenter un réseau intérieur par une eau issue d'une ressource non autorisée
+	R.1321-57 - Présence, à l'origine d'un réseau intérieur, d'un dispositif adapté de protection contre les retours d'eau
+	R.1321-58 - Pression minimale du réseau
+		Pression minimale en tout point de mise à disposition
+		Mise en place éventuellement de surpresseurs ou réservoirs de mise en pression.
+	R.1321-59 - Interdiction d'utiliser des canalisations d'eau pour la mise à la terre d'appareils électriques
+PREVENTION_DU_RISQUE_DE_DEVELOPPEMENT_DES_LEGIONELLES_ARRÊTÉ_DU_23_JUIN_1978
+	Art. 36 §.2 - Température minimale de distribution
+	Art. 36 §.2 - Dispositions pour stockages supérieurs à 400 litres
+EQUIPEMENTS_DES_LOCAUX_SANITAIRES_CODE_DU_TRAVAIL
+	Dispositions générales
+		R. 4217-1 - Installations sanitaires
+		R. 4228-1 - Moyens mis à la disposition des travailleurs
+		- Vestiaires
+		- Lavabos
+		- Cabinets d'aisances
+		- Douches (si nécessaire)
+	Vestiaires collectifs
+		R. 4228-2 - Locaux vestiaires et lavabos
+		- Locaux vestiaires et lavabos réservés à cet usage et de surface suffisante
+		- Locaux vestiaires et lavabos isolés des locaux de travail et de stockage
+		- Locaux vestiaires et lavabos implantés à proximité du passage des travailleurs
+		- Communication entre les locaux vestiaires et les locaux lavabos
+		- Cas du remplacement des vestiaires collectifs par des meubles de rangement individuels
+		R. 4228-3 - Parois et sols des locaux vestiaires et lavabos
+		- Parois et sols des locaux permettant un nettoyage efficace
+		R. 4228-4 - Aération et chauffage des locaux vestiaires et lavabos
+		- Locaux ventilés
+		- Locaux chauffés
+		R. 4228-5 - Mixité des locaux vestiaires et lavabos
+		- Installations séparées pour le personnel féminin et masculin
+		R. 4228-6 - Equipements des locaux vestiaires et lavabos
+	Lavabos et douches
+		R. 4228-7 - Eau potable, séchage et essuyage
+		- Lavabos alimentés en eau potable
+		- Possibilité de régler la température de l'eau des lavabos
+		- Nombre de lavabos
+		- Mise à disposition des travailleurs de moyens de nettoyage, séchage ou essuyage
+		R. 4228-8 - Douches
+		- Mise à disposition de douches dans les établissements où sont effectués certains travaux insalubres ou salissants
+		R. 4228-9 - Caractéristiques des douches
+		- Sol et parois du local douche permettant un nettoyage efficace
+		- Possibilité de régler la température de l'eau des douches
+	Cabinets d'aisance
+		R. 4228-10 - Cabinets d'aisances
+		- Nombre de cabinets d'aisance et urinoirs
+		- Un cabinet d'aisance équipé d'un poste d'eau
+		- Cabinets d'aisance  séparés pour le personnel féminin et masculin
+		R. 4228-11 - Caractéristiques des cabinets d'aisance
+		- Interdiction de communication directe entre cabinets d'aisance et locaux fermés occupés par le personnel
+		- Aménagement des locaux pour éviter les dégagements d'odeur
+		- Présence de chasse d'eau
+		R. 4228-12 - Aération et chauffage des cabinets d'aisance
+		- Locaux ventilés (2)
+		- Locaux chauffés (2)
+		R. 4228-13 - Parois et sols des cabinets d'aisance
+		- Sol et parois permettant un nettoyage efficace
+		R. 4228-14 - Portes des cabinets d'aisance
+		- Portes pleines avec dispositif de fermeture intérieur décondamnable de l'extérieur
+		R. 4228-15 - Evacuation des effluents
+		- Evacuation des effluents conforme aux dispositions des règlements sanitaires
+		R. 4217-2 - Installations pour personnes à mobilité réduite
+		- Nombre d'installations mises à dispositions
+EQUIPEMENTS_DES_LOCAUX_SANITAIRES_REGLEMENT_SANITAIRE_DEPARTEMENTAL_TYPE
+	Art. 67 - Equipement sanitaire
+		Dans les établissements ouverts ou recevant du public présence de lavabos, cabinets d'aisance et d'urinoirs, en nombre suffisant et d'accès facile
+		Cabinets d'aisance et urinoirs sans communication directe avec salle de restaurant, cuisines, resserres de comestibles
+		Locaux sanitaires éclairés et ventilés
+		Sol, parois et plafonds des locaux sanitaires en matériaux lisses, imperméables, imputrescibles, résistant au nettoyage fréquent
+	Art. 68 - Equipement sanitaire des locaux de sports
+	Art. 69 - Equipement sanitaire des salles de spectacles
+	Art. 70 - Etablissement de natation ouverts au public
+	Art. 71 - Bains-douches
+		Locaux de bains et de douche ventilés, chauffés
+		Sols antidérapants
+		Cabinets d'aisance, urinoirs et lavabos en nombre suffisant
+		Cas des saunas, hammams ou des locaux à activité similaire
+RACCORDEMENT_DES_IMMEUBLES_AUX_EGOUTS_CODE_DE_LA_SANTE_PUBLIQUE
+	Art. L1331-1 - Obligation de raccordement aux égouts
+	Art. L1331-1-1 - Raccordement sur installation d'assainissement non collectif
+SYSTEMES_D_ASSAINISSEMENT_NON_COLLECTIF_ARRÊTÉ_DU_7_SEPTEMBRE_2009
+	Chapitre Ier - PRINCIPES GENERAUX
+		Art. 3 - Traitement des eaux à évacuer
+		- - Traitement commun pour eaux usées et eaux vannes
+		- - Cas des eaux vannes traitées séparément en réhabilitation d'installation existante ou toilettes sèches (cf. art. 17)
+		Art. 4 - Conception
+		- - Absence d'atteinte à la salubrité publique, à la qualité du milieu récepteur, à la sécurité des personnes
+		- - Distance minimale vis-à-vis d'une source de captation d'eau destinée à la consommation humaine
+	CHAPITRE II - PRESCRIPTIONS APPLICABLES AUX INSTALLATIONS NEUVES OU A REHABILITER
+		Art. 5.I - Cas des installations réalisées entre le 9 octobre 2009 et 30 juin 2012
+		- - Respect des exigences essentielles pour résistance mécanique, stabilité, hygiène, santé et environnement
+		- - Exigences aux documents de référence pour mise en ouvre et avis favorable de la part de la commune
+		Art. 5.II - Cas des installations réalisées à partir du 1er juillet 2012
+		- - Regards accessibles permettant les vérifications de bon état et fonctionnement, et l'entretien
+		- - Dimensionnement adapté aux flux de pollution à traiter et aux caractéristiques de l'immeuble à desservir et à la parcelle d'implantation
+		Art. 6 - Installations avec traitement par le sol en place ou par un massif reconstitué
+		- - Bac dégraisseur, si nécessaire
+		- - Caractéristiques de la parcelle d'implantation
+		- - Fosse toutes eaux et fosse septique
+		- - Tranchées d'épandage souterrain
+		- - Lit d'épandage à faible profondeur
+		- - Lit filtrant vertical non drainé
+		- - Cas de la nappe trop proche de la surface de sol
+		Art. 7 à 10 - Installations avec d'autres dispositifs de traitement
+		- - Installations composées de dispositifs agréés par les ministères en charge de la santé et de l'écologie
+		- - Filtre à sable vertical drainé
+		- - Lit filtrant drainé à flux vertical à massif de zéolite
+		- - Lit filtrant drainé à flux horizontal
+		- - Dispositif de rétention des graisses (bac dégraisseur)
+		- - Fosse chimique
+		- - Fosse d'accumulation
+		- - Puits d'infiltration
+	CHAPITRE III - PRESCIPTIONS APPLICABLES A L'EVACUATION
+		Art. 11 - Cas général - Evacuation pas le sol
+		- - Evacuation par le sol en place sous-jacent ou juxtaposé au traitement
+		- - Eaux usées traitées utilisables pour irrigation souterraine de végétaux, sous conditions
+		Art. 12 et 13 - Cas particuliers - Autres modes d'évacuation
+		- - Concerne les cas où le sol ne répond pas aux exigences de l'article 11
+		- - Rejet vers le milieu hydraulique superficiel sous conditions
+		- - Rejets des eaux usées interdits en puisard, puits perdu, puits désaffecté, cavité naturelle ou artificielle profonde
+		- - Cas particulier de l'évacuation par puits d'infiltration
+	CHAPITRE IV - ENTRETIEN ET ELIMINATION DES SOUS-PRODUITS ET MATIERES DE VIDANGE
+	CHAPITRE V - CAS PARTICULIER DES TOILETTES SECHES
+		Art. 17 - Prescriptions
+		- - Absence de nuisances pour le voisinage
+		- - Cuve étanche
+		- - Eaux usées ménagères traitées par installation d'assainissement non collectif conforme

@@ -1,0 +1,35 @@
+COMPATIBILITE DU PROGRAMME DES TRAVAUX AVEC L'ETAT DES EXISTANTS
+	Examen des renseignements fournis par le maître d'ouvrage sur les existants
+		Constats d'état des lieux
+		Etude de diagnostic 
+	Examen de l'état apparent des existants
+		Réseaux
+		Fondations
+		Infrastructures
+		Structures verticales : Murs  
+		Structures horizontales : Planchers
+		Charpente – Portiques
+		Couverture 
+		Toiture-terrasse
+		Façades – Bardages
+		Menuiseries extérieures
+		Revêtements extérieures rapportés
+		Revêtements de sols
+		Revêtements muraux
+	Examen des documents techniques définissant le programme des travaux envisagés
+		Réseaux (2)
+		Fondations (2)
+		Infrastructures (2)
+		Structures verticales : Murs   (2)
+		Structures horizontales : Planchers (2)
+		Charpente – Portiques (2)
+		Couverture  (2)
+		Toiture-terrasse (2)
+		Façades – Bardages (2)
+		Menuiseries extérieures (2)
+		Revêtements extérieures rapportés (2)
+		Revêtements de sols (2)
+		Revêtements muraux (2)
+EXAMEN DES TRAVAUX DE RENFORCEMENT
+	Plans et notes de calculs des nouveaux travaux
+	Dispositions prises en matière de terrassement, blindages de fouille et étaiements

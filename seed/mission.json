@@ -1,0 +1,281 @@
+[
+	{
+		"model": "mission.mission",
+		"pk": 1,
+		"fields": {
+			"code_mission": "L",
+			"libelle": "Solidité des ouvrages constitutifs ou indissociables au bâtiment",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 2,
+		"fields": {
+			"code_mission": "P1",
+			"libelle": "Solidité des ouvrages dissociables",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 3,
+		"fields": {
+			"code_mission": "LE",
+			"libelle": "Solidité des existants",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 4,
+		"fields": {
+			"code_mission": "AV",
+			"libelle": " vérification des Avoisinants ",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 5,
+		"fields": {
+			"code_mission": "PV",
+			"libelle": " Récolement des procès-verbaux COPREC des installations techniques",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 6,
+		"fields": {
+			"code_mission": "PS",
+			"libelle": "Sécurité des personnes dans les constructions en cas de Séisme",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 7,
+		"fields": {
+			"code_mission": "S",
+			"libelle": "Sécurité des personnes dans la construction",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 8,
+		"fields": {
+			"code_mission": "SH",
+			"libelle": "Sécurité incendie des personnes dans les bâtiments d'habitation",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 9,
+		"fields": {
+			"code_mission": "STI",
+			"libelle": " Sécurité incendie des personnes dans les bâtiments relevant du code du travail uniquement",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 10,
+		"fields": {
+			"code_mission": "SEI",
+			"libelle": "Sécurité incendie des personnes dans les établissements recevant du public",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 11,
+		"fields": {
+			"code_mission": "HAND",
+			"libelle": "Vérification des exigences d'accessibilité des personnes handicapées",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 12,
+		"fields": {
+			"code_mission": "BRD",
+			"libelle": "Passage du brancard",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 13,
+		"fields": {
+			"code_mission": "TH",
+			"libelle": " Vérification des exigences d'isolation thermique et aux économies d'énergie des bâtiments",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 14,
+		"fields": {
+			"code_mission": "PHh",
+			"libelle": "Vérification des exigences d'isolation acoustique dans les bâtiments d'habitation ",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 15,
+		"fields": {
+			"code_mission": "PHa",
+			"libelle": "Vérification des exigences d'isolation acoustique dans les bâtiments autre qu'habitation",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 17,
+		"fields": {
+			"code_mission": "F",
+			"libelle": "Fonctionnement des installations ",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 18,
+		"fields": {
+			"code_mission": "ATT HAND",
+			"libelle": "Attestation de prise en compte de la réglementation d'accessibilité handicapés ",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 19,
+		"fields": {
+			"code_mission": "CONSUEL",
+			"libelle": "Vérification de la conformité des installations électriques préalablement à la mise sous tension",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 20,
+		"fields": {
+			"code_mission": "VIIEL",
+			"libelle": "Vérification initiale des installations électriques",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 21,
+		"fields": {
+			"code_mission": "ATT Th",
+			"libelle": "Attestation de prise en compte de la réglementation thermique",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 22,
+		"fields": {
+			"code_mission": "ATT Ph",
+			"libelle": "Attestation de prise en compte de la réglementation acoustique",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 23,
+		"fields": {
+			"code_mission": "ENV",
+			"libelle": "Entrepôts couverts soumis à autorisation sous la rubrique 1510",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 24,
+		"fields": {
+			"code_mission": "ENV-EL",
+			"libelle": "Installations électriques dans les installations classées",
+			"mission_parent": 23
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 25,
+		"fields": {
+			"code_mission": "ENV-IN",
+			"libelle": "Dispositions constructives incendie dans les installations classées",
+			"mission_parent": 23
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 26,
+		"fields": {
+			"code_mission": "ENV-TB",
+			"libelle": "Installations thermiques dans les installations classées",
+			"mission_parent": 23
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 27,
+		"fields": {
+			"code_mission": "GTB",
+			"libelle": "Vérification du bon fonctionnement du système de gestion technique du bâtiment",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 28,
+		"fields": {
+			"code_mission": "HYSa",
+			"libelle": "Hygiène et santé dans les bâtiments autres que d’habitation",
+			"mission_parent": null
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 29,
+		"fields": {
+			"code_mission": "STI-TB",
+			"libelle": "Installations thermiques dans les bâtiments tertiaires et industriels",
+			"mission_parent": 9
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 30,
+		"fields": {
+			"code_mission": "STI-TM",
+			"libelle": "Ascenseurs dans les bâtiments tertiaires et industriels",
+			"mission_parent": 9
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 31,
+		"fields": {
+			"code_mission": "STI-CC",
+			"libelle": "Sécurité des personnes hors incendie dans les bâtiments tertiaires et industriels",
+			"mission_parent": 9
+		}
+	},
+	{
+		"model": "mission.mission",
+		"pk": 32,
+		"fields": {
+			"code_mission": "STI-IN",
+			"libelle": "Dispositions constructives incendie dans les bâtiments tertiaires et industriels",
+			"mission_parent": 9
+		}
+	}
+]

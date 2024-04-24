@@ -1,0 +1,73 @@
+GARDE-CORPS ET RAMPES D’ESCALIER
+	1 – Garde-corps
+		Hauteur normale de protection
+		Hauteur réduite de protection
+		Agenouillement
+		Géométrie
+	2 - Rampes d'escalier
+		Hauteur sur volée
+		Hauteur sur palier
+		Géométrie (2)
+	3 - Allèges (autres que celles en RDC)
+		Hauteur normale de protection (2)
+		Hauteur réduite et barre d'appui ou protection 
+		Géométrie et absence d'éléments réduisant la hauteur de protection
+	4 - Vitrage de remplissage
+		Nature du vitrage
+		Prise en feuillure
+		Essais de chocs selon DTU 39
+		Verre feuilleté exempté d'essais
+	5 - Autre remplissage
+		Nature des matériaux
+		Remplissage exempté d'essais 
+		Essais de chocs selon P 08-302
+OUVRANTS ET PAROIS TRANSPARENTES
+	R.4214-5 - Ouvrants en position d'ouverture
+		Ouvrants en élévation
+		Ouvrants en toiture
+	R.4214-6 - Parois transparentes ou translucides
+		Marquage à hauteur de vue
+		Matériaux de sécurité
+		Disposées de façon à ne pas blesser en cas de bris
+	R.4224-9 - Portes et portails en va-et vient
+		Panneaux transparents
+		Parties transparents marquées à hauteur de vue
+	R.4224-10 - Parties transparentes
+		Parties transparents en matériaux de sécurité
+		Parties transparents protégées contre l’enfoncement
+	Portes piétonnes automatiques 
+		Dispositifs de détection pour portes coulissantes
+		Espacement entre deux plans coulissants
+		Dispositifs arrêt du mouvement pour portes battantes ou tournantes
+		Dispositions pour mauvais fonctionnement des portes comptant comme issue de secours
+		Marquage à hauteur de vue (2)
+PORTES ET PORTAILS 
+	Portes et portails pour véhicules
+		Indication des textes de références
+		Rappel des documents et suggestions à la charge de l'installateur devant figurer au DCE
+		- Déclaration de conformité au marquage CE
+		- Notice d'installation
+		- Notice d'utilisation et de maintenance
+		- Livret d'entretien
+		Equipements réglementaires complémentaires pour portes et portails automatiques et semi-automatiques
+		- Marquage au sol
+		- Eclairage du volume de débattement
+		- Feux orange clignotant
+		- Joints élastiques
+		Prise en  compte des éléments d'environnement et mesure de protection
+		- Protection vis-à vis des mouvements
+		- Risque d'écrasement
+		- Risque de cisaillement
+		- Risque de coincement
+		R.4224-11 - Portes et portails coulissants
+		- Système de sécurité empêchant de sortir des rails et de tomber
+		R.4224-11 - Portes et portails ouvrants vers le haut
+		- Système de sécurité empêchant de retomber
+		R.4214-8 - Portes et portails automatiques
+		- Système de sécurité interrompant immédiatement tout mouvement en cas de danger
+		- Ouverture manuelle
+		- Ouverture automatique en cas d’absence d’énergie
+QUAIS DE CHARGEMENTS
+	R.4214-20 – Issues des quais de chargements
+		Longueur≤ 20m : 1 issue
+		Longueur > 20m : 1 issue à chaque extrémité

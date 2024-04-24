@@ -1,0 +1,30 @@
+ENTREPOTS_COUVERTS_ET_PLATEFORME_LOGISTIQUE_ARRÊTÉ_DU_5_AOÛT_2002_MODIFIÉ
+	Dispositions relatives a l'exploitation de l'entrepôt
+		Installations électriques
+		- Conforme aux dispositions du code du travail
+		- Interrupteur central permettant de couper l'alimentation électrique pour chaque cellule a proximité d'une issue
+		- Liaisons équipotentielles des équipements métalliques
+		- Implantation des transformateurs de courant électrique
+		- Installation de protection contre la foudre
+		Eclairage des locaux
+		- Implantation des appareils d'éclairage fixes
+		- Eloignés des matières entreposées pour éviter l'échauffement
+INSTALLATION_DE_COMBUSTION_D_UNE_PUISSANCE_THERMIQUE_A_2_MW_ET_A_20_MW_ARRÊTÉ_DU_25_JUILLET_1997
+	Implantation et aménagement
+		Installations électriques (art. 2.7)
+		- Conformité aux règles en vigueur
+		- Coupures extérieures force et lumière accessibles et signalisées
+		- Compatibilité des matériels électriques avec les atmosphères explosives
+		Mise à la terre des équipements (art. 2.8)
+		- Liaison équipotentielle des équipements métalliques
+ATELIERS_DE_CHARGE_D_ACCUMULATEURS_PUISSANCE_A_10K_W_ARRÊTÉ_DU_29_MAI_2000
+	Implantation - Aménagement
+		Installations électriques (2)
+		- Installations électriques conformes au décret n° 88-1056
+		Mise à la terre des équipements
+		- Liaison équipotentielle des équipements métalliques (2)
+	Risques
+		Matériel électrique de sécurité
+		- Installations électriques nécessaires aux besoins de l'exploitation
+		- Matériels électriques conformes sur les emplacements présentant des risques d'explosion
+		- Canalisations protégées contre les chocs, propagation des flammes.

@@ -1,0 +1,44 @@
+CODE DU TRAVAIL – SECURITE DES LIEUX DE TRAVAIL
+	Escalier / Trottoirs roulants / Ascenseurs
+		R.4314-15  Installation et entretien
+		- Fonctionnement de manière sûre
+		- Permet l’entretien et la maintenance sans danger
+		R.4214-16 – Arrêt d’urgence
+		- Dispositifs d'arrêt d'urgence escaliers et trottoirs roulants
+		- Dispositifs d'arrêt d'urgence escaliers et trottoirs roulants (2)
+TRANSPORTS_MECANIQUES_ANNEXE
+	Ascenseurs et monte-charges
+		Conformité au décret n° 2000-810 du 24 août 2000 pour les ascenseurs
+		Conformité au décret n° 20016-550 du 03/05/2016 pour les ascenseurs
+		Conformité à la directive Machines 2006/42/CE pour les monte-charges
+		Documents techniques
+		- Validité du référentiel réglementaire indiqué
+		- Indication des documents à fournir par l'entreprise
+		- Marquage CE des appareils
+		Dispositions constructives de la gaine
+		- Profondeur cuvette et réserve haute
+		- Section de la gaine
+		- Ventilation de la gaine
+		- Accessibilité aux portes palières
+		- Absence de local sous contre-poids
+		Dispositions constructives du local machinerie
+		- Dimensions du local
+		- Accès au local
+		- Ventilation du local
+		Dispositions constructives du local des poulies
+		- Dimensions du local (2)
+		- Accès au local (2)
+	Escaliers mécaniques et trottoirs roulants
+		Conformité à la directive Machines 2006/42/CE pour les escaliers mécaniques et trottoirs roulants
+		Documents techniques (2)
+		- Validité du référentiel réglementaire indiqué (2)
+		- Indication des documents à fournir par l'entreprise (2)
+		Sécurité positive - dispositifs d'arrêt d'urgence
+		- Arrêt d'urgence en cas de température excessive du moteur
+		- Présence, accessibilité et identification des dispositifs
+		Dispositions constructives
+		- Hauteur des balustrades
+		- Hauteur des marches
+		- Dégagements aux débouchés des paliers
+		- Hauteur libre au dessus de l'escalier
+		- Dispositifs de protection résiduelle

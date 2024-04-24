@@ -1,0 +1,19 @@
+#!/bin/bash
+
+cd ./data
+python3 ../seedarticlemissiongenerique.py  articlemissionAV.txt 4
+python3 ../seedarticlemissiongenerique.py  articlemissionBRD.txt 12
+python3 ../seedarticlemissiongenerique.py  articlemissionENV-EL.txt 24
+python3 ../seedarticlemissiongenerique.py  articlemissionENV-IN.txt 25
+python3 ../seedarticlemissiongenerique.py  articlemissionENV-TB.txt 26
+python3 ../seedarticlemissiongenerique.py  articlemissionF.txt 17
+python3 ../seedarticlemissiongenerique.py  articlemissionGTB.txt 27
+python3 ../seedarticlemissiongenerique.py  articlemissionHAND.txt 11
+python3 ../seedarticlemissiongenerique.py  articlemissionHYSa.txt 28
+python3 ../seedarticlemissiongenerique.py  articlemissionL.txt 1
+python3 ../seedarticlemissiongenerique.py  articlemissionP1.txt 2
+python3 ../seedarticlemissiongenerique.py  articlemissionSTI-CC.txt 31
+python3 ../seedarticlemissiongenerique.py  articlemissionSTI-IN.txt 32
+python3 ../seedarticlemissiongenerique.py  articlemissionSTI-TB.txt 29
+python3 ../seedarticlemissiongenerique.py  articlemissionSTI-TM.txt 30
+python3 ../seedarticlemissiongenerique.py  articlemissionLE.txt 3

@@ -1,0 +1,123 @@
+[
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 1,
+    "fields": {
+        "libelle": "Ouvrage complet"
+    }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 2,
+    "fields": {
+        "libelle": "Fondations"
+    }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 3,
+    "fields": {
+        "libelle": "Structure-Gros-Oeuvre"
+    }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 4,
+    "fields": {
+        "libelle": "Serrurerie"
+    }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 5,
+    "fields": {
+        "libelle": "Couverture/Toiture - Terasse"
+    }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 6,
+    "fields": {
+        "libelle": "Façades"
+    }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 7,
+    "fields": {
+        "libelle": "Poteaux"  }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 8,
+    "fields": {
+        "libelle": "Menuiseries extérieures" }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 9,
+    "fields": {
+        "libelle": "Cloisons" }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 10,
+    "fields": {
+        "libelle": "Rêvetements de sols" }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 11,
+    "fields": {
+        "libelle": "CVLD-PLO"
+    }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 12,
+    "fields": {
+        "libelle": "installation Électrique"}
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 13,
+    "fields": {
+        "libelle": "Ascenseur - monte charge" }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 14,
+    "fields": {
+        "libelle": "Installation Système Sécurité incendie" }
+},
+{
+    "model": "ouvrage.ouvrage",
+    "pk": 15,
+    "fields": {
+        "libelle": "Étanchéité"}
+},
+    {
+    "model": "ouvrage.ouvrage",
+    "pk": 16,
+    "fields": {
+        "libelle": "Ménuiseries intérieures"}
+},
+    {
+    "model": "ouvrage.ouvrage",
+    "pk": 17,
+    "fields": {
+        "libelle": "Cloisonnement"}
+},
+    {
+    "model": "ouvrage.ouvrage",
+    "pk": 18,
+    "fields": {
+        "libelle": "Structure Bois"}
+},
+     {
+    "model": "ouvrage.ouvrage",
+    "pk": 19,
+    "fields": {
+        "libelle": "Accessiblité handicapé"}
+}
+]
