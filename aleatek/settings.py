@@ -182,13 +182,13 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000', 'https://aleatek-d7a43.web.app'
+    'http://localhost:4200', 'https://argosfront.netlify.app'
 )
 
-CSRF_TRUSTED_ORIGINS = ['http://*.localhost:3000', 'https://aleatek-d7a43.web.app']
+CSRF_TRUSTED_ORIGINS = ['http://*.localhost:4200', 'https://argosfront.netlify.app/']
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000', 'https://aleatek-d7a43.web.app'
+    'http://localhost:4200', 'https://argosfront.netlify.app'
 ]
 
 CORS_EXPOSE_HEADERS = [
@@ -220,3 +220,5 @@ if not DEBUG:    # Tell Django to copy static assets into a path called `staticf
     # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
     # and renames the files with unique names for each version to support long-term caching
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+

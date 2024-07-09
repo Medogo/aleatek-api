@@ -6,7 +6,7 @@ from django.http import HttpResponse
 def get_csrf_token(request):
     response = HttpResponse()
     response['X-CSRFToken'] = get_token(request)
-    response['Access-Control-Allow-Origin'] = 'https://aleatek-d7a43.web.app'  # L'URL de votre application React
+    response['Access-Control-Allow-Origin'] = 'https://argosfront.netlify.app'  # L'URL de votre application React
     # response['Access-Control-Allow-Origin'] = 'http://localhost:3000'  # L'URL de votre application React
     response['Access-Control-Allow-Credentials'] = 'true'
     return response
