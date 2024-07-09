@@ -22,7 +22,7 @@ django-seed==0.3.1
 django-templated-mail==1.1.1
 django-url-filter==0.3.15
 djangorestframework==3.14.0
-djangorestframework-simplejwt==5.3.1
+djangorestframework-simplejwt==5.2.2
 djoser==2.2.2
 drf-autodocs==0.4.4
 drf-yasg==1.21.7
@@ -38,10 +38,9 @@ oauthlib==3.2.2
 packaging==24.0
 phonenumbers==8.13.13
 Pillow==9.5.0
-psycopg2==2.9.6
-psycopg2-binary==2.9.6
+psycopg2-binary==2.9.9
 pycparser==2.21
-PyJWT==2.8.0
+PyJWT==2.6.0
 python-dateutil==2.8.2
 python3-openid==3.2.0
 pytz==2023.3

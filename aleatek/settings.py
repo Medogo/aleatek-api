@@ -126,7 +126,7 @@ DATABASES = {
     }
 }"""
 DATABASES = {
-    'default': dj_database_url.parse("postgres://final_db_uzcy_user:AV5tQGfauEOYdI6WiKVXMOTmd29s1Qfl@dpg-cok3e28cmk4c73e02s70-a.oregon-postgres.render.com/final_db_uzcy")
+    'default': dj_database_url.parse("postgresql://db_we5e_user:LVzHQYg6zcmpnZ9wQxy05z0PS7QaEvBN@dpg-cq6gplks1f4s73e2v3g0-a.oregon-postgres.render.com/db_we5e")
 }
 
 
