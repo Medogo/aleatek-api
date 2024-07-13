@@ -1,5 +1,8 @@
 from pathlib import Path
 import dj_database_url
+import os
+from corsheaders.defaults import default_headers
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -51,26 +54,23 @@ INSTALLED_APPS = [
     'drf_yasg'
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # new
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# new
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 1000,
-
-    # 'DEFAULT_AUTHENTICATION_CLASSES':
-    # ['rest_framework_simplejwt.authentication.JWTAuthentication',],
-
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',  # new
+        'rest_framework.permissions.IsAuthenticated',
     ],
-    'DEFAULT_AUTHENTICATION_CLASSES': [  # new
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ],
 }
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # Make sure this is at the top
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -79,10 +79,41 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",
+    "https://argosfront.netlify.app",
+]
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'x-requested-with',
+    'content-type',
+    'accept',
+    'origin',
+    'authorization',
+    'x-csrftoken',
+]
+
+CORS_EXPOSE_HEADERS = [
+    'content-type',
+    'x-csrftoken',
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:4200', 'https://argosfront.netlify.app']
 
 ROOT_URLCONF = 'aleatek.urls'
 
@@ -104,34 +135,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'aleatek.wsgi.application'
 
-SITE_ID =1
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+SITE_ID = 1
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'aloeos_db',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost', # Si tu base de datos está en la misma máquina
-        'PORT': '5432', # Puerto predeterminado para PostgreSQL
-    }
-}"""
 DATABASES = {
     'default': dj_database_url.parse("postgresql://db_we5e_user:LVzHQYg6zcmpnZ9wQxy05z0PS7QaEvBN@dpg-cq6gplks1f4s73e2v3g0-a.oregon-postgres.render.com/db_we5e")
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -148,9 +156,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -161,12 +166,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-
-import os
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'site_static')
 STATICFILES_DIRS = [
@@ -176,35 +175,13 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:4200', 'https://argosfront.netlify.app'
-)
-
-CSRF_TRUSTED_ORIGINS = ['http://*.localhost:4200', 'https://argosfront.netlify.app/']
-
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:4200', 'https://argosfront.netlify.app'
-]
-
-CORS_EXPOSE_HEADERS = [
-    'X-CSRFToken'
-]
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-CORS_ALLOW_CREDENTIALS = True
 AUTH_USER_MODEL = "collaborateurs.Collaborateurs"
 
 SIMPLE_JWT = {
    'AUTH_HEADER_TYPES': ('JWT',),
 }
-
-
 
 DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
@@ -214,11 +191,6 @@ DJOSER = {
     'SERIALIZERS': {},
 }
 
-
-if not DEBUG:    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
+if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
-    # and renames the files with unique names for each version to support long-term caching
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
