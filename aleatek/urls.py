@@ -264,17 +264,6 @@ path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-j
     path('docs/', include('drf_autodocs.urls')),
 
 
-]
+] 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
-
-"""path('api/get-csrf-token/', get_csrf_token, name='get_csrf_token'),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('admin/', admin.site.urls),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls')),
-    path('api/users/dj-rest-auth/', include('dj_rest_auth.urls')),  # new
-    path('api/users/dj-rest-auth/registration/',  # new
-         include('dj_rest_auth.registration.urls')),"""
