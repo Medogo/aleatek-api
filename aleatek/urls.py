@@ -89,7 +89,7 @@ router.register('batiment', BatimentAdminViewsetAdmin, basename='admin-batiment'
 router.register('entreprise_affaire', EntrepriseAffaireViewsetAdmin, basename='admin-entrepriseaffaire')
 router.register('entreprise_affaire_ouvrage', EntrepriseAffaireOuvrageViewset,
                 basename='admin-entrepriseaffaireouvrage')
-router.register('admin/chantier', ChantierAdminViewsetAdmin, basename='admin-chantier')
+router.register('chantier', ChantierAdminViewsetAdmin, basename='admin-chantier')
 router.register('affaire', AffaireAdminViewsetAdmin, basename='admin-affaoire')
 router.register('planaffaire', PlanAffaireAdminViewsetAdmin, basename='admin-paffaire')
 router.register('produit', ProduitAdminViewsetAdmin, basename='admin-collab')
