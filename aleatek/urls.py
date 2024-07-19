@@ -262,6 +262,8 @@ path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-j
     path('api/utilisateur-connecte/', UtilisateurConnecteView.as_view(), name='utilisateur_connecte'),
 
     path('docs/', include('drf_autodocs.urls')),
+    path('admin/', admin.site.urls),
+
 
 
 ] 

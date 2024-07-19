@@ -27,7 +27,7 @@ class Affaire(models.Model):
         ('Abandonné', 'Abandonné')
     ]
     libelle = models.CharField(max_length=100)
-    statut = models.CharField(max_length=20, choices=STATUS)
+    statut = models.CharField(max_length=20, choices=STATUS, default='En cours')
     numero_offre = models.IntegerField(blank=True, null=True)
     numero_contrat = models.IntegerField(blank=True, null=True)
     libelle_contrat = models.CharField(max_length=100, default='', blank=True)
