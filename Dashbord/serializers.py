@@ -16,6 +16,8 @@ class PlanAffaireSerializer(ModelSerializer):
 
 
 class AffaireSerializer(ModelSerializer):
+    plans = PlanAffaireSerializer(many=True, read_only=True)
+
     class Meta:
         model = Affaire
         fields = '__all__'
