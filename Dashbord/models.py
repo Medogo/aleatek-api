@@ -61,9 +61,9 @@ class PlanAffaire(models.Model):
     ]
 
     affaire = models.ForeignKey(Affaire, on_delete=models.CASCADE)
-    numero = models.IntegerField()
+    numero = models.IntegerField(blank=True, null=True)
     risque = models.CharField(max_length=20, choices=RISQUES)
-    libelle = models.CharField(max_length=50, null=True, blank=True)
+    libelle_planAffaire = models.CharField(max_length=50, null=True, blank=True)
     devise = models.CharField(max_length=10, choices=DEVISE)
     type = models.CharField(max_length=10, choices=TYPES_AFFAIRES)
     type_montant = models.CharField(max_length=10, choices=TYPES_MONTANT, default='HT')
