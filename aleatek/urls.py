@@ -19,7 +19,7 @@ from collaborateurs.views import UtilisateurConnecteView, CollaborateursAdminVie
 from entreprise.views import AddEntrepriseOnAffaire, CreateEntreprise, EditeDataEntreprise, ResponsableAdminViewsetAdmin, EntrepriseAdminViewsetAdmin, GetEntrepriseWithCollaborateur
 from Dashbord.views import AffaireAdminViewsetAdmin, PlanAffaireAdminViewsetAdmin, ProduitAdminViewsetAdmin, EditPlanAffaire, \
     BatimentAdminViewsetAdmin, ChantierAdminViewsetAdmin, GetPlanAffaireDetail, EntrepriseAffaireViewsetAdmin, \
-    GetAllEntrepriseForAffaire, GetAllEntrepriseDetailForAffaire, FindChargeAffaireForAffaire, GetPlanAffaireDetailForPlanAffaire, DeleteEntrepriseAffaire, CreateAffaireAndPlanAffaire
+    GetAllEntrepriseForAffaire, GetAllEntrepriseDetailForAffaire, FindChargeAffaireForAffaire, GetPlanAffaireDetailForPlanAffaire, DeleteEntrepriseAffaire, CreateAffaireAndPlanAffaire, GetAllPlansAffaire
 from adresse.views import AdressdminViewsetAdmin
 from ouvrage.views import DefineDiffusionForOuvrage, AddAffaireOuvrage, AsoViewsetAdmin, AffaireOuvrageAdminViewsetAdmin, OuvrageAdminViewsetAdmin, CodificationASO, \
     EntrepriseAffaireOuvrageViewset, GetAllAffaireOuvrageByAffaire, VerifyEntrepriseCollabOnOuvrage, CodificationASOInCurrent, \
@@ -263,6 +263,9 @@ path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-j
 
     path('docs/', include('drf_autodocs.urls')),
     path('admin/', admin.site.urls),
+
+    path('plans-affaire/', GetAllPlansAffaire.as_view(), name='all-plans-affaire'),
+
 
 
 

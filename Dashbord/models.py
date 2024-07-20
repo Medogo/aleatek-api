@@ -37,6 +37,8 @@ class Affaire(models.Model):
     assistant = models.ForeignKey(Collaborateurs, on_delete=models.SET_NULL, related_name='DashbordAffaireassistant', null=True)
     chef = models.ForeignKey(Collaborateurs, on_delete=models.SET_NULL, related_name='DashbordAffairechef', null=True)
 
+    def __str__(self):
+        return str(self.libelle)
 
 class PlanAffaire(models.Model):
     RISQUES = [
@@ -73,6 +75,9 @@ class PlanAffaire(models.Model):
     fin_chantier = models.DateField(blank=True, null=True)
     visite = models.IntegerField(blank=True, null=True)
     doc = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return self.libelle_planAffaire
 
 
 class Chantier(models.Model):
