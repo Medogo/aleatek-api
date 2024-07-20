@@ -173,10 +173,10 @@ path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-j
          name='recuperer_avis_document'),
 
     # Affaire and plan affaire service
-    path('api/detail_plan_affaire/', GetPlanAffaireDetail.as_view()),
-    path('api/detail_plan_affaire_for_plan_affaire/<int:id_plan_affaire>/', GetPlanAffaireDetailForPlanAffaire.as_view()),
-    path('api/create_affaire_and_plan_affaire/', CreateAffaireAndPlanAffaire.as_view()),
-    path('api/edit_plan_affaire/<int:id_plan>/', EditPlanAffaire.as_view()),
+    path('affaire/api/detail_plan_affaire/', GetPlanAffaireDetail.as_view()),
+    path('affaire/api/detail_plan_affaire_for_plan_affaire/<int:id_plan_affaire>/', GetPlanAffaireDetailForPlanAffaire.as_view()),
+    path('affaire/api/create_affaire_and_plan_affaire/', CreateAffaireAndPlanAffaire.as_view()),
+    path('affaire/api/edit_plan_affaire/<int:id_plan>/', EditPlanAffaire.as_view()),
 
     # Mission service
     path('api/mission_sign/<int:id_affaire>/', MissionActiveForCurrentAffaire.as_view()),
