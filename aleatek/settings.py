@@ -138,7 +138,7 @@ WSGI_APPLICATION = 'aleatek.wsgi.application'
 SITE_ID = 1
 
 DATABASES = {
-    'default': dj_database_url.parse("postgresql://ehfa0117_dodo:01017209@Medo@109.234.160.81:5432/ehfa0117_dodo")
+    'default': dj_database_url.parse("postgresql://db_we5e_user:LVzHQYg6zcmpnZ9wQxy05z0PS7QaEvBN@dpg-cq6gplks1f4s73e2v3g0-a.oregon-postgres.render.com/db_we5egit ")
 }
 
 AUTH_PASSWORD_VALIDATORS = [
