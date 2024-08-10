@@ -138,7 +138,7 @@ WSGI_APPLICATION = 'aleatek.wsgi.application'
 SITE_ID = 1
 
 DATABASES = {
-    'default': dj_database_url.parse("postgresql://argos_5pvn_user:rASMmnrDDwPAySt55meuAxz5QFryUZ2p@dpg-cqrhg108fa8c73d45hj0-a.oregon-postgres.render.com/argos_5pvn")
+    'default': dj_database_url.parse("postgresql://argos_74hp_user:rSk2ULB1bbCrgyygWxaO5ALqV6k7gnIF@dpg-cqrp1t5umphs73cogc3g-a.oregon-postgres.render.com/argos_74hp")
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -195,4 +195,4 @@ if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-APPEND_SLASH = False
+#APPEND_SLASH = False
