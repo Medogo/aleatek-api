@@ -294,7 +294,7 @@ class GetAllPlansAffaire(APIView):
                     plan_affaire_data['batiment'] = None
                     plan_affaire_data['adresse'] = None
 
-                # On cherche le charge
+                # On cherche lte charge
                 charge_affaire = Collaborateurs.objects.get(id=affaire.charge_id)
                 plan_affaire_data['charge_affaire'] = {
                     'nom': charge_affaire.last_name,

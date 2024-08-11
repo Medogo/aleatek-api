@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 from .models import PlanAffaire, Produit, Affaire, Chantier, Batiment, EntrepriseAffaire
-
+from collaborateurs.serializers import ColaboratteursSerializer
+from entreprise.serializers import EntrepriseSerializer
 
 class ProduitSerializer(ModelSerializer):
     class Meta:
@@ -17,6 +18,11 @@ class PlanAffaireSerializer(ModelSerializer):
 
 class AffaireSerializer(ModelSerializer):
     plans = PlanAffaireSerializer(many=True, read_only=True)
+    client = EntrepriseSerializer()  # Afficher toutes les infos de l'entreprise
+    charge = ColaboratteursSerializer()  # Afficher toutes les infos du collaborateur chargé
+    assistant = ColaboratteursSerializer()  # Afficher toutes les infos de l'assistant
+    chef = ColaboratteursSerializer()  # Afficher toutes les infos du chef
+
 
     class Meta:
         model = Affaire
