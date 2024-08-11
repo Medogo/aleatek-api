@@ -18,12 +18,6 @@ class PlanAffaireSerializer(ModelSerializer):
 
 class AffaireSerializer(ModelSerializer):
     plans = PlanAffaireSerializer(many=True, read_only=True)
-    client = EntrepriseSerializer()  # Afficher toutes les infos de l'entreprise
-    charge = ColaboratteursSerializer()  # Afficher toutes les infos du collaborateur chargé
-    assistant = ColaboratteursSerializer()  # Afficher toutes les infos de l'assistant
-    chef = ColaboratteursSerializer()  # Afficher toutes les infos du chef
-
-
     class Meta:
         model = Affaire
         fields = '__all__'

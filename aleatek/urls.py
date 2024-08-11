@@ -8,7 +8,7 @@ from django.urls import re_path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-
+from Dashbord.views import AffaireListView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -265,7 +265,7 @@ path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-j
     path('admin/', admin.site.urls),
 
     path('plans-affaire/', GetAllPlansAffaire.as_view(), name='all-plans-affaire'),
-
+    path('api/affaires-list/', AffaireListView.as_view(), name='affaire-list')
 
 
 

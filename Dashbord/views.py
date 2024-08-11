@@ -315,3 +315,28 @@ class GetAllPlansAffaire(APIView):
         except Exception as e:
             print(e)
             return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Affaire
+
+class AffaireListView(APIView):
+    def get(self, request, *args, **kwargs):
+        affaires = Affaire.objects.all()
+        data = []
+        for affaire in affaires:
+            data.append({
+                'id': affaire.id,
+                'libelle': affaire.libelle,
+                'statut': affaire.statut,
+                'numero_offre': affaire.numero_offre,
+                'numero_contrat': affaire.numero_contrat,
+                'libelle_contrat': affaire.libelle_contrat,
+                'date_contrat': affaire.date_contrat,
+                'client': affaire.client.id if affaire.client else None,
+                'charge': affaire.charge.id if affaire.charge else None,
+                'assistant': affaire.assistant.id if affaire.assistant else None,
+                'chef': affaire.chef.id if affaire.chef else None,
+            })
+        return Response(data, status=status.HTTP_200_OK)
