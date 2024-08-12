@@ -2,6 +2,8 @@ from django.db import models
 from Dashbord.models import Affaire
 from collaborateurs.models import Collaborateurs
 from ouvrage.models import AffaireOuvrage
+
+
 # Create your models here.
 
 class RapportVisite(models.Model):
@@ -23,6 +25,7 @@ class AvisOuvrage(models.Model):
     ouvrage = models.ForeignKey(AffaireOuvrage, on_delete=models.CASCADE)
     objet = models.CharField(max_length=200, null=True, blank=True)
     rv = models.ForeignKey(RapportVisite, on_delete=models.CASCADE)
+
 
 class CommentaireAvisOuvrage(models.Model):
     asuivre = models.BooleanField(default=False)

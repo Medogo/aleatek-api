@@ -12,7 +12,6 @@ class TutorialSerializer(serializers.ModelSerializer):
         model = Tutorial
         fields = ['tutored']
 
-    
     def get_tutore(self, obj):
         return {
             'nom': obj.tutored.last_name,
@@ -20,13 +19,11 @@ class TutorialSerializer(serializers.ModelSerializer):
         }
 
 
-
-
-
 class ProduitSerializer(ModelSerializer):
     class Meta:
         model = Produit
         fields = '__all__'
+
 
 class PlanAffaireSerializer(serializers.ModelSerializer):
     tutorats = serializers.SerializerMethodField()
@@ -40,7 +37,7 @@ class PlanAffaireSerializer(serializers.ModelSerializer):
         tutorats = Tutorial.objects.filter(plan_affaire=obj)
         tutorat_serializer = TutorialSerializer(tutorats, many=True)
         return tutorat_serializer.data
-        
+
 
 class AffaireSerializer(ModelSerializer):
     plans = PlanAffaireSerializer(many=True, read_only=True)

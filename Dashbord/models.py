@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 from django.db.models import UniqueConstraint
 
@@ -38,6 +40,7 @@ class Affaire(models.Model):
     assistant = models.ForeignKey(Collaborateurs, on_delete=models.SET_NULL, related_name='DashbordAffaireassistant',
                                   null=True)
     chef = models.ForeignKey(Collaborateurs, on_delete=models.SET_NULL, related_name='DashbordAffairechef', null=True)
+    produit = models.ForeignKey(Produit, on_delete=models.SET_NULL, null=True, related_name='DashbordProduit')
 
     def __str__(self):
         return str(self.libelle)
@@ -68,16 +71,19 @@ class PlanAffaire(models.Model):
     affaire = models.ForeignKey(Affaire, on_delete=models.CASCADE)
     numero = models.IntegerField(blank=True, null=True)
     risque = models.CharField(max_length=20, choices=RISQUES)
-    libelle_planAffaire = models.CharField(max_length=50, null=True, blank=True)
+    libelle_planAffaire = models.CharField(max_length=50, blank=True)
     devise = models.CharField(max_length=10, choices=DEVISE)
     type = models.CharField(max_length=10, choices=TYPES_AFFAIRES)
     type_montant = models.CharField(max_length=10, choices=TYPES_MONTANT, default='HT')
     prix = models.IntegerField(blank=True, null=True)
-    debut_prestation = models.DateField(blank=True, null=True)
-    debut_chantier = models.DateField(blank=True, null=True)
-    fin_chantier = models.DateField(blank=True, null=True)
-    visite = models.IntegerField(blank=True, null=True)
-    doc = models.IntegerField(blank=True, null=True)
+    debut_prestation = models.DateField(blank=True, default=None, null=True)
+    debut_chantier = models.DateField(blank=True, default=None, null=True)
+    fin_chantier = models.DateField(blank=True, default=None, null=True)
+    visite = models.IntegerField(blank=True, default=None, null=True)
+    doc = models.IntegerField(blank=True, default=None, null=True)
+    rapport_initiaux = models.IntegerField(blank=True, default=0, null=True)
+    synthese = models.CharField(blank=True, max_length=100, default="", null=True)
+    fiche_transfert = models.FileField(blank=True, null=True)
 
     def __str__(self):
         return self.libelle_planAffaire
@@ -97,7 +103,7 @@ class EntrepriseAffaire(models.Model):
         constraints = [
             UniqueConstraint(fields=['entreprise', 'affaire'], name='unique_entreprise_affaire')
         ]
-
+ 
 
 class Tutorial(models.Model):
     tutored = models.ForeignKey(Collaborateurs, on_delete=models.CASCADE, null=True, blank=True, related_name='tutorals')

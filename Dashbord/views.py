@@ -10,7 +10,10 @@ from adresse.models import Adress
 from collaborateurs.models import Collaborateurs
 from entreprise.models import Entreprise
 from rest_framework import status, viewsets
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Affaire
 from django.forms.models import model_to_dict
 from mission.models import MissionActive
 from django.db import transaction
@@ -309,21 +312,12 @@ class GetAllPlansAffaire(APIView):
                     'nom': charge_affaire.last_name,
                     'prenom': charge_affaire.first_name,
                 }
-
                 # On cherche le client
                 client = Entreprise.objects.get(id=affaire.client_id)
                 adresse_client = model_to_dict(client.adresse)
                 client_data = model_to_dict(client)
                 client_data['adresse'] = adresse_client
                 plan_affaire_data['client'] = client_data
-
-                tutorat = Tutorial.objects.get(plan_affaire=plan_affaire.id)
-                tutored = tutorat.tutored
-                plan_affaire_data['tutored'] = {
-                    'nom': tutored.first_name,
-                    'prenom': tutored.last_name,
-                }
-
                 data.append(plan_affaire_data)
 
             return Response(data, status=status.HTTP_200_OK)
@@ -331,12 +325,6 @@ class GetAllPlansAffaire(APIView):
         except Exception as e:
             print(e)
             return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from .models import Affaire
 
 
 class AffaireListView(APIView):
@@ -356,6 +344,7 @@ class AffaireListView(APIView):
                 'charge': affaire.charge.id if affaire.charge else None,
                 'assistant': affaire.assistant.id if affaire.assistant else None,
                 'chef': affaire.chef.id if affaire.chef else None,
+                'produit':affaire.produit.libelle if affaire.produit else None,
             })
         return Response(data, status=status.HTTP_200_OK)
 
