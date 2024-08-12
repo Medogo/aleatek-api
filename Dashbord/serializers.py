@@ -6,9 +6,21 @@ from entreprise.serializers import EntrepriseSerializer
 
 
 class TutorialSerializer(serializers.ModelSerializer):
+    tutored = serializers.SerializerMethodField()
+
     class Meta:
         model = Tutorial
-        fields = '__all__'  # On ne retourne que l'ID
+        fields = ['tutored']
+
+    
+    def get_tutore(self, obj):
+        return {
+            'nom': obj.tutored.last_name,
+            'prenom': obj.tutored.first_name,
+        }
+
+
+
 
 
 class ProduitSerializer(ModelSerializer):
@@ -16,24 +28,19 @@ class ProduitSerializer(ModelSerializer):
         model = Produit
         fields = '__all__'
 
-
-class PlanAffaireSerializer(ModelSerializer):
-    tutored = serializers.SerializerMethodField()
+class PlanAffaireSerializer(serializers.ModelSerializer):
+    tutorats = serializers.SerializerMethodField()
 
     class Meta:
         model = PlanAffaire
-        fields = '__all__'
+        fields = '__all__'  # Inclure tous les champs de PlanAffaire
 
-    def get_tutored(self, obj):
-        try:
-            tutorat = Tutorial.objects.get(plan_affaire=obj)
-            return {
-                'nom': tutorat.tutored.last_name,
-                'prenom': tutorat.tutored.first_name,
-            }
-        except Tutorial.DoesNotExist:
-            return None
-
+    def get_tutorats(self, obj):
+        # Utiliser filter() pour obtenir plusieurs Tutorats
+        tutorats = Tutorial.objects.filter(plan_affaire=obj)
+        tutorat_serializer = TutorialSerializer(tutorats, many=True)
+        return tutorat_serializer.data
+        
 
 class AffaireSerializer(ModelSerializer):
     plans = PlanAffaireSerializer(many=True, read_only=True)
