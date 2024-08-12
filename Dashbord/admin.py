@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Produit, Batiment, Affaire, PlanAffaire, Chantier, EntrepriseAffaire
+from .models import Produit, Batiment, Affaire, PlanAffaire, Chantier, EntrepriseAffaire, Tutorial
 from adresse.models import Adress
 from entreprise.models import Entreprise
 
@@ -11,3 +11,4 @@ admin.site.register(Chantier)
 admin.site.register(EntrepriseAffaire)
 admin.site.register(Adress)
 admin.site.register(Entreprise)
+admin.site.register(Tutorial)

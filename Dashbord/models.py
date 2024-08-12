@@ -33,12 +33,15 @@ class Affaire(models.Model):
     libelle_contrat = models.CharField(max_length=100, default='', blank=True)
     date_contrat = models.DateField(blank=True, null=True)
     client = models.ForeignKey(Entreprise, on_delete=models.SET_NULL, null=True)  # Retirer null
-    charge = models.ForeignKey(Collaborateurs, on_delete=models.SET_NULL, related_name='DashbordAffairecharge', null=True)
-    assistant = models.ForeignKey(Collaborateurs, on_delete=models.SET_NULL, related_name='DashbordAffaireassistant', null=True)
+    charge = models.ForeignKey(Collaborateurs, on_delete=models.SET_NULL, related_name='DashbordAffairecharge',
+                               null=True)
+    assistant = models.ForeignKey(Collaborateurs, on_delete=models.SET_NULL, related_name='DashbordAffaireassistant',
+                                  null=True)
     chef = models.ForeignKey(Collaborateurs, on_delete=models.SET_NULL, related_name='DashbordAffairechef', null=True)
 
     def __str__(self):
         return str(self.libelle)
+
 
 class PlanAffaire(models.Model):
     RISQUES = [
@@ -94,3 +97,9 @@ class EntrepriseAffaire(models.Model):
         constraints = [
             UniqueConstraint(fields=['entreprise', 'affaire'], name='unique_entreprise_affaire')
         ]
+
+
+class Tutorial(models.Model):
+    tutored = models.ForeignKey(Collaborateurs, on_delete=models.CASCADE, null=True, blank=True, related_name='tutorals')
+    plan_affaire = models.ForeignKey(PlanAffaire, on_delete=models.CASCADE, null=True, blank=True, related_name='tutorals')
+

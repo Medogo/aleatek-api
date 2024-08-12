@@ -8,7 +8,7 @@ from django.urls import re_path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from Dashbord.views import AffaireListView
+from Dashbord.views import AffaireListView, TutorialIDList, TutoratViewSet
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -96,6 +96,7 @@ router.register('produit', ProduitAdminViewsetAdmin, basename='admin-collab')
 router.register('responsable', ResponsableAdminViewsetAdmin, basename='admin-collab')
 router.register('entreprise', EntrepriseAdminViewsetAdmin, basename='admin-entreprise')
 router.register('collaborateurs', CollaborateursAdminViewsetAdmin, basename='admin-collab')
+router.register('tutorats', TutoratViewSet, basename='admin-tutorat')
 router.register('users', UserViewSet, basename='users')
 schema_view = get_schema_view(
    openapi.Info(
@@ -265,10 +266,9 @@ path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-j
     path('admin/', admin.site.urls),
 
     path('plans-affaire/', GetAllPlansAffaire.as_view(), name='all-plans-affaire'),
-    path('api/affaires-list/', AffaireListView.as_view(), name='affaire-list')
+    path('api/affaires-list/', AffaireListView.as_view(), name='affaire-list'),
+   path('api/tutore/', TutorialIDList.as_view(), name='tutorial_ids'),
 
-
-
-] 
+]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

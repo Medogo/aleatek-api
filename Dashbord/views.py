@@ -9,7 +9,7 @@ from rest_framework.views import APIView
 from adresse.models import Adress
 from collaborateurs.models import Collaborateurs
 from entreprise.models import Entreprise
-from rest_framework import status
+from rest_framework import status, viewsets
 
 from django.forms.models import model_to_dict
 from mission.models import MissionActive
@@ -54,11 +54,11 @@ class ChantierAdminViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
     queryset = Chantier.objects.all()
     permission_classes = [IsAdminAuthenticated]
 
+
 class EntrepriseAffaireViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
     serializer_class = EntrepriseAffaireSerializer
     queryset = EntrepriseAffaire.objects.all()
     permission_classes = [IsAdminAuthenticated]
-
 
 
 class GetPlanAffaireDetail(APIView):
@@ -88,7 +88,8 @@ class GetPlanAffaireDetail(APIView):
             planAffaire_data['batiment'] = batiment.libelle
             data.append(planAffaire_data)
         return Response(data)
-    
+
+
 class GetPlanAffaireDetailForPlanAffaire(APIView):
     def get(self, request, id_plan_affaire):
         try:
@@ -115,10 +116,11 @@ class GetPlanAffaireDetailForPlanAffaire(APIView):
             planAffaire_data['batiment'] = model_to_dict(batiment)
             # On ajoute le chantier
             planAffaire_data['chantier'] = chantier
-            
+
             return Response(planAffaire_data)
         except:
             return Response({})
+
 
 class GetAllEntrepriseForAffaire(APIView):
     def get(self, request, id_affaire):
@@ -139,22 +141,24 @@ class GetAllEntrepriseDetailForAffaire(APIView):
             detailEntreprise = Entreprise.objects.get(id=entreprise['entreprise_id'])
             final['entreprise'] = model_to_dict(detailEntreprise)
             data.append(final)
-        
+
         return Response(data)
+
 
 class FindChargeAffaireForAffaire(APIView):
     def get(self, requet, id_affaire):
         try:
             affaire = Affaire.objects.get(id=id_affaire)
             charge = {
-                'id' : affaire.charge.id,
-                'prenom' : affaire.charge.first_name,
-                'nom' : affaire.charge.last_name
+                'id': affaire.charge.id,
+                'prenom': affaire.charge.first_name,
+                'nom': affaire.charge.last_name
             }
             return Response(charge)
         except:
-            return Response({"not found" : True})
-        
+            return Response({"not found": True})
+
+
 class DeleteEntrepriseAffaire(APIView):
     def get(self, request, id_affaire, id_entreprise):
         try:
@@ -162,7 +166,8 @@ class DeleteEntrepriseAffaire(APIView):
             return Response(result)
         except:
             return Response({})
-        
+
+
 class CreateAffaireAndPlanAffaire(APIView):
     def post(self, request):
 
@@ -177,7 +182,8 @@ class CreateAffaireAndPlanAffaire(APIView):
                 adress = Adress(**request.data['dataAdresseChantier'])
                 adress.save()
 
-                chantier = Chantier(batiment_id=request.data['dataBatiment'], plan_affaire_id=plan_affaire.id, adresse_id=adress.id)
+                chantier = Chantier(batiment_id=request.data['dataBatiment'], plan_affaire_id=plan_affaire.id,
+                                    adresse_id=adress.id)
                 chantier.save()
 
                 for mission in request.data['dataMissions']:
@@ -216,6 +222,8 @@ class EditPlanAffaire(APIView):
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         return Response(status=status.HTTP_201_CREATED)
+
+
 """
 class GetAllPlansAffaire(APIView):
     def get(self, request):
@@ -265,6 +273,7 @@ class GetAllPlansAffaire(APIView):
             return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 """
 
+
 class GetAllPlansAffaire(APIView):
     def get(self, request):
         try:
@@ -308,6 +317,13 @@ class GetAllPlansAffaire(APIView):
                 client_data['adresse'] = adresse_client
                 plan_affaire_data['client'] = client_data
 
+                tutorat = Tutorial.objects.get(plan_affaire=plan_affaire.id)
+                tutored = tutorat.tutored
+                plan_affaire_data['tutored'] = {
+                    'nom': tutored.first_name,
+                    'prenom': tutored.last_name,
+                }
+
                 data.append(plan_affaire_data)
 
             return Response(data, status=status.HTTP_200_OK)
@@ -316,10 +332,12 @@ class GetAllPlansAffaire(APIView):
             print(e)
             return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Affaire
+
 
 class AffaireListView(APIView):
     def get(self, request, *args, **kwargs):
@@ -340,3 +358,20 @@ class AffaireListView(APIView):
                 'chef': affaire.chef.id if affaire.chef else None,
             })
         return Response(data, status=status.HTTP_200_OK)
+
+
+from .models import Tutorial
+from .serializers import TutorialSerializer
+
+
+class TutorialIDList(APIView):
+    def get(self, request):
+        tutorials = Tutorial.objects.all()
+        serializer = TutorialSerializer(tutorials, many=True)
+        return Response(serializer.data)
+
+
+class TutoratViewSet(viewsets.ModelViewSet):
+    queryset = Tutorial.objects.all()
+    serializer_class = TutorialSerializer
+    permission_classes = [IsAuthenticated]
