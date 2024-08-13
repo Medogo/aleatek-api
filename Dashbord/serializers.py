@@ -26,17 +26,9 @@ class ProduitSerializer(ModelSerializer):
 
 
 class PlanAffaireSerializer(serializers.ModelSerializer):
-    tutorats = serializers.SerializerMethodField()
-
     class Meta:
         model = PlanAffaire
         fields = '__all__'  # Inclure tous les champs de PlanAffaire
-
-    def get_tutorats(self, obj):
-        # Utiliser filter() pour obtenir plusieurs Tutorats
-        tutorats = Tutorial.objects.filter(plan_affaire=obj)
-        tutorat_serializer = TutorialSerializer(tutorats, many=True)
-        return tutorat_serializer.data
 
 
 class AffaireSerializer(ModelSerializer):

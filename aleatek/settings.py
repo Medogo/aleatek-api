@@ -138,7 +138,7 @@ WSGI_APPLICATION = 'aleatek.wsgi.application'
 SITE_ID = 1
 
 DATABASES = {
-    'default': dj_database_url.parse("postgresql://argos_db_user:gbli3Yc3WoudU3p3Byo5FqTCUgSW3N7Q@dpg-cqt9ve08fa8c73fjds10-a.oregon-postgres.render.com/argos_db")
+    'default': dj_database_url.parse("postgresql://news_database_v9ij_user:dfMFXjauIsLfTsfYYhPq33OmrkjWoaEi@dpg-cqtlgibv2p9s73dj1qn0-a.oregon-postgres.render.com/news_database_v9ij")
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -194,5 +194,11 @@ DJOSER = {
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-#APPEND_SLASH = False
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
+    }
+}
+"""

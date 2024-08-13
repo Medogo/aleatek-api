@@ -275,7 +275,7 @@ class GetAllPlansAffaire(APIView):
             print(e)
             return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 """
-
+"""
 
 class GetAllPlansAffaire(APIView):
     def get(self, request):
@@ -326,6 +326,66 @@ class GetAllPlansAffaire(APIView):
             print(e)
             return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+"""
+
+from django.shortcuts import get_object_or_404
+
+
+class GetAllPlansAffaire(APIView):
+    def get(self, request):
+        try:
+            plans_affaire = PlanAffaire.objects.all()
+            data = []
+
+            for plan_affaire in plans_affaire:
+                plan_affaire_data = model_to_dict(plan_affaire)
+
+                # Gestion du fichier
+                if plan_affaire.fiche_transfert:
+                    plan_affaire_data['fiche_transfert'] = plan_affaire.fiche_transfert.url
+                else:
+                    plan_affaire_data['fiche_transfert'] = None
+
+                # On cherche l'affaire
+                affaire = get_object_or_404(Affaire, id=plan_affaire.affaire_id)
+                plan_affaire_data['affaire'] = model_to_dict(affaire)
+
+                # On cherche la ville
+                try:
+                    chantier = Chantier.objects.get(plan_affaire=plan_affaire.id)
+                    chantier_data = model_to_dict(chantier)
+                    adresse = Adress.objects.get(id=chantier.adresse_id)
+                    chantier_data['adresse'] = model_to_dict(adresse)
+                    plan_affaire_data['chantier'] = chantier_data
+
+                    # On cherche le batiment
+                    batiment = Batiment.objects.get(id=chantier.batiment_id)
+                    plan_affaire_data['batiment'] = model_to_dict(batiment)
+                except Chantier.DoesNotExist:
+                    plan_affaire_data['chantier'] = None
+                    plan_affaire_data['batiment'] = None
+                    plan_affaire_data['adresse'] = None
+
+                # On cherche lte charge
+                charge_affaire = get_object_or_404(Collaborateurs, id=affaire.charge_id)
+                plan_affaire_data['charge_affaire'] = {
+                    'nom': charge_affaire.last_name,
+                    'prenom': charge_affaire.first_name,
+                }
+                # On cherche le client
+                client = get_object_or_404(Entreprise, id=affaire.client_id)
+                adresse_client = model_to_dict(client.adresse)
+                client_data = model_to_dict(client)
+                client_data['adresse'] = adresse_client
+                plan_affaire_data['client'] = client_data
+                data.append(plan_affaire_data)
+
+            return Response(data, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            print(e)
+            return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
 class AffaireListView(APIView):
     def get(self, request, *args, **kwargs):
@@ -344,7 +404,7 @@ class AffaireListView(APIView):
                 'charge': affaire.charge.id if affaire.charge else None,
                 'assistant': affaire.assistant.id if affaire.assistant else None,
                 'chef': affaire.chef.id if affaire.chef else None,
-                'produit':affaire.produit.libelle if affaire.produit else None,
+                'produit': affaire.produit.libelle if affaire.produit else None,
             })
         return Response(data, status=status.HTTP_200_OK)
 
