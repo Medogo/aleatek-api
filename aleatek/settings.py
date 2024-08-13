@@ -138,7 +138,7 @@ WSGI_APPLICATION = 'aleatek.wsgi.application'
 SITE_ID = 1
 
 DATABASES = {
-    'default': dj_database_url.parse("postgresql://news_database_v9ij_user:dfMFXjauIsLfTsfYYhPq33OmrkjWoaEi@dpg-cqtlgibv2p9s73dj1qn0-a.oregon-postgres.render.com/news_database_v9ij")
+    'default': dj_database_url.parse("postgresql://kethedatabases_user:gP8EGD20jeJ4VRVbu5Gdmr12egmT6XSw@dpg-cqtlqhjv2p9s73dj8itg-a.oregon-postgres.render.com/kethedatabases")
 }
 
 AUTH_PASSWORD_VALIDATORS = [
