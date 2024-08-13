@@ -1,3 +1,4 @@
+from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
@@ -227,107 +228,6 @@ class EditPlanAffaire(APIView):
         return Response(status=status.HTTP_201_CREATED)
 
 
-"""
-class GetAllPlansAffaire(APIView):
-    def get(self, request):
-        try:
-            plans_affaire = PlanAffaire.objects.all()
-            data = []
-
-            for plan_affaire in plans_affaire:
-                plan_affaire_data = model_to_dict(plan_affaire)
-
-                # On cherche l'affaire
-                affaire = Affaire.objects.get(id=plan_affaire.affaire_id)
-                plan_affaire_data['affaire'] = model_to_dict(affaire)
-
-                # On cherche la ville
-                chantier = model_to_dict(Chantier.objects.get(plan_affaire=plan_affaire.id))
-                adresse = Adress.objects.get(id=chantier['adresse_id'])
-                plan_affaire_data['adresse'] = model_to_dict(adresse)
-
-                # On cherche le charge
-                charge_affaire = Collaborateurs.objects.get(id=affaire.charge_id)
-                plan_affaire_data['charge_affaire'] = {
-                    'nom': charge_affaire.last_name,
-                    'prenom': charge_affaire.first_name,
-                }
-
-                # On cherche le client
-                client = Entreprise.objects.get(id=affaire.client_id)
-                adresse_client = model_to_dict(client.adresse)
-                client_data = model_to_dict(client)
-                client_data['adresse'] = adresse_client
-                plan_affaire_data['client'] = client_data
-
-                # On cherche le batiment
-                batiment = Batiment.objects.get(id=chantier['batiment_id'])
-                plan_affaire_data['batiment'] = model_to_dict(batiment)
-
-                # On ajoute le chantier
-                plan_affaire_data['chantier'] = chantier
-
-                data.append(plan_affaire_data)
-
-            return Response(data, status=status.HTTP_200_OK)
-
-        except Exception as e:
-            print(e)
-            return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-"""
-"""
-
-class GetAllPlansAffaire(APIView):
-    def get(self, request):
-        try:
-            plans_affaire = PlanAffaire.objects.all()
-            data = []
-
-            for plan_affaire in plans_affaire:
-                plan_affaire_data = model_to_dict(plan_affaire)
-
-                # On cherche l'affaire
-                affaire = Affaire.objects.get(id=plan_affaire.affaire_id)
-                plan_affaire_data['affaire'] = model_to_dict(affaire)
-
-                # On cherche la ville
-                try:
-                    chantier = Chantier.objects.get(plan_affaire=plan_affaire.id)
-                    chantier_data = model_to_dict(chantier)
-                    adresse = Adress.objects.get(id=chantier.adresse_id)
-                    chantier_data['adresse'] = model_to_dict(adresse)
-                    plan_affaire_data['chantier'] = chantier_data
-
-                    # On cherche le batiment
-                    batiment = Batiment.objects.get(id=chantier.batiment_id)
-                    plan_affaire_data['batiment'] = model_to_dict(batiment)
-                except Chantier.DoesNotExist:
-                    plan_affaire_data['chantier'] = None
-                    plan_affaire_data['batiment'] = None
-                    plan_affaire_data['adresse'] = None
-
-                # On cherche lte charge
-                charge_affaire = Collaborateurs.objects.get(id=affaire.charge_id)
-                plan_affaire_data['charge_affaire'] = {
-                    'nom': charge_affaire.last_name,
-                    'prenom': charge_affaire.first_name,
-                }
-                # On cherche le client
-                client = Entreprise.objects.get(id=affaire.client_id)
-                adresse_client = model_to_dict(client.adresse)
-                client_data = model_to_dict(client)
-                client_data['adresse'] = adresse_client
-                plan_affaire_data['client'] = client_data
-                data.append(plan_affaire_data)
-
-            return Response(data, status=status.HTTP_200_OK)
-
-        except Exception as e:
-            print(e)
-            return Response({"detail": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-"""
-
 from django.shortcuts import get_object_or_404
 
 
@@ -339,6 +239,7 @@ class GetAllPlansAffaire(APIView):
 
             for plan_affaire in plans_affaire:
                 plan_affaire_data = model_to_dict(plan_affaire)
+                print("PlanAffaire Data:", plan_affaire_data)  # Débogage ici
 
                 # Gestion du fichier
                 if plan_affaire.fiche_transfert:
@@ -424,3 +325,11 @@ class TutoratViewSet(viewsets.ModelViewSet):
     queryset = Tutorial.objects.all()
     serializer_class = TutorialSerializer
     permission_classes = [IsAuthenticated]
+
+
+class PlanAffaireByAffaireIdView(ListAPIView):
+    serializer_class = PlanAffaireSerializer
+
+    def get_queryset(self):
+        affaire_id = self.kwargs['affaire_id']
+        return PlanAffaire.objects.filter(affaire__id=affaire_id)

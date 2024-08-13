@@ -8,7 +8,7 @@ from django.urls import re_path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from Dashbord.views import AffaireListView, TutorialIDList, TutoratViewSet
+from Dashbord.views import AffaireListView, TutorialIDList, TutoratViewSet, PlanAffaireByAffaireIdView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -178,6 +178,7 @@ path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-j
     path('affaire/api/detail_plan_affaire_for_plan_affaire/<int:id_plan_affaire>/', GetPlanAffaireDetailForPlanAffaire.as_view()),
     path('affaire/api/create_affaire_and_plan_affaire/', CreateAffaireAndPlanAffaire.as_view()),
     path('affaire/api/edit_plan_affaire/<int:id_plan>/', EditPlanAffaire.as_view()),
+    path('affaire/<int:affaire_id>/plans/', PlanAffaireByAffaireIdView.as_view(), name='plans-by-affaire-id'),
 
     # Mission service
     path('api/mission_sign/<int:id_affaire>/', MissionActiveForCurrentAffaire.as_view()),
