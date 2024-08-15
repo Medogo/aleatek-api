@@ -50,9 +50,8 @@ class Collaborateurs(AbstractUser):
     address = models.OneToOneField(Adress, on_delete=models.CASCADE, null=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username','last_name', 'first_name']
+    REQUIRED_FIELDS = ['username', 'last_name', 'first_name']
     objects = CustomUserManager()
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
-

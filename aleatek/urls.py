@@ -181,14 +181,14 @@ path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-j
     path('affaire/<int:affaire_id>/plans/', PlanAffaireByAffaireIdView.as_view(), name='plans-by-affaire-id'),
 
     # Mission service
-    path('api/mission_sign/<int:id_affaire>/', MissionActiveForCurrentAffaire.as_view()),
-    path('api/it_mission_collab/<int:id_collab>/<int:id_mission_sign>/',
+    path('mission_sign/<int:id_affaire>/', MissionActiveForCurrentAffaire.as_view()),
+    path('mission_collab/<int:id_collab>/<int:id_mission_sign>/',
          VerifyExistITForMissionSignAndCollab.as_view()),
-    path('api/mission_affaire/<int:id_affaire>/<int:id_mission>/', VerifyExistMissionActive.as_view()),
-    path('api/all_mission/<int:id_affaire>/', AllMissionForAffaire.as_view()),
-    path('api/get_all_parent_mission/', GetAllParentMission.as_view()),
-    path('api/get_all_mission_view_by_chapitre/<int:id_affaire>/<int:id_rict>/', GetAllMissionViewByChapitre.as_view()),
-    path('api/add_mission_active/', AddMissionActive.as_view()),
+    path('mission_affaire/<int:id_affaire>/<int:id_mission>/', VerifyExistMissionActive.as_view()),
+    path('api/mission_all/<int:id_affaire>/', AllMissionForAffaire.as_view()),
+    path('mission_get_all_parent_/', GetAllParentMission.as_view()),
+    path('mission_get_all_view_by_chapitre/<int:id_affaire>/<int:id_rict>/', GetAllMissionViewByChapitre.as_view()),
+    path('mission_add_mission_active/', AddMissionActive.as_view()),
 
     # Collaborateur service
     path('api/find_charge_affaire_for_affaire/<int:id_affaire>/', FindChargeAffaireForAffaire.as_view()),
