@@ -3,12 +3,13 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 from .models import Mission, MissionActive, InterventionTechnique, Article, ArticleSelect, ArticleMission
 from .permissions import IsAdminAuthenticated
-from .serializers import MissionSerializer, MissionActiveSerializer, InterventionTechniqueSerializer, ArticleSerializer, ArticleSelectSerializer, ArticleMissionSerializer
+from .serializers import MissionSerializer, MissionActiveSerializer, InterventionTechniqueSerializer, ArticleSerializer, \
+    ArticleSelectSerializer, ArticleMissionSerializer
 from rest_framework.views import APIView
 from Dashbord.models import Affaire, PlanAffaire
 from collaborateurs.models import Collaborateurs
 from django.forms.models import model_to_dict
-from rest_framework import status
+from rest_framework import status, viewsets
 from django.db import transaction
 from utils.utils import getllFirstParentOfArticle, getSubAffaireChild, getParentAffaire
 from RICT.models import MissionRICT
@@ -22,30 +23,36 @@ class MultipleSerializerMixin:
             return self.detail_serializer_class
         return super().get_serializer_class()
 
+
 class ArticleMissionViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
     serializer_class = ArticleMissionSerializer
     queryset = ArticleMission.objects.all()
     permission_classes = [IsAdminAuthenticated]
+
 
 class MissionAdminViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
     serializer_class = MissionSerializer
     queryset = Mission.objects.all()
     permission_classes = [IsAdminAuthenticated]
 
+
 class ArticleAdminViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
     permission_classes = [IsAdminAuthenticated]
+
 
 class ArticleSelectViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
     serializer_class = ArticleSelectSerializer
     queryset = ArticleSelect.objects.all()
     permission_classes = [IsAdminAuthenticated]
 
+
+"""
 class MissionActiveAdminViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
     serializer_class = MissionActiveSerializer
     queryset = MissionActive.objects.all()
-    permission_classes = [IsAdminAuthenticated]
+    permission_classes = [IsAdminAuthenticated]"""
 
 
 class ITAdminViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
@@ -53,35 +60,39 @@ class ITAdminViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
     queryset = InterventionTechnique.objects.all()
     permission_classes = [IsAdminAuthenticated]
 
+
 class MissionActiveForCurrentAffaire(APIView):
     def get(self, request, id_affaire):
         all_mission_active = MissionActive.objects.filter(id_affaire=id_affaire).values()
 
         return Response(list(all_mission_active))
-    
+
+
 class VerifyExistITForMissionSignAndCollab(APIView):
     def get(self, request, id_collab, id_mission_sign):
         try:
             InterventionTechnique.objects.get(id_mission_active=id_mission_sign, id_collaborateur=id_collab)
-            return Response({'check' : True})
-        except:        
-            return Response({'check' : False})
-        
+            return Response({'check': True})
+        except:
+            return Response({'check': False})
+
+
 class VerifyExistMissionActive(APIView):
     def get(self, request, id_affaire, id_mission):
         try:
             mission = MissionActive.objects.get(id_mission=id_mission, id_affaire=id_affaire)
-            return Response({'check' : mission.id})
-        except:        
-            return Response({'check' : False})
-        
+            return Response({'check': mission.id})
+        except:
+            return Response({'check': False})
+
+
 class AllIntervenantForAffaire(APIView):
     def get(self, request, id_affaire):
         all_collab = Collaborateurs.objects.all()
         all_IT = InterventionTechnique.objects.all()
-        
+
         data = []
-        
+
         for collab in all_collab:
             for IT in all_IT:
                 if collab.id == IT.id_collaborateur.id:
@@ -89,13 +100,14 @@ class AllIntervenantForAffaire(APIView):
                     affaire = missionActive.id_affaire
                     if affaire.id == id_affaire:
                         data.append({
-                            "id" : collab.id,
-                            "nom" : collab.first_name,
-                            "prenom" : collab.last_name,
-                            "email" : collab.email
+                            "id": collab.id,
+                            "nom": collab.first_name,
+                            "prenom": collab.last_name,
+                            "email": collab.email
                         })
 
         return Response(data)
+
 
 class AllMissionForAffaire(APIView):
     def get(self, request, id_affaire):
@@ -111,12 +123,14 @@ class AllMissionForAffaire(APIView):
 
         return Response(data)
 
+
 class GetAllParentMission(APIView):
     def get(self, request):
         data = Mission.objects.filter(mission_parent=None).values()
 
         return Response(list(data))
-    
+
+
 class GetAllMissionViewByChapitre(APIView):
     def get(self, request, id_affaire, id_rict):
         missionsActive = MissionActive.objects.filter(id_affaire=id_affaire)
@@ -125,7 +139,7 @@ class GetAllMissionViewByChapitre(APIView):
 
             mission = missionActive.id_mission
             if mission.mission_parent == None:
-                
+
                 childs = Mission.objects.filter(mission_parent=mission.id)
                 if len(childs) == 0:
                     result = {}
@@ -143,18 +157,18 @@ class GetAllMissionViewByChapitre(APIView):
                         check = MissionRICT.objects.filter(rict=id_rict, mission=active_mission[0].id).exists()
                         result['chapitre']['check'] = check
                         data.append(result)
-        
+
         return Response(data)
-    
+
 
 class GetAllArticleForMission(APIView):
     def get(self, request, id_mission, id_affaire):
         articlesSelect = ArticleSelect.objects.filter(affaire=id_affaire)
 
         articles = []
-        
+
         unique_parents = []
-        
+
         for articleSelect in articlesSelect:
             if ArticleMission.objects.filter(mission=id_mission, article=articleSelect.article.id).exists():
                 articles.append(articleSelect.article)
@@ -166,21 +180,20 @@ class GetAllArticleForMission(APIView):
 
         for article in articles:
             pre_data.append(getSubAffaireChild(article, id_mission))
-            
+
         for parent in unique_parents:
             final_parent = {
-                'parent' : model_to_dict(parent),
-                'childs' : []
+                'parent': model_to_dict(parent),
+                'childs': []
             }
             for article in pre_data:
                 if article['parent']['article_parent'] == parent.id:
                     final_parent['childs'].append(article)
             data.append(final_parent)
-        
-        return Response(data)
-    
 
-    
+        return Response(data)
+
+
 class GetAllCritereForAffaire(APIView):
     def get(self, request, id_affaire):
         articles_mission_active = Article.objects.filter(
@@ -194,12 +207,14 @@ class GetAllCritereForAffaire(APIView):
             if article_mission_active.article_parent != None:
                 toAppend = model_to_dict(article_mission_active)
                 toAppend['parent'] = model_to_dict(article_mission_active.article_parent)
-                check_exist = ArticleSelect.objects.filter(affaire=id_affaire, article=article_mission_active.id).exists()
+                check_exist = ArticleSelect.objects.filter(affaire=id_affaire,
+                                                           article=article_mission_active.id).exists()
                 toAppend['select'] = check_exist
                 result.append(toAppend)
 
         return Response(result)
-    
+
+
 class AddArticleSelectForAffaire(APIView):
     def get(self, request, id_affaire, id_article):
         exist = ArticleSelect.objects.filter(affaire=id_affaire, article=id_article).exists()
@@ -210,14 +225,16 @@ class AddArticleSelectForAffaire(APIView):
             return Response({'id': new.id})
 
         return Response({'id': None})
-    
+
+
 class DeleteArticleSelectForAffaire(APIView):
     def get(self, request, id_affaire, id_article):
         try:
             ArticleSelect.objects.filter(affaire=id_affaire, article=id_article).delete()
-            return Response({'delete':True})
+            return Response({'delete': True})
         except:
-            return Response({'delete':False})
+            return Response({'delete': False})
+
 
 class AddMissionActive(APIView):
     def post(self, request):
@@ -228,32 +245,37 @@ class AddMissionActive(APIView):
                     MissionActive(id_affaire_id=request.data['affaire'], id_mission_id=mission).save()
         except:
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
+
         return Response(status=status.HTTP_201_CREATED)
-    
+
+
 class AddInterventionTechnique(APIView):
     def post(self, request):
         try:
             with transaction.atomic():
                 mission = request.data['mission_sign']
                 for collab in request.data['collaborateurs']:
-                    if not InterventionTechnique.objects.filter(id_mission_active=mission, id_collaborateur=collab).exists():
-                        InterventionTechnique(id_mission_active_id=mission, id_collaborateur_id=collab, affecteur=request.user).save()
+                    if not InterventionTechnique.objects.filter(id_mission_active=mission,
+                                                                id_collaborateur=collab).exists():
+                        InterventionTechnique(id_mission_active_id=mission, id_collaborateur_id=collab,
+                                              affecteur=request.user).save()
         except Exception as ex:
             print(ex)
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
+
         return Response(status=status.HTTP_201_CREATED)
+
 
 class GetCritereAboutDescriptionBati(APIView):
     def get(self, request, id_affaire):
         data = []
         try:
-            articles = Article.objects.filter(article_parent__article_parent__isnull=True, article__mission__in=[1, 2, 3, 4])
+            articles = Article.objects.filter(article_parent__article_parent__isnull=True,
+                                              article__mission__in=[1, 2, 3, 4])
             for article in articles:
                 if article.article_parent != None:
                     result = model_to_dict(article)
-                    
+
                     if ArticleSelect.objects.filter(article=article.id, affaire=id_affaire).exists():
                         result['select'] = True
                     else:
@@ -266,17 +288,18 @@ class GetCritereAboutDescriptionBati(APIView):
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         return Response(data)
-    
+
 
 class GetCritereAboutCodeTravail(APIView):
     def get(self, request, id_affaire):
         data = []
         try:
-            articles = Article.objects.filter(article_parent__article_parent__isnull=True, article__mission__in=[31, 32, 29, 30, 24, 25, 26])
+            articles = Article.objects.filter(article_parent__article_parent__isnull=True,
+                                              article__mission__in=[31, 32, 29, 30, 24, 25, 26])
             for article in articles:
                 if article.article_parent != None:
                     result = model_to_dict(article)
-                    
+
                     if ArticleSelect.objects.filter(article=article.id, affaire=id_affaire).exists():
                         result['select'] = True
                     else:
@@ -289,25 +312,25 @@ class GetCritereAboutCodeTravail(APIView):
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         return Response(data)
+
 
 class HandleSelectCritere(APIView):
     def post(self, request, id_affaire, article):
         try:
             with transaction.atomic():
                 check = request.data['check']
-                
+
                 if check:
                     if not ArticleSelect.objects.filter(affaire=id_affaire, article=article).exists():
                         ArticleSelect(affaire_id=id_affaire, article_id=article).save()
                 else:
                     ArticleSelect.objects.filter(affaire=id_affaire, article=article).delete()
-                
-                
+
                 # article_obj = Article.objects.get(id=article)
                 # ancestors, descendants = article_obj.get_ancestors_and_descendants()
-                
+
                 # article_lst = ancestors + [article_obj] + descendants
-                
+
                 # for article in article_lst:
                 #     if check:
                 #         if not ArticleSelect.objects.filter(affaire=id_affaire, article=article.id).exists():
@@ -317,6 +340,22 @@ class HandleSelectCritere(APIView):
         except Exception as ex:
             print(ex)
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
+
         return Response(status=status.HTTP_201_CREATED)
-    
+
+
+class MissionActiveViewSet(viewsets.ViewSet):
+    def retrieve(self, request, pk=None):
+        try:
+            mission_active = MissionActive.objects.get(pk=pk)
+        except MissionActive.DoesNotExist:
+            return Response({'detail': 'Not found.'}, status=404)
+
+        serializer = MissionActiveSerializer(mission_active)
+        return Response(serializer.data)
+
+
+class MissionActiveView(viewsets.ModelViewSet):
+    queryset = MissionActive.objects.all()
+    serializer_class = MissionActiveSerializer
+    permission_classes = [IsAdminAuthenticated]
