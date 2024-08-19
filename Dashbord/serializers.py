@@ -48,7 +48,7 @@ class ChantierSerializer(ModelSerializer):
 class BatimentSerializer(ModelSerializer):
     class Meta:
         model = Batiment
-        fields = '__all__'
+        fields = ['id', 'libelle']
 
 
 class EntrepriseAffaireSerializer(ModelSerializer):

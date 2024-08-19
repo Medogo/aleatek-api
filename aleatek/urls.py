@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
+
+from Dashbord.serializers import BatimentSerializer
 from .views import get_csrf_token
 from rest_framework import routers
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
@@ -305,6 +307,7 @@ urlpatterns = [
     path('plans-affaire/', GetAllPlansAffaire.as_view(), name='all-plans-affaire'),
     path('api/affaires-list/', AffaireListView.as_view(), name='affaire-list'),
     path('api/tutore/', TutorialIDList.as_view(), name='tutorial_ids'),
+    path('batimentss/', BatimentAdminViewsetAdmin.as_view({'get': 'list'}), name='batiment-list'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
