@@ -68,12 +68,7 @@ class TutorialSerializer(serializers.ModelSerializer):
 
 
 class BatimentPlanAffaireSerializer(serializers.ModelSerializer):
-    batiments = serializers.SerializerMethodField()
     class Meta:
         model = BatimentPlanAffaire
-        fields = ['id', 'plan_affaire', 'batiments']
+        fields = '__all__'
 
-    def get_batiments(self, obj):
-
-        batiments = obj.batiment.all()
-        return BatimentSerializer(batiments, many=True).data
