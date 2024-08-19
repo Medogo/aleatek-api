@@ -2,10 +2,10 @@ from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
-from .models import Produit, PlanAffaire, Affaire, Batiment, Chantier, EntrepriseAffaire
+from .models import Produit, PlanAffaire, Affaire, Batiment, Chantier, EntrepriseAffaire, BatimentPlanAffaire
 from .permissions import IsAdminAuthenticated
 from .serializers import AffaireSerializer, ProduitSerializer, PlanAffaireSerializer, BatimentSerializer, \
-    ChantierSerializer, EntrepriseAffaireSerializer
+    ChantierSerializer, EntrepriseAffaireSerializer, BatimentPlanAffaireSerializer
 from rest_framework.views import APIView
 from adresse.models import Adress
 from collaborateurs.models import Collaborateurs
@@ -333,3 +333,9 @@ class PlanAffaireByAffaireIdView(ListAPIView):
     def get_queryset(self):
         affaire_id = self.kwargs['affaire_id']
         return PlanAffaire.objects.filter(affaire__id=affaire_id)
+
+
+class BatiementPlanAffaireViewset(viewsets.ModelViewSet):
+    queryset = BatimentPlanAffaire.objects.all()
+    serializer_class = BatimentPlanAffaireSerializer
+    permission_classes = [IsAdminAuthenticated]

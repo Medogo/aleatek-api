@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
-from .models import PlanAffaire, Produit, Affaire, Chantier, Batiment, EntrepriseAffaire, Tutorial
+from .models import PlanAffaire, Produit, Affaire, Chantier, Batiment, EntrepriseAffaire, Tutorial, BatimentPlanAffaire
 from collaborateurs.serializers import ColaboratteursSerializer
 from entreprise.serializers import EntrepriseSerializer
 
@@ -65,3 +65,15 @@ class TutorialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tutorial
         fields = '__all__'  # On ne retourne que l'ID
+
+
+class BatimentPlanAffaireSerializer(serializers.ModelSerializer):
+    batiments = serializers.SerializerMethodField()
+    class Meta:
+        model = BatimentPlanAffaire
+        fields = ['id', 'plan_affaire', 'batiments']
+
+    def get_batiments(self, obj):
+
+        batiments = obj.batiment.all()
+        return BatimentSerializer(batiments, many=True).data

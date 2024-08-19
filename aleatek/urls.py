@@ -8,7 +8,8 @@ from django.urls import re_path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from Dashbord.views import AffaireListView, TutorialIDList, TutoratViewSet, PlanAffaireByAffaireIdView
+from Dashbord.views import AffaireListView, TutorialIDList, TutoratViewSet, PlanAffaireByAffaireIdView, \
+    BatiementPlanAffaireViewset
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -122,6 +123,7 @@ router.register('collaborateurs', CollaborateursAdminViewsetAdmin, basename='adm
 router.register('tutorats', TutoratViewSet, basename='admin-tutorat')
 router.register('users', UserViewSet, basename='users')
 router.register('active', MissionActiveView, basename='mission_active')
+router.register('batiement_planaffaire', BatiementPlanAffaireViewset, basename='admin-plan-affaire-batiement')
 
 schema_view = get_schema_view(
     openapi.Info(

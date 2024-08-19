@@ -113,3 +113,8 @@ class Tutorial(models.Model):
                                 related_name='tutorals')
     plan_affaire = models.ForeignKey(PlanAffaire, on_delete=models.CASCADE, null=True, blank=True,
                                      related_name='tutorals')
+
+
+class BatimentPlanAffaire(models.Model):
+    batiment = models.ManyToManyField(Batiment)
+    plan_affaire = models.ForeignKey(PlanAffaire, on_delete=models.CASCADE, null=True, blank=True,)
