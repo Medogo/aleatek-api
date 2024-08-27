@@ -4,12 +4,12 @@ from rest_framework.viewsets import ModelViewSet
 from .models import Mission, MissionActive, InterventionTechnique, Article, ArticleSelect, ArticleMission
 from .permissions import IsAdminAuthenticated
 from .serializers import MissionSerializer, MissionActiveSerializer, InterventionTechniqueSerializer, ArticleSerializer, \
-    ArticleSelectSerializer, ArticleMissionSerializer
+    ArticleSelectSerializer, ArticleMissionSerializer, MissionActiveDetailSerializer, MissionSActiveSerializer
 from rest_framework.views import APIView
 from Dashbord.models import Affaire, PlanAffaire
 from collaborateurs.models import Collaborateurs
 from django.forms.models import model_to_dict
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, generics
 from django.db import transaction
 from utils.utils import getllFirstParentOfArticle, getSubAffaireChild, getParentAffaire
 from RICT.models import MissionRICT
@@ -359,3 +359,29 @@ class MissionActiveView(viewsets.ModelViewSet):
     queryset = MissionActive.objects.all()
     serializer_class = MissionActiveSerializer
     permission_classes = [IsAdminAuthenticated]
+
+
+class MissionActiveCreateAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = MissionSActiveSerializer(data=request.data)
+        if serializer.is_valid():
+            mission_active = serializer.save()
+            return Response({'message': 'Missions successfully assigned to the Affaire.'},
+                            status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class MissionActiveDetailAPIView(APIView):
+    def get(self, request, affaire_id, *args, **kwargs):
+        try:
+            mission_active = MissionActive.objects.get(id_affaire_id=affaire_id)
+            serializer = MissionActiveDetailSerializer(mission_active)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except MissionActive.DoesNotExist:
+            return Response({'error': 'No missions found for this Affaire.'}, status=status.HTTP_404_NOT_FOUND)
+
+
+class MissionActiveDetailView(generics.RetrieveAPIView):
+    queryset = MissionActive.objects.all()
+    serializer_class = MissionActiveDetailSerializer
+    lookup_field = 'id_affaire'

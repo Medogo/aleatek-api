@@ -95,3 +95,5 @@ class ArticleSelect(models.Model):
         constraints = [
             UniqueConstraint(fields=['article', 'affaire'], name='unique_affaire_article')
         ]
+
+

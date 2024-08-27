@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
+
+from Dashbord.models import Affaire
 from .models import MissionActive, Mission, InterventionTechnique, Article, ArticleSelect, ArticleMission
 
 
@@ -44,3 +46,20 @@ class ArticleMissionSerializer(ModelSerializer):
     class Meta:
         model = ArticleMission
         fields = '__all__'
+
+
+class MissionSActiveSerializer(serializers.ModelSerializer):
+    missions = serializers.PrimaryKeyRelatedField(many=True, queryset=Mission.objects.all(), source='id_mission')
+    id_affaire = serializers.PrimaryKeyRelatedField(queryset=Affaire.objects.all())
+
+    class Meta:
+        model = MissionActive
+        fields = ['id_affaire', 'missions']
+
+
+class MissionActiveDetailSerializer(serializers.ModelSerializer):
+    missions = MissionSerializer(many=True, source='id_mission')
+
+    class Meta:
+        model = MissionActive
+        fields = ['id_affaire', 'missions']

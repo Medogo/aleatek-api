@@ -20,7 +20,8 @@ from mission.views import AddInterventionTechnique, AddMissionActive, DeleteArti
     GetAllMissionViewByChapitre, MissionAdminViewsetAdmin, ITAdminViewsetAdmin, \
     ArticleAdminViewsetAdmin, GetAllParentMission, \
     MissionActiveForCurrentAffaire, VerifyExistITForMissionSignAndCollab, VerifyExistMissionActive, \
-    AllIntervenantForAffaire, AllMissionForAffaire, ArticleMissionViewsetAdmin, MissionActiveViewSet, MissionActiveView
+    AllIntervenantForAffaire, AllMissionForAffaire, ArticleMissionViewsetAdmin, MissionActiveViewSet, MissionActiveView, \
+    MissionActiveCreateAPIView, MissionActiveDetailAPIView, MissionActiveDetailView
 
 from collaborateurs.views import UtilisateurConnecteView, CollaborateursAdminViewsetAdmin, AllCollabAssignToMission
 from entreprise.views import AddEntrepriseOnAffaire, CreateEntreprise, EditeDataEntreprise, \
@@ -308,6 +309,9 @@ urlpatterns = [
     path('api/affaires-list/', AffaireListView.as_view(), name='affaire-list'),
     path('api/tutore/', TutorialIDList.as_view(), name='tutorial_ids'),
     path('batimentss/', BatimentAdminViewsetAdmin.as_view({'get': 'list'}), name='batiment-list'),
+    path('active_missions/', MissionActiveCreateAPIView.as_view(), name='mission-active-create'),
+    path('active_missions/<int:affaire_id>/', MissionActiveDetailAPIView.as_view(), name='mission-active-detail'),
+    path('actives_missions/<int:id_affaire>/', MissionActiveDetailView.as_view(), name='mission-active-detail'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
