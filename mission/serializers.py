@@ -63,3 +63,10 @@ class MissionActiveDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = MissionActive
         fields = ['id_affaire', 'missions']
+
+
+class SousMissionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Mission
+        fields = ['id', 'code_mission', 'libelle', 'mission_parent']
+        read_only_fields = ['mission_parent']

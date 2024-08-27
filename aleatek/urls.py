@@ -21,7 +21,7 @@ from mission.views import AddInterventionTechnique, AddMissionActive, DeleteArti
     ArticleAdminViewsetAdmin, GetAllParentMission, \
     MissionActiveForCurrentAffaire, VerifyExistITForMissionSignAndCollab, VerifyExistMissionActive, \
     AllIntervenantForAffaire, AllMissionForAffaire, ArticleMissionViewsetAdmin, MissionActiveViewSet, MissionActiveView, \
-    MissionActiveCreateAPIView, MissionActiveDetailAPIView, MissionActiveDetailView
+    MissionActiveCreateAPIView, MissionActiveDetailAPIView, MissionActiveDetailView, AddSousMissionView
 
 from collaborateurs.views import UtilisateurConnecteView, CollaborateursAdminViewsetAdmin, AllCollabAssignToMission
 from entreprise.views import AddEntrepriseOnAffaire, CreateEntreprise, EditeDataEntreprise, \
@@ -312,6 +312,7 @@ urlpatterns = [
     path('active_missions/', MissionActiveCreateAPIView.as_view(), name='mission-active-create'),
     path('active_missions/<int:affaire_id>/', MissionActiveDetailAPIView.as_view(), name='mission-active-detail'),
     path('actives_missions/<int:id_affaire>/', MissionActiveDetailView.as_view(), name='mission-active-detail'),
+    path('add_sous_missions/<int:mission_parent_id>/add_sous_mission/', AddSousMissionView.as_view(), name='add-sous-mission'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

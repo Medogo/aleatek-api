@@ -4,7 +4,8 @@ from rest_framework.viewsets import ModelViewSet
 from .models import Mission, MissionActive, InterventionTechnique, Article, ArticleSelect, ArticleMission
 from .permissions import IsAdminAuthenticated
 from .serializers import MissionSerializer, MissionActiveSerializer, InterventionTechniqueSerializer, ArticleSerializer, \
-    ArticleSelectSerializer, ArticleMissionSerializer, MissionActiveDetailSerializer, MissionSActiveSerializer
+    ArticleSelectSerializer, ArticleMissionSerializer, MissionActiveDetailSerializer, MissionSActiveSerializer, \
+    SousMissionSerializer
 from rest_framework.views import APIView
 from Dashbord.models import Affaire, PlanAffaire
 from collaborateurs.models import Collaborateurs
@@ -385,3 +386,18 @@ class MissionActiveDetailView(generics.RetrieveAPIView):
     queryset = MissionActive.objects.all()
     serializer_class = MissionActiveDetailSerializer
     lookup_field = 'id_affaire'
+
+
+class AddSousMissionView(generics.CreateAPIView):
+    serializer_class = SousMissionSerializer
+
+    def post(self, request, *args, **kwargs):
+        mission_parent_id = kwargs.get('mission_parent_id')
+        mission_parent = Mission.objects.get(id=mission_parent_id)
+
+        # Créer une nouvelle sous-mission en assignant la mission parent
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(mission_parent=mission_parent)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
