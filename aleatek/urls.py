@@ -312,7 +312,6 @@ urlpatterns = [
     path('batimentss/', BatimentAdminViewsetAdmin.as_view({'get': 'list'}), name='batiment-list'),
     path('active_missions/', MissionActiveCreateAPIView.as_view(), name='mission-active-create'),
     path('active_missions/<int:affaire_id>/', MissionActiveDetailAPIView.as_view(), name='mission-active-detail'),
-    path('actives_missions/<int:id_affaire>/', MissionActiveDetailView.as_view(), name='mission-active-detail'),
     path('add_sous_missions/<int:mission_parent_id>/add_sous_mission/', AddSousMissionView.as_view(), name='add-sous-mission'),
     path('get_missions_affaires/<int:id>/', AffaireDetailView.as_view(), name='affaire-detail'),
     path('active-affaire/', ActiveAffaireView.as_view(), name='active-affaire'),

@@ -387,7 +387,7 @@ class MissionActiveCreateAPIView(APIView):
             return Response({'message': 'Missions successfully assigned to the Affaire.'},
                             status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+"""
 
 class MissionActiveDetailAPIView(APIView):
     def get(self, request, affaire_id, *args, **kwargs):
@@ -397,6 +397,20 @@ class MissionActiveDetailAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except MissionActive.DoesNotExist:
             return Response({'error': 'No missions found for this Affaire.'}, status=status.HTTP_404_NOT_FOUND)
+"""
+
+
+class MissionActiveDetailAPIView(APIView):
+    def get(self, request, affaire_id, *args, **kwargs):
+        # Utilisation de filter() pour récupérer potentiellement plusieurs objets
+        mission_actives = MissionActive.objects.filter(id_affaire_id=affaire_id)
+
+        if mission_actives.exists():
+            serializer = MissionActiveDetailSerializer(mission_actives, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': 'No missions found for this Affaire.'}, status=status.HTTP_404_NOT_FOUND)
+
 
 
 class MissionActiveDetailView(generics.RetrieveAPIView):
