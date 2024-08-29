@@ -1,3 +1,5 @@
+import logging
+
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
@@ -237,15 +239,30 @@ class DeleteArticleSelectForAffaire(APIView):
             return Response({'delete': False})
 
 
+logger = logging.getLogger(__name__)
+
+
 class AddMissionActive(APIView):
     def post(self, request):
         try:
+            affaire_id = request.data.get('affaire')
+            missions = request.data.get('missions')
+
+            if not affaire_id or not missions:
+                return Response({"error": "Affaire or missions data is missing"}, status=status.HTTP_400_BAD_REQUEST)
+
             with transaction.atomic():
-                MissionActive.objects.filter(id_affaire=request.data['affaire']).delete()
-                for mission in request.data['missions']:
-                    MissionActive(id_affaire_id=request.data['affaire'], id_mission_id=mission).save()
-        except:
-            return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                MissionActive.objects.filter(id_affaire=affaire_id).delete()
+
+                for mission_id in missions:
+                    MissionActive(id_affaire_id=affaire_id, id_mission_id=mission_id).save()
+
+        except KeyError as e:
+            logger.error(f"Missing data: {e}")
+            return Response({"error": f"Missing data: {str(e)}"}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            logger.error(f"Unexpected error: {e}")
+            return Response({"error": "Internal server error"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         return Response(status=status.HTTP_201_CREATED)
 
