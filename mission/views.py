@@ -387,6 +387,8 @@ class MissionActiveCreateAPIView(APIView):
             return Response({'message': 'Missions successfully assigned to the Affaire.'},
                             status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 """
 
 class MissionActiveDetailAPIView(APIView):
@@ -399,8 +401,7 @@ class MissionActiveDetailAPIView(APIView):
             return Response({'error': 'No missions found for this Affaire.'}, status=status.HTTP_404_NOT_FOUND)
 """
 
-
-class MissionActiveDetailAPIView(APIView):
+"""class MissionActiveDetailAPIView(APIView):
     def get(self, request, affaire_id, *args, **kwargs):
         # Utilisation de filter() pour récupérer potentiellement plusieurs objets
         mission_actives = MissionActive.objects.filter(id_affaire_id=affaire_id)
@@ -411,6 +412,7 @@ class MissionActiveDetailAPIView(APIView):
         else:
             return Response({'error': 'No missions found for this Affaire.'}, status=status.HTTP_404_NOT_FOUND)
 
+"""
 
 
 class MissionActiveDetailView(generics.RetrieveAPIView):
@@ -438,3 +440,72 @@ class AffaireDetailView(generics.RetrieveAPIView):
     queryset = Affaire.objects.all()
     serializer_class = AffaireWithMissionsSerializer
     lookup_field = 'id'
+
+
+"""
+class MissionActiveDetailAPIView(APIView):
+    def get(self, request, affaire_id, *args, **kwargs):
+        mission_actives = MissionActive.objects.filter(id_affaire_id=affaire_id)
+        if mission_actives.exists():
+            serializer = MissionActiveDetailSerializer(mission_actives, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': 'No missions found for this Affaire.'}, status=status.HTTP_404_NOT_FOUND)
+
+    def post(self, request, affaire_id, *args, **kwargs):
+        mission_ids = request.data.get('mission_ids', [])
+        try:
+            MissionActive.activate_missions_for_affaire(affaire_id, mission_ids)
+            return Response({'message': 'Missions activated successfully for the Affaire.'}, status=status.HTTP_200_OK)
+        except (Affaire.DoesNotExist, Mission.DoesNotExist) as e:
+            return Response({'error': str(e)}, status=status.HTTP_404_NOT_FOUND)
+"""
+
+"""
+class MissionActiveDetailAPIView(APIView):
+    def get(self, request, affaire_id, *args, **kwargs):
+        try:
+            mission_active = MissionActive.objects.get(id_affaire_id=affaire_id)
+            active_missions = mission_active.get_missions_for_affaire()
+            serializer = MissionActiveDetailSerializer(active_missions, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except MissionActive.DoesNotExist:
+            return Response({'error': 'No active missions found for this Affaire.'}, status=status.HTTP_404_NOT_FOUND)
+
+    def post(self, request, affaire_id, *args, **kwargs):
+        mission_ids = request.data.get('mission_ids', [])
+        try:
+            MissionActive.update_missions_for_affaire(affaire_id, mission_ids)
+            return Response({'message': 'Missions updated successfully for the Affaire.'}, status=status.HTTP_200_OK)
+        except (Affaire.DoesNotExist, Mission.DoesNotExist) as e:
+            return Response({'error': str(e)}, status=status.HTTP_404_NOT_FOUND)"""
+
+from django.db.models import Prefetch
+
+
+class MissionActiveDetailAPIView(APIView):
+    def get(self, request, affaire_id, *args, **kwargs):
+        try:
+            affaire = Affaire.objects.get(id=affaire_id)
+            mission_actives = MissionActive.objects.filter(id_affaire=affaire,
+                                                           id_mission__isnull=False).prefetch_related(
+                Prefetch('id_mission', queryset=Mission.objects.filter(is_active=True))
+            ).distinct()
+
+            if not mission_actives.exists():
+                return Response({'error': 'No active missions found for this Affaire.'},
+                                status=status.HTTP_404_NOT_FOUND)
+
+            serializer = MissionActiveDetailSerializer(mission_actives, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Affaire.DoesNotExist:
+            return Response({'error': 'Affaire not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+    def post(self, request, affaire_id, *args, **kwargs):
+        mission_ids = request.data.get('mission_ids', [])
+        try:
+            mission_actives = MissionActive.update_missions_for_affaire(affaire_id, mission_ids)
+            serializer = MissionActiveDetailSerializer(mission_actives, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Affaire.DoesNotExist:
+            return Response({'error': 'Affaire not found.'}, status=status.HTTP_404_NOT_FOUND)

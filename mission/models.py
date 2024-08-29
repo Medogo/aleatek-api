@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 from Dashbord.models import Affaire
 
@@ -8,8 +10,6 @@ from django.db.models import UniqueConstraint
 
 
 # Create your models here.
-
-# Other name of mission is chapiter
 class Mission(models.Model):
     code_mission = models.CharField(max_length=10, unique=True)
     libelle = models.CharField(max_length=100)
@@ -25,10 +25,29 @@ class MissionActive(models.Model):
     id_mission = models.ManyToManyField(Mission)
     id_affaire = models.ForeignKey(Affaire, on_delete=models.CASCADE)
 
-    def get_missions_for_affaire(self):
-        # Récupérer toutes les missions associées à cette affaire
-        return self.id_mission.all()
+    def get_active_missions(self):
+        return self.id_mission.filter(is_active=True)
 
+    @classmethod
+    def update_missions_for_affaire(cls, affaire_id, mission_ids):
+        affaire = Affaire.objects.get(id=affaire_id)
+
+        # Activer les nouvelles missions
+        Mission.objects.filter(id__in=mission_ids).update(is_active=True)
+
+        # Désactiver les missions qui ne sont plus dans la liste
+        Mission.objects.filter(missionactive__id_affaire=affaire).exclude(id__in=mission_ids).update(is_active=False)
+
+        # Obtenir ou créer un seul objet MissionActive pour cette affaire
+        mission_active, created = cls.objects.get_or_create(id_affaire=affaire)
+
+        # Mettre à jour les missions pour cet objet MissionActive
+        mission_active.id_mission.set(mission_ids)
+
+        # Supprimer les MissionActive vides pour cette affaire
+        cls.objects.filter(id_affaire=affaire, id_mission__isnull=True).delete()
+
+        return cls.objects.filter(id_affaire=affaire)
 
 class InterventionTechnique(models.Model):
     affecteur = models.ForeignKey(Collaborateurs, on_delete=models.CASCADE, related_name='ITAffecteur')
@@ -96,5 +115,3 @@ class ArticleSelect(models.Model):
         constraints = [
             UniqueConstraint(fields=['article', 'affaire'], name='unique_affaire_article')
         ]
-
-

@@ -57,12 +57,26 @@ class MissionSActiveSerializer(serializers.ModelSerializer):
         fields = ['id_affaire', 'missions']
 
 
+"""
 class MissionActiveDetailSerializer(serializers.ModelSerializer):
     missions = MissionSerializer(many=True, source='id_mission')
 
     class Meta:
         model = MissionActive
         fields = ['id_affaire', 'missions']
+"""
+
+
+class MissionActiveDetailSerializer(serializers.ModelSerializer):
+    missions = MissionSerializer(many=True, source='id_mission')
+
+    class Meta:
+        model = MissionActive
+        fields = ['id', 'id_affaire', 'missions']
+
+        def get_missions(self, obj):
+            active_missions = obj.get_active_missions()
+            return MissionSerializer(active_missions, many=True).data
 
 
 class SousMissionSerializer(serializers.ModelSerializer):
