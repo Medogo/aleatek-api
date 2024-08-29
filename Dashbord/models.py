@@ -50,6 +50,8 @@ class Affaire(models.Model):
         return str(self.libelle)
 
 
+
+
 class PlanAffaire(models.Model):
     RISQUES = [
         ('Normal', 'Normal'),

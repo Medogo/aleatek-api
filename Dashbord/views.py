@@ -339,3 +339,14 @@ class BatiementPlanAffaireViewset(viewsets.ModelViewSet):
     queryset = BatimentPlanAffaire.objects.all()
     serializer_class = BatimentPlanAffaireSerializer
     permission_classes = [IsAdminAuthenticated]
+
+
+class ActiveAffaireView(APIView):
+    def get(self, request):
+        try:
+            # Rechercher l'affaire active
+            active_affaire = Affaire.objects.get(is_active=True)
+            return Response({'active_affaire_id': active_affaire.id}, status=status.HTTP_200_OK)
+        except Affaire.DoesNotExist:
+            # Si aucune affaire n'est active, retourner un message d'erreur
+            return Response({'detail': "Aucune affaire active trouvée."}, status=status.HTTP_404_NOT_FOUND)

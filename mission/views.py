@@ -5,7 +5,7 @@ from .models import Mission, MissionActive, InterventionTechnique, Article, Arti
 from .permissions import IsAdminAuthenticated
 from .serializers import MissionSerializer, MissionActiveSerializer, InterventionTechniqueSerializer, ArticleSerializer, \
     ArticleSelectSerializer, ArticleMissionSerializer, MissionActiveDetailSerializer, MissionSActiveSerializer, \
-    SousMissionSerializer
+    SousMissionSerializer, AffaireWithMissionsSerializer
 from rest_framework.views import APIView
 from Dashbord.models import Affaire, PlanAffaire
 from collaborateurs.models import Collaborateurs
@@ -401,3 +401,9 @@ class AddSousMissionView(generics.CreateAPIView):
             serializer.save(mission_parent=mission_parent)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AffaireDetailView(generics.RetrieveAPIView):
+    queryset = Affaire.objects.all()
+    serializer_class = AffaireWithMissionsSerializer
+    lookup_field = 'id'

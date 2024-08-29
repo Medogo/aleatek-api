@@ -72,3 +72,4 @@ class BatimentPlanAffaireSerializer(serializers.ModelSerializer):
         model = BatimentPlanAffaire
         fields = '__all__'
 
+

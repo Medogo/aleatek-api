@@ -11,7 +11,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from Dashbord.views import AffaireListView, TutorialIDList, TutoratViewSet, PlanAffaireByAffaireIdView, \
-    BatiementPlanAffaireViewset
+    BatiementPlanAffaireViewset, ActiveAffaireView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -21,7 +21,8 @@ from mission.views import AddInterventionTechnique, AddMissionActive, DeleteArti
     ArticleAdminViewsetAdmin, GetAllParentMission, \
     MissionActiveForCurrentAffaire, VerifyExistITForMissionSignAndCollab, VerifyExistMissionActive, \
     AllIntervenantForAffaire, AllMissionForAffaire, ArticleMissionViewsetAdmin, MissionActiveViewSet, MissionActiveView, \
-    MissionActiveCreateAPIView, MissionActiveDetailAPIView, MissionActiveDetailView, AddSousMissionView
+    MissionActiveCreateAPIView, MissionActiveDetailAPIView, MissionActiveDetailView, AddSousMissionView, \
+    AffaireDetailView
 
 from collaborateurs.views import UtilisateurConnecteView, CollaborateursAdminViewsetAdmin, AllCollabAssignToMission
 from entreprise.views import AddEntrepriseOnAffaire, CreateEntreprise, EditeDataEntreprise, \
@@ -313,6 +314,8 @@ urlpatterns = [
     path('active_missions/<int:affaire_id>/', MissionActiveDetailAPIView.as_view(), name='mission-active-detail'),
     path('actives_missions/<int:id_affaire>/', MissionActiveDetailView.as_view(), name='mission-active-detail'),
     path('add_sous_missions/<int:mission_parent_id>/add_sous_mission/', AddSousMissionView.as_view(), name='add-sous-mission'),
+    path('get_missions_affaires/<int:id>/', AffaireDetailView.as_view(), name='affaire-detail'),
+    path('active-affaire/', ActiveAffaireView.as_view(), name='active-affaire'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
