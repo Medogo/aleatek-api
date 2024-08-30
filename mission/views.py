@@ -509,3 +509,32 @@ class MissionActiveDetailAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Affaire.DoesNotExist:
             return Response({'error': 'Affaire not found.'}, status=status.HTTP_404_NOT_FOUND)
+        
+
+
+
+class MettreAJourMissionsAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        affaire_id = request.data.get('affaire_id')
+        mission_ids = request.data.get('mission_ids', [])
+
+        if not affaire_id:
+            return Response({'error': 'Le champ affaire_id est requis.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            affaire = Affaire.objects.get(id=affaire_id)
+        except Affaire.DoesNotExist:
+            return Response({'error': 'Affaire introuvable.'}, status=status.HTTP_404_NOT_FOUND)
+
+        # Si l'affaire est active, mettre à jour toutes les missions associées
+        if affaire.is_active:
+            # Activer toutes les missions spécifiées
+            Mission.objects.filter(id__in=mission_ids).update(is_active=True)
+
+            # Obtenir ou créer un objet MissionActive pour cette affaire
+            mission_active, created = MissionActive.objects.get_or_create(id_affaire=affaire)
+            mission_active.id_mission.set(mission_ids)
+
+            return Response({'message': 'Missions activées et MissionActive mise à jour.'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': 'L\'Affaire n\'est pas active.'}, status=status.HTTP_400_BAD_REQUEST)

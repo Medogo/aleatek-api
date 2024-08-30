@@ -22,7 +22,7 @@ from mission.views import AddInterventionTechnique, AddMissionActive, DeleteArti
     MissionActiveForCurrentAffaire, VerifyExistITForMissionSignAndCollab, VerifyExistMissionActive, \
     AllIntervenantForAffaire, AllMissionForAffaire, ArticleMissionViewsetAdmin, MissionActiveViewSet, MissionActiveView, \
     MissionActiveCreateAPIView, MissionActiveDetailAPIView, MissionActiveDetailView, AddSousMissionView, \
-    AffaireDetailView
+    AffaireDetailView, MettreAJourMissionsAPIView
 
 from collaborateurs.views import UtilisateurConnecteView, CollaborateursAdminViewsetAdmin, AllCollabAssignToMission
 from entreprise.views import AddEntrepriseOnAffaire, CreateEntreprise, EditeDataEntreprise, \
@@ -315,6 +315,8 @@ urlpatterns = [
     path('add_sous_missions/<int:mission_parent_id>/add_sous_mission/', AddSousMissionView.as_view(), name='add-sous-mission'),
     path('get_missions_affaires/<int:id>/', AffaireDetailView.as_view(), name='affaire-detail'),
     path('active-affaire/', ActiveAffaireView.as_view(), name='active-affaire'),
+    path('mettre_a_jour_missions/',  MettreAJourMissionsAPIView.as_view(), name='mettre-a-jour-missions'),
+
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
