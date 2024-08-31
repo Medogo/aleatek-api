@@ -60,7 +60,7 @@ from RICT.views import ReviserRICT, GenerateDataForRICT, SaveDecriptionSommaire,
     AvisArticleViewsetAdmin, DescriptionSommaireViewsetAdmin, \
     DispositionViewsetAdmin, CommentaireAvisArticleViewsetAdmin, GetDesriptionSommaireByRICT, SaveArticleDisposition, \
     GetDisposionAvisAndComment, MissionRICTViewsetAdmin, ValidateDevalidateMissionRict
-
+from Dashbord.views import ActiveAffaireViewMission
 from ouvrage.views import GetOuvrageAffaireDetailEntreprise, AllOuvrageAvailableForAffaire, \
     DocumentAffectationViewsetAdmin, GetCollaborateurAffectOnDocument, RemoveCollaborateurOnDocument, \
     RemarqueAsoViewsetAdmin, SetRemarqueOnAso
@@ -70,7 +70,7 @@ from synthese.views import SyntheseAvisViewsetAdmin, CreateSyntheseAvis, AllSynt
     GetAllCommentaireOnAffaire, LeverCommentaire, AnnulerLever, AllAvisOfAffaire, ValidateSyntheseAvis, \
     AllAvisOfSynthese, DevalidateSyntheseAvis
 
-from mission.views import GetCritereAboutDescriptionBati, HandleSelectCritere, GetCritereAboutCodeTravail
+from mission.views import GetCritereAboutDescriptionBati, HandleSelectCritere, GetCritereAboutCodeTravail, ToggleMissionActiveView, AffaireMissionsView
 
 # from ouvrage.views import CodificationplusBas
 
@@ -126,7 +126,7 @@ router.register('entreprise', EntrepriseAdminViewsetAdmin, basename='admin-entre
 router.register('collaborateurs', CollaborateursAdminViewsetAdmin, basename='admin-collab')
 router.register('tutorats', TutoratViewSet, basename='admin-tutorat')
 router.register('users', UserViewSet, basename='users')
-router.register('active', MissionActiveView, basename='mission_active')
+#router.register('active', MissionActiveView, basename='mission_active')
 from mission.views import MissionViewSet, MissionActiveViewSet
 
 router.register('batiement_planaffaire', BatiementPlanAffaireViewset, basename='admin-plan-affaire-batiement')
@@ -315,15 +315,19 @@ urlpatterns = [
     path('api/affaires-list/', AffaireListView.as_view(), name='affaire-list'),
     path('api/tutore/', TutorialIDList.as_view(), name='tutorial_ids'),
     path('batimentss/', BatimentAdminViewsetAdmin.as_view({'get': 'list'}), name='batiment-list'),
-    path('active_missions/', MissionActiveCreateAPIView.as_view(), name='mission-active-create'),
+    #path('active_missions/', MissionActiveCreateAPIView.as_view(), name='mission-active-create'),
    # path('active_missions/<int:affaire_id>/', MissionActiveDetailAPIView.as_view(), name='mission-active-detail'),
     path('add_sous_missions/<int:mission_parent_id>/add_sous_mission/', AddSousMissionView.as_view(), name='add-sous-mission'),
     path('get_missions_affaires/<int:id>/', AffaireDetailView.as_view(), name='affaire-detail'),
-    path('active-affaire/', ActiveAffaireView.as_view(), name='active-affaire'),
+    #path('active-affaire/', ActiveAffaireView.as_view(), name='active-affaire'),
    # path('mettre_a_jour_missions/',  MettreAJourMissionsAPIView.as_view(), name='mettre-a-jour-missions'),
-     path('affaire_news/<int:affaire_id>/active-missions/', get_active_missions_for_affaire, name='active-missions'),
+   #path('affaire_news/<int:affaire_id>/active-missions/', get_active_missions_for_affaire, name='active-missions'),
 
-
+    path('active-cuurent-affaire/', ActiveAffaireView.as_view(), name='active-affaire'),
+    #path('activate-missions/', ActivateMissionsView.as_view(), name='activate-missions'),
+    path('active-affaire-mission/', ActiveAffaireViewMission.as_view(), name='active-affaire'),
+    path('recuperer_toutes_missions_actives_affaire/', AffaireMissionsView.as_view(), name='affaire-missions'),
+    path('selected-mission-active/<int:mission_id>/', ToggleMissionActiveView.as_view(), name='toggle-mission'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

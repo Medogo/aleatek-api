@@ -350,3 +350,25 @@ class ActiveAffaireView(APIView):
         except Affaire.DoesNotExist:
             # Si aucune affaire n'est active, retourner un message d'erreur
             return Response({'detail': "Aucune affaire active trouvée."}, status=status.HTTP_404_NOT_FOUND)
+
+
+class ActiveAffaireViewMission(APIView):
+    def get(self, request):
+        try:
+            active_affaire = Affaire.objects.get(is_active=True)
+            active_missions = MissionActive.objects.filter(id_affaire=active_affaire, is_active=True)
+            
+            serialized_missions = [
+                {
+                    'id': mission.id_mission.id,
+                    'code_mission': mission.id_mission.code_mission,
+                    'libelle': mission.id_mission.libelle
+                } for mission in active_missions
+            ]
+            
+            return Response({
+                'active_affaire_id': active_affaire.id,
+                'active_missions': serialized_missions
+            }, status=status.HTTP_200_OK)
+        except Affaire.DoesNotExist:
+            return Response({'detail': "Aucune affaire active trouvée."}, status=status.HTTP_404_NOT_FOUND)

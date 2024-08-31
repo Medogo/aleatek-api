@@ -8,7 +8,23 @@ from .models import MissionActive, Mission, InterventionTechnique, Article, Arti
 class MissionSerializer(ModelSerializer):
     class Meta:
         model = Mission
-        fields = ['id', 'code_mission', 'libelle', 'mission_parent', 'is_active']
+        fields = ['id', 'code_mission', 'libelle', 'mission_parent']
+
+""" def update(self, instance, validated_data):
+        is_active = validated_data.get('is_active', instance.is_active)
+        # Obtenez l'ID de l'affaire courante depuis le contexte du sérializer
+        current_affaire_id = self.context.get('current_affaire_id')
+
+        if is_active and not instance.is_active:
+            # Créez une instance de MissionActive si `is_active` devient True
+            if current_affaire_id:
+                try:
+                    current_affaire = Affaire.objects.get(id=current_affaire_id)
+                    MissionActive.objects.get_or_create(id_mission=instance, id_affaire=current_affaire)
+                except Affaire.DoesNotExist:
+                    pass
+
+        return super().update(instance, validated_data)"""
 
 
 class MissionActiveSerializer(serializers.ModelSerializer):

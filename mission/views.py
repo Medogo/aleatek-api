@@ -422,18 +422,29 @@ class MissionViewSet(viewsets.ModelViewSet):
     serializer_class = MissionSerializer
     permission_classes = [IsAuthenticated]  # Notez que c'est une liste
 
-    def perform_create(self, serializer):
-        affaire_id = self.request.data.get('affaire_id')
-        affaire = Affaire.objects.get(id=affaire_id)
-        mission = serializer.save()
+    def list(self, request, *args, **kwargs):
+        # Assurez-vous que `self.queryset` est un QuerySet et pas un seul objet
+        missions = self.queryset  # C'est généralement correct
+        return Response(MissionSerializer(missions, many=True).data)
 
-        # Créez une instance de MissionActive
-        MissionActive.objects.get_or_create(id_mission=mission, id_affaire=affaire)
 
 class MissionActiveViewSet(viewsets.ModelViewSet):
     queryset = MissionActive.objects.all()
     serializer_class = MissionActiveSerializer
     permission_classes = [IsAuthenticated]  # Notez que c'est une liste
+
+    def get_queryset(self):
+        affaire_id = self.kwargs.get('affaire_id')
+        queryset = MissionActive.objects.filter(id_affaire=affaire_id)
+        print(f"Queryset: {queryset}")  # Affichez le QuerySet pour vérifier les objets
+        return queryset
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        if not queryset:
+            return Response({'detail': 'Aucune mission active trouvée.'}, status=status.HTTP_404_NOT_FOUND)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
 
 from rest_framework.response import Response
@@ -452,3 +463,44 @@ def get_active_missions_for_affaire(request, affaire_id):
     serializer = MissionActiveSerializer(missions_actives, many=True)
     
     return Response(serializer.data)
+
+class AffaireMissionsView(APIView):
+    def get(self, request):
+        try:
+            active_affaire = Affaire.objects.get(is_active=True)
+            missions = MissionActive.objects.filter(id_affaire=active_affaire)
+            
+            serialized_missions = [
+                {
+                    'id': mission.id_mission.id,
+                    'code_mission': mission.id_mission.code_mission,
+                    'libelle': mission.id_mission.libelle,
+                    'is_active': mission.is_active
+                } for mission in missions
+            ]
+            
+            return Response({
+                'active_affaire_id': active_affaire.id,
+                'missions': serialized_missions
+            }, status=status.HTTP_200_OK)
+        except Affaire.DoesNotExist:
+            return Response({'detail': "Aucune affaire active trouvée."}, status=status.HTTP_404_NOT_FOUND)
+        
+class ToggleMissionActiveView(APIView):
+    def post(self, request, mission_id):
+        try:
+            active_affaire = Affaire.objects.get(is_active=True)
+            mission_active = MissionActive.objects.get(id_affaire=active_affaire, id_mission_id=mission_id)
+            
+            # Basculer l'état actif
+            mission_active.is_active = not mission_active.is_active
+            mission_active.save()
+            
+            return Response({
+                'mission_id': mission_id,
+                'is_active': mission_active.is_active
+            }, status=status.HTTP_200_OK)
+        except Affaire.DoesNotExist:
+            return Response({'detail': "Aucune affaire active trouvée."}, status=status.HTTP_404_NOT_FOUND)
+        except MissionActive.DoesNotExist:
+            return Response({'detail': "Mission non trouvée pour l'affaire active."}, status=status.HTTP_404_NOT_FOUND)
