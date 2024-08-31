@@ -22,32 +22,14 @@ class Mission(models.Model):
 
 
 class MissionActive(models.Model):
-    id_mission = models.ManyToManyField(Mission)
-    id_affaire = models.ForeignKey(Affaire, on_delete=models.CASCADE)
+    id_mission = models.ForeignKey(Mission, on_delete=models.CASCADE, default="")
+    id_affaire = models.ForeignKey(Affaire, on_delete=models.CASCADE, default="")
 
-    def get_active_missions(self):
-        return self.id_mission.filter(is_active=True)
+    def get_current_affaire(self):
+        return self.id_affaire
 
-    @classmethod
-    def update_missions_for_affaire(cls, affaire_id, mission_ids):
-        affaire = Affaire.objects.get(id=affaire_id)
-
-        # Activer les nouvelles missions
-        Mission.objects.filter(id__in=mission_ids).update(is_active=True)
-
-        # Désactiver les missions qui ne sont plus dans la liste
-        Mission.objects.filter(missionactive__id_affaire=affaire).exclude(id__in=mission_ids).update(is_active=False)
-
-        # Obtenir ou créer un seul objet MissionActive pour cette affaire
-        mission_active, created = cls.objects.get_or_create(id_affaire=affaire)
-
-        # Mettre à jour les missions pour cet objet MissionActive
-        mission_active.id_mission.set(mission_ids)
-
-        # Supprimer les MissionActive vides pour cette affaire
-        cls.objects.filter(id_affaire=affaire, id_mission__isnull=True).delete()
-
-        return cls.objects.filter(id_affaire=affaire)
+    
+   
 
 class InterventionTechnique(models.Model):
     affecteur = models.ForeignKey(Collaborateurs, on_delete=models.CASCADE, related_name='ITAffecteur')

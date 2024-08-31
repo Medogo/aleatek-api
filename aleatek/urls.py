@@ -20,9 +20,9 @@ from mission.views import AddInterventionTechnique, AddMissionActive, DeleteArti
     GetAllMissionViewByChapitre, MissionAdminViewsetAdmin, ITAdminViewsetAdmin, \
     ArticleAdminViewsetAdmin, GetAllParentMission, \
     MissionActiveForCurrentAffaire, VerifyExistITForMissionSignAndCollab, VerifyExistMissionActive, \
-    AllIntervenantForAffaire, AllMissionForAffaire, ArticleMissionViewsetAdmin, MissionActiveViewSet, MissionActiveView, \
-    MissionActiveCreateAPIView, MissionActiveDetailAPIView, MissionActiveDetailView, AddSousMissionView, \
-    AffaireDetailView, MettreAJourMissionsAPIView
+    AllIntervenantForAffaire, AllMissionForAffaire, ArticleMissionViewsetAdmin, MissionActiveView, \
+    MissionActiveCreateAPIView, AddSousMissionView, \
+    AffaireDetailView
 
 from collaborateurs.views import UtilisateurConnecteView, CollaborateursAdminViewsetAdmin, AllCollabAssignToMission
 from entreprise.views import AddEntrepriseOnAffaire, CreateEntreprise, EditeDataEntreprise, \
@@ -127,7 +127,11 @@ router.register('collaborateurs', CollaborateursAdminViewsetAdmin, basename='adm
 router.register('tutorats', TutoratViewSet, basename='admin-tutorat')
 router.register('users', UserViewSet, basename='users')
 router.register('active', MissionActiveView, basename='mission_active')
+from mission.views import MissionViewSet, MissionActiveViewSet
+
 router.register('batiement_planaffaire', BatiementPlanAffaireViewset, basename='admin-plan-affaire-batiement')
+router.register('news_missions', MissionViewSet, basename="missions_actives_news")
+router.register('news_missions-active', MissionActiveViewSet, basename='mission_actives_active')
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -141,6 +145,7 @@ schema_view = get_schema_view(
     public=True,
     permission_classes=(permissions.AllowAny,),
 )
+from mission.views import get_active_missions_for_affaire
 
 urlpatterns = [
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
@@ -311,11 +316,13 @@ urlpatterns = [
     path('api/tutore/', TutorialIDList.as_view(), name='tutorial_ids'),
     path('batimentss/', BatimentAdminViewsetAdmin.as_view({'get': 'list'}), name='batiment-list'),
     path('active_missions/', MissionActiveCreateAPIView.as_view(), name='mission-active-create'),
-    path('active_missions/<int:affaire_id>/', MissionActiveDetailAPIView.as_view(), name='mission-active-detail'),
+   # path('active_missions/<int:affaire_id>/', MissionActiveDetailAPIView.as_view(), name='mission-active-detail'),
     path('add_sous_missions/<int:mission_parent_id>/add_sous_mission/', AddSousMissionView.as_view(), name='add-sous-mission'),
     path('get_missions_affaires/<int:id>/', AffaireDetailView.as_view(), name='affaire-detail'),
     path('active-affaire/', ActiveAffaireView.as_view(), name='active-affaire'),
-    path('mettre_a_jour_missions/',  MettreAJourMissionsAPIView.as_view(), name='mettre-a-jour-missions'),
+   # path('mettre_a_jour_missions/',  MettreAJourMissionsAPIView.as_view(), name='mettre-a-jour-missions'),
+     path('affaire_news/<int:affaire_id>/active-missions/', get_active_missions_for_affaire, name='active-missions'),
+
 
 
 ]

@@ -8,20 +8,15 @@ from .models import MissionActive, Mission, InterventionTechnique, Article, Arti
 class MissionSerializer(ModelSerializer):
     class Meta:
         model = Mission
-        fields = '__all__'
+        fields = ['id', 'code_mission', 'libelle', 'mission_parent', 'is_active']
 
 
-class MissionActiveSerializer(ModelSerializer):
-    missions = serializers.SerializerMethodField()
+class MissionActiveSerializer(serializers.ModelSerializer):
+    id_mission = MissionSerializer(many=True)
 
     class Meta:
         model = MissionActive
-        fields = ['id', 'id_affaire', 'missions']
-
-    def get_missions(self, obj):
-        # Récupérer les missions associées et les sérialiser
-        missions = obj.id_mission.all()
-        return MissionSerializer(missions, many=True).data
+        fields = ['id', 'id_mission', 'id_affaire']
 
 
 class InterventionTechniqueSerializer(ModelSerializer):
