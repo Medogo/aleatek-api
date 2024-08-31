@@ -487,20 +487,33 @@ class AffaireMissionsView(APIView):
             return Response({'detail': "Aucune affaire active trouvée."}, status=status.HTTP_404_NOT_FOUND)
         
 class ToggleMissionActiveView(APIView):
-    def post(self, request, mission_id):
+    def post(self, request):
         try:
             active_affaire = Affaire.objects.get(is_active=True)
-            mission_active = MissionActive.objects.get(id_affaire=active_affaire, id_mission_id=mission_id)
+            mission_ids = request.data.get('mission_ids', [])
             
-            # Basculer l'état actif
-            mission_active.is_active = not mission_active.is_active
-            mission_active.save()
+            if not mission_ids:
+                return Response({'detail': "Aucun ID de mission fourni."}, status=status.HTTP_400_BAD_REQUEST)
+            
+            updated_missions = []
+            for mission_id in mission_ids:
+                mission_active, created = MissionActive.objects.get_or_create(
+                    id_affaire=active_affaire,
+                    id_mission_id=mission_id,
+                    defaults={'is_active': False}
+                )
+                
+                # Basculer l'état actif
+                mission_active.is_active = not mission_active.is_active
+                mission_active.save()
+                
+                updated_missions.append({
+                    'mission_id': mission_id,
+                    'is_active': mission_active.is_active
+                })
             
             return Response({
-                'mission_id': mission_id,
-                'is_active': mission_active.is_active
+                'updated_missions': updated_missions
             }, status=status.HTTP_200_OK)
         except Affaire.DoesNotExist:
             return Response({'detail': "Aucune affaire active trouvée."}, status=status.HTTP_404_NOT_FOUND)
-        except MissionActive.DoesNotExist:
-            return Response({'detail': "Mission non trouvée pour l'affaire active."}, status=status.HTTP_404_NOT_FOUND)

@@ -327,7 +327,7 @@ urlpatterns = [
     #path('activate-missions/', ActivateMissionsView.as_view(), name='activate-missions'),
     path('active-affaire-mission/', ActiveAffaireViewMission.as_view(), name='active-affaire'),
     path('recuperer_toutes_missions_actives_affaire/', AffaireMissionsView.as_view(), name='affaire-missions'),
-    path('selected-mission-active/<int:mission_id>/', ToggleMissionActiveView.as_view(), name='toggle-mission'),
+    path('selected-mission-active/', ToggleMissionActiveView.as_view(), name='toggle-mission'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
