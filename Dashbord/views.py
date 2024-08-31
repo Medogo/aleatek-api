@@ -362,7 +362,7 @@ class ActiveAffaireViewMission(APIView):
                 {
                     'id': mission.id_mission.id,
                     'code_mission': mission.id_mission.code_mission,
-                    'libelle': mission.id_mission.libelle
+                    'libelle': mission.id_mission.libelle,
                 } for mission in active_missions
             ]
             

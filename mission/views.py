@@ -464,7 +464,35 @@ def get_active_missions_for_affaire(request, affaire_id):
     
     return Response(serializer.data)
 
-class AffaireMissionsView(APIView):
+"""class AffaireMissionsView(APIView):
+   
+   def get(self, request):
+        try:
+            # Récupérer l'affaire active
+            active_affaire = Affaire.objects.get(is_active=True)
+            
+            # Récupérer toutes les missions associées à cette affaire, sans filtre sur is_active
+            all_missions = MissionActive.objects.filter(id_affaire=active_affaire)
+            
+            serialized_missions = [
+                {
+                    'id': mission.id_mission.id,
+                    'code_mission': mission.id_mission.code_mission,
+                    'libelle': mission.id_mission.libelle,
+                    'is_active': mission.is_active  # Ajout de l'état actif/inactif
+                } for mission in all_missions
+            ]
+            
+            return Response({
+                'active_affaire_id': active_affaire.id,
+                'missions': serialized_missions
+            }, status=status.HTTP_200_OK)
+        except Affaire.DoesNotExist:
+            return Response({'detail': "Aucune affaire active trouvée."}, status=status.HTTP_404_NOT_FOUND)
+        
+
+
+
     def get(self, request):
         try:
             active_affaire = Affaire.objects.get(is_active=True)
@@ -485,7 +513,42 @@ class AffaireMissionsView(APIView):
             }, status=status.HTTP_200_OK)
         except Affaire.DoesNotExist:
             return Response({'detail': "Aucune affaire active trouvée."}, status=status.HTTP_404_NOT_FOUND)
-        
+        """
+
+
+
+class AffaireMissionsView(APIView):
+    def get(self, request):
+        try:
+            active_affaire = Affaire.objects.get(is_active=True)
+            
+            # Utilisez values() pour obtenir un dictionnaire et éviter tout filtrage potentiel
+            all_missions = MissionActive.objects.filter(id_affaire=active_affaire).values(
+                'id',
+                'is_active',
+                'id_mission__id',
+                'id_mission__code_mission',
+                'id_mission__libelle'
+            )
+            
+            serialized_missions = [
+                {
+                    'id': mission['id_mission__id'],
+                    'code_mission': mission['id_mission__code_mission'],
+                    'libelle': mission['id_mission__libelle'],
+                    'is_active': mission['is_active']
+                } for mission in all_missions
+            ]
+            
+            print(f"Nombre de missions trouvées : {len(serialized_missions)}")
+            
+            return Response({
+                'active_affaire_id': active_affaire.id,
+                'missions': serialized_missions
+            }, status=status.HTTP_200_OK)
+        except Affaire.DoesNotExist:
+            return Response({'detail': "Aucune affaire active trouvée."}, status=status.HTTP_404_NOT_FOUND)
+
 class ToggleMissionActiveView(APIView):
     def post(self, request):
         try:
