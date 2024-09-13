@@ -3,7 +3,7 @@ from rest_framework.serializers import ModelSerializer
 
 from Dashbord.models import Affaire
 from .models import MissionActive, Mission, InterventionTechnique, Article, ArticleSelect, ArticleMission
-
+from Dashbord.serializers import AffaireSerializer
 
 class MissionSerializer(ModelSerializer):
     class Meta:
@@ -104,7 +104,31 @@ class AffaireWithMissionsSerializer(serializers.ModelSerializer):
         model = Affaire
         fields = ['id', 'libelle', 'statut', 'numero_offre', 'numero_contrat', 'missions']
 
-class MissionActiveServe(serializers.ModelSerializer):
+
+
+class MissionActiveSerializeresers(serializers.ModelSerializer):
+    id_mission = MissionSerializer()
+    id_affaire = AffaireSerializer()
+
     class Meta:
         model = MissionActive
         fields = ['id', 'id_mission', 'id_affaire', 'is_active']
+
+class SousMissionActivationSerializer(serializers.Serializer):
+    sous_missions_ids = serializers.ListField(
+        child=serializers.IntegerField(),
+        allow_empty=False
+    )
+    affaire_id = serializers.IntegerField()
+
+    def validate_sous_missions_ids(self, value):
+        if not all(isinstance(id, int) for id in value):
+            raise serializers.ValidationError("Tous les IDs de sous-missions doivent être des entiers.")
+        return value
+
+    def validate_affaire_id(self, value):
+        try:
+            Affaire.objects.get(id=value)
+        except Affaire.DoesNotExist:
+            raise serializers.ValidationError("L'affaire spécifiée n'existe pas.")
+        return value

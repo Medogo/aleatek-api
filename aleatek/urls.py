@@ -127,12 +127,12 @@ router.register('collaborateurs', CollaborateursAdminViewsetAdmin, basename='adm
 router.register('tutorats', TutoratViewSet, basename='admin-tutorat')
 router.register('users', UserViewSet, basename='users')
 #router.register('active', MissionActiveView, basename='mission_active')
-from mission.views import MissionViewSet, MissionActiveViewSet, SousMissionActiveViewSet
+from mission.views import MissionViewSet, MissionActiveViewSet, SousMissionsActivationView
 
 router.register('batiement_planaffaire', BatiementPlanAffaireViewset, basename='admin-plan-affaire-batiement')
 router.register('news_missions', MissionViewSet, basename="missions_actives_news")
 router.register('news_missions-active', MissionActiveViewSet, basename='mission_actives_active')
-router.register('mission-state-management', SousMissionActiveViewSet, basename='mission_state_management')
+#router.register('mission-state-management', SousMissionActiveViewSet, basename='mission_state_management')
 
 
 schema_view = get_schema_view(
@@ -330,6 +330,8 @@ urlpatterns = [
     path('active-affaire-mission/', ActiveAffaireViewMission.as_view(), name='active-affaire'),
     path('recuperer_toutes_missions_actives_affaire/', AffaireMissionsView.as_view(), name='affaire-missions'),
     path('selected-mission-active/', ToggleMissionActiveView.as_view(), name='toggle-mission'),
+    path('missions-state-management/<int:mission_id>/sous-missions/', SousMissionsActivationView.as_view(), name='sous-missions-activation'),
+
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

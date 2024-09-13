@@ -581,125 +581,51 @@ class ToggleMissionActiveView(APIView):
         except Affaire.DoesNotExist:
             return Response({'detail': "Aucune affaire active trouvée."}, status=status.HTTP_404_NOT_FOUND)
         
+from rest_framework import serializers, views, status
+from rest_framework.response import Response
+from .models import Mission, MissionActive
+from .serializers import MissionSerializer, MissionActiveSerializer, SousMissionActivationSerializer, MissionActiveSerializeresers
 
-from .serializers import MissionActiveServe
-class SousMissionActiveViewSet(viewsets.ModelViewSet):
-    serializer_class = MissionActiveServe
-
-    def get_queryset(self):
-        queryset = MissionActive.objects.all()
-        mission_id = self.request.query_params.get('mission_id', None)
-        if mission_id is not None:
-            queryset = queryset.filter(id_mission__id=mission_id)
-        return queryset
-
-    @action(detail=True, methods=['post'])
-    def toggle_activation(self, request, pk=None):
-        """
-        Toggle the activation status of a mission and its sub-missions.
-        """
+# View
+class SousMissionsActivationView(views.APIView):
+    def get(self, request, mission_id):
         try:
-            mission = Mission.objects.get(pk=pk)
+            mission = Mission.objects.get(id=mission_id, mission_parent__isnull=True)
+            sous_missions = mission.sous_missions.all()
+            serializer = MissionSerializer(sous_missions, many=True)
+            return Response(serializer.data)
         except Mission.DoesNotExist:
-            return Response({"detail": "Mission not found."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"error": "Mission parente non trouvée"}, status=status.HTTP_404_NOT_FOUND)
 
-        # Determine new activation status based on the parent mission
-        new_status = not mission.missionactive_set.first().is_active
-
-        # Update the status for the parent mission
-        MissionActive.objects.filter(id_mission=mission).update(is_active=new_status)
-
-        # Update the status for all sub-missions
-        sub_missions = mission.sous_missions.all()
-        for sub_mission in sub_missions:
-            MissionActive.objects.filter(id_mission=sub_mission).update(is_active=new_status)
-
-        return Response({"detail": "Activation status updated."}, status=status.HTTP_200_OK)
-
-    @action(detail=True, methods=['post'])
-    def activate_submissions(self, request, pk=None):
-        """
-        Activate the parent mission and all its sub-missions.
-        """
-        try:
-            mission = Mission.objects.get(pk=pk)
-        except Mission.DoesNotExist:
-            return Response({"detail": "Mission not found."}, status=status.HTTP_404_NOT_FOUND)
-
-        # Activate the parent mission
-        MissionActive.objects.update_or_create(
-            id_mission=mission,
-            defaults={'is_active': True}
-        )
-
-        # Activate all sub-missions
-        sub_missions = mission.sous_missions.all()
-        for sub_mission in sub_missions:
-            MissionActive.objects.update_or_create(
-                id_mission=sub_mission,
-                defaults={'is_active': True}
-            )
-
-        return Response({"detail": "All missions and sub-missions activated."}, status=status.HTTP_200_OK)
-
-    @action(detail=True, methods=['post'])
-    def deactivate_submissions(self, request, pk=None):
-        """
-        Deactivate the parent mission and all its sub-missions.
-        """
-        try:
-            mission = Mission.objects.get(pk=pk)
-        except Mission.DoesNotExist:
-            return Response({"detail": "Mission not found."}, status=status.HTTP_404_NOT_FOUND)
-
-        # Deactivate the parent mission
-        MissionActive.objects.update_or_create(
-            id_mission=mission,
-            defaults={'is_active': False}
-        )
-
-        # Deactivate all sub-missions
-        sub_missions = mission.sous_missions.all()
-        for sub_mission in sub_missions:
-            MissionActive.objects.update_or_create(
-                id_mission=sub_mission,
-                defaults={'is_active': False}
-            )
-
-        return Response({"detail": "All missions and sub-missions deactivated."}, status=status.HTTP_200_OK)
-
-        
-"""
-class SousMissionActiveViewSet(viewsets.ModelViewSet):
-    serializer_class = MissionActiveSerializer
-
-    def get_queryset(self):
-        queryset = MissionActive.objects.all()
-        mission_id = self.request.query_params.get('mission_id', None)
-        if mission_id is not None:
-            queryset = queryset.filter(id_mission__id=mission_id)
-        return queryset
-
-    @action(detail=False, methods=['get'])
-    def for_mission_parent(self, request):
-        
-        parent_mission_id = request.query_params.get('parent_mission_id', None)
-        if parent_mission_id is None:
-            return Response({"detail": "parent_mission_id query parameter is required."}, status=400)
+    def post(self, request, mission_id):
+        serializer = SousMissionActivationSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         try:
-            parent_mission = Mission.objects.get(id=parent_mission_id)
+            mission_parente = Mission.objects.get(id=mission_id, mission_parent__isnull=True)
+            sous_missions_ids = serializer.validated_data['sous_missions_ids']
+            affaire_id = serializer.validated_data['affaire_id']
+
+            activated_missions = []
+            for sous_mission_id in sous_missions_ids:
+                try:
+                    sous_mission = Mission.objects.get(id=sous_mission_id, mission_parent=mission_parente)
+                    mission_active, created = MissionActive.objects.get_or_create(
+                        id_mission=sous_mission,
+                        id_affaire_id=affaire_id,
+                        defaults={'is_active': True}
+                    )
+                    if not created:
+                        mission_active.is_active = True
+                        mission_active.save()
+                    activated_missions.append(mission_active)
+                except Mission.DoesNotExist:
+                    return Response({"error": f"Sous-mission {sous_mission_id} non trouvée ou n'appartient pas à la mission parente"}, status=status.HTTP_400_BAD_REQUEST)
+
+            serializer = MissionActiveSerializeresers(activated_missions, many=True)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         except Mission.DoesNotExist:
-            return Response({"detail": "Mission not found."}, status=404)
-
-        # Get all sub-missions
-        sub_missions = parent_mission.sous_missions.all()
-        # Include the parent mission in the queryset
-        all_missions = sub_missions | Mission.objects.filter(id=parent_mission_id)
-
-        # Get all active missions for these missions
-        mission_active_ids = all_missions.values_list('id', flat=True)
-        active_missions = MissionActive.objects.filter(id_mission__in=mission_active_ids, is_active=True)
-
-        serializer = self.get_serializer(active_missions, many=True)
-        return Response(serializer.data)"""
+            return Response({"error": "Mission parente non trouvée"}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
