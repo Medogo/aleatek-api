@@ -113,17 +113,20 @@ class MissionActiveSerializeresers(serializers.ModelSerializer):
     class Meta:
         model = MissionActive
         fields = ['id', 'id_mission', 'id_affaire', 'is_active']
-
 class SousMissionActivationSerializer(serializers.Serializer):
-    sous_missions_ids = serializers.ListField(
-        child=serializers.IntegerField(),
+    sous_missions = serializers.ListField(
+        child=serializers.DictField(
+            child=serializers.BooleanField(),
+            allow_empty=False
+        ),
         allow_empty=False
     )
     affaire_id = serializers.IntegerField()
 
-    def validate_sous_missions_ids(self, value):
-        if not all(isinstance(id, int) for id in value):
-            raise serializers.ValidationError("Tous les IDs de sous-missions doivent être des entiers.")
+    def validate_sous_missions(self, value):
+        for item in value:
+            if len(item) != 1 or not isinstance(next(iter(item.keys())), int):
+                raise serializers.ValidationError("Chaque élément doit être un dictionnaire avec un ID de sous-mission comme clé et un booléen comme valeur.")
         return value
 
     def validate_affaire_id(self, value):

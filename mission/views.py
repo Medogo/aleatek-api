@@ -604,27 +604,28 @@ class SousMissionsActivationView(views.APIView):
 
         try:
             mission_parente = Mission.objects.get(id=mission_id, mission_parent__isnull=True)
-            sous_missions_ids = serializer.validated_data['sous_missions_ids']
+            sous_missions = serializer.validated_data['sous_missions']
             affaire_id = serializer.validated_data['affaire_id']
 
-            activated_missions = []
-            for sous_mission_id in sous_missions_ids:
+            updated_missions = []
+            for sous_mission_data in sous_missions:
+                sous_mission_id, is_active = next(iter(sous_mission_data.items()))
                 try:
                     sous_mission = Mission.objects.get(id=sous_mission_id, mission_parent=mission_parente)
                     mission_active, created = MissionActive.objects.get_or_create(
                         id_mission=sous_mission,
                         id_affaire_id=affaire_id,
-                        defaults={'is_active': True}
+                        defaults={'is_active': is_active}
                     )
                     if not created:
-                        mission_active.is_active = True
+                        mission_active.is_active = is_active
                         mission_active.save()
-                    activated_missions.append(mission_active)
+                    updated_missions.append(mission_active)
                 except Mission.DoesNotExist:
                     return Response({"error": f"Sous-mission {sous_mission_id} non trouvée ou n'appartient pas à la mission parente"}, status=status.HTTP_400_BAD_REQUEST)
 
-            serializer = MissionActiveSerializeresers(activated_missions, many=True)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            serializer = MissionActiveSerializeresers(updated_missions, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         except Mission.DoesNotExist:
             return Response({"error": "Mission parente non trouvée"}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
