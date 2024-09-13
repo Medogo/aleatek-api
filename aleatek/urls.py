@@ -127,11 +127,13 @@ router.register('collaborateurs', CollaborateursAdminViewsetAdmin, basename='adm
 router.register('tutorats', TutoratViewSet, basename='admin-tutorat')
 router.register('users', UserViewSet, basename='users')
 #router.register('active', MissionActiveView, basename='mission_active')
-from mission.views import MissionViewSet, MissionActiveViewSet
+from mission.views import MissionViewSet, MissionActiveViewSet, SousMissionActiveViewSet
 
 router.register('batiement_planaffaire', BatiementPlanAffaireViewset, basename='admin-plan-affaire-batiement')
 router.register('news_missions', MissionViewSet, basename="missions_actives_news")
 router.register('news_missions-active', MissionActiveViewSet, basename='mission_actives_active')
+router.register('mission-state-management', SousMissionActiveViewSet, basename='mission_state_management')
+
 
 schema_view = get_schema_view(
     openapi.Info(

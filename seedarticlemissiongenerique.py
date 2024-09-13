@@ -1,17 +1,16 @@
-# import django.conf as settings
 import django
-import os  # Ajout de l'import pour utiliser os.path
+import os
 from sys import argv
 
-# Configure Django
+# Configure Django settings
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aleatek.settings')  # Remplacez 'monprojet.settings' par le chemin vers vos paramètres Django
 django.setup()
-# settings.configure()
 
 from mission.models import Article, ArticleMission
 
 # Vérifiez que le nombre d'arguments est correct (au moins 3)
 if len(argv) < 3:
-    print("Utilisation : python script.py fichier_d_entree.txt mission_id")
+    print("Utilisation : python seedarticlemissiongenerique.py fichier_d_entree.txt mission_id")
     exit(1)
 
 # Récupérez les arguments de la ligne de commande

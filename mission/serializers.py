@@ -103,3 +103,8 @@ class AffaireWithMissionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Affaire
         fields = ['id', 'libelle', 'statut', 'numero_offre', 'numero_contrat', 'missions']
+
+class MissionActiveServe(serializers.ModelSerializer):
+    class Meta:
+        model = MissionActive
+        fields = ['id', 'id_mission', 'id_affaire', 'is_active']
