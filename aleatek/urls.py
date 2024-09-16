@@ -128,11 +128,14 @@ router.register('tutorats', TutoratViewSet, basename='admin-tutorat')
 router.register('users', UserViewSet, basename='users')
 #router.register('active', MissionActiveView, basename='mission_active')
 from mission.views import MissionViewSet, MissionActiveViewSet, SousMissionsActivationView
+from mission.views import MissionAddParentesSousMissionAffaireViewSet
 
 router.register('batiement_planaffaire', BatiementPlanAffaireViewset, basename='admin-plan-affaire-batiement')
 router.register('news_missions', MissionViewSet, basename="missions_actives_news")
 router.register('news_missions-active', MissionActiveViewSet, basename='mission_actives_active')
 #router.register('mission-state-management', SousMissionActiveViewSet, basename='mission_state_management')
+router.register('missions-parents-sous-mission', MissionAddParentesSousMissionAffaireViewSet, basename='missions-parents-sous-mission') 
+
 
 
 schema_view = get_schema_view(
@@ -317,13 +320,9 @@ urlpatterns = [
     path('api/affaires-list/', AffaireListView.as_view(), name='affaire-list'),
     path('api/tutore/', TutorialIDList.as_view(), name='tutorial_ids'),
     path('batimentss/', BatimentAdminViewsetAdmin.as_view({'get': 'list'}), name='batiment-list'),
-    #path('active_missions/', MissionActiveCreateAPIView.as_view(), name='mission-active-create'),
-   # path('active_missions/<int:affaire_id>/', MissionActiveDetailAPIView.as_view(), name='mission-active-detail'),
+   
     path('add_sous_missions/<int:mission_parent_id>/add_sous_mission/', AddSousMissionView.as_view(), name='add-sous-mission'),
     path('get_missions_affaires/<int:id>/', AffaireDetailView.as_view(), name='affaire-detail'),
-    #path('active-affaire/', ActiveAffaireView.as_view(), name='active-affaire'),
-   # path('mettre_a_jour_missions/',  MettreAJourMissionsAPIView.as_view(), name='mettre-a-jour-missions'),
-   #path('affaire_news/<int:affaire_id>/active-missions/', get_active_missions_for_affaire, name='active-missions'),
 
     path('active-cuurent-affaire/', ActiveAffaireView.as_view(), name='active-affaire'),
     #path('activate-missions/', ActivateMissionsView.as_view(), name='activate-missions'),
@@ -331,6 +330,7 @@ urlpatterns = [
     path('recuperer_toutes_missions_actives_affaire/', AffaireMissionsView.as_view(), name='affaire-missions'),
     path('selected-mission-active/', ToggleMissionActiveView.as_view(), name='toggle-mission'),
     path('missions-state-management/<int:mission_id>/sous-missions/', SousMissionsActivationView.as_view(), name='sous-missions-activation'),
+    
 
 
 ]

@@ -113,7 +113,46 @@ class MissionActiveSerializeresers(serializers.ModelSerializer):
     class Meta:
         model = MissionActive
         fields = ['id', 'id_mission', 'id_affaire', 'is_active']
+
+
+
+class SousMissionItemSerializer(serializers.Serializer):
+    def to_internal_value(self, data):
+        if len(data) != 1:
+            raise serializers.ValidationError("Chaque élément doit être un dictionnaire avec une seule paire clé-valeur.")
+        id_str, is_active = next(iter(data.items()))
+        if not id_str.isdigit():
+            raise serializers.ValidationError("La clé doit être une chaîne représentant un entier.")
+        if not isinstance(is_active, bool):
+            raise serializers.ValidationError("La valeur doit être un booléen.")
+        return {int(id_str): is_active}
+
 class SousMissionActivationSerializer(serializers.Serializer):
+    sous_missions = serializers.DictField(
+        child=serializers.BooleanField(),
+        allow_empty=False
+    )
+    affaire_id = serializers.IntegerField()
+
+    def validate_sous_missions(self, value):
+        if not all(key.isdigit() for key in value.keys()):
+            raise serializers.ValidationError("Toutes les clés doivent être des chaînes de caractères représentant des entiers.")
+        return value
+
+    def validate_affaire_id(self, value):
+        try:
+            Affaire.objects.get(id=value)
+        except Affaire.DoesNotExist:
+            raise serializers.ValidationError("L'affaire spécifiée n'existe pas.")
+        return value
+
+
+
+
+
+
+
+"""class SousMissionActivationSerializer(serializers.Serializer):
     sous_missions = serializers.ListField(
         child=serializers.DictField(
             child=serializers.BooleanField(),
@@ -134,4 +173,4 @@ class SousMissionActivationSerializer(serializers.Serializer):
             Affaire.objects.get(id=value)
         except Affaire.DoesNotExist:
             raise serializers.ValidationError("L'affaire spécifiée n'existe pas.")
-        return value
+        return value"""
