@@ -843,9 +843,13 @@ class SousMissionToggleChildMissionView(viewsets.ViewSet):
         """
         Utilise la logique de ActiveAffaireView pour obtenir l'affaire active.
         """
-        # Note: Cette méthode doit être implémentée selon votre logique d'affaire active
-        # Ceci est un exemple simplifié
-        return Affaire.objects.filter(is_active=True).first()
+        view = ActiveAffaireView()
+        request = HttpRequest()  # Créez un objet de requête vide
+        response = view.get(request)  # Appelez la méthode get
+        if response.status_code == status.HTTP_200_OK:
+            return response.data['active_affaire_id']
+        else:
+            return None
 
     @action(detail=True, methods=['put'])
     def toggle_child_mission(self, request, pk=None):
