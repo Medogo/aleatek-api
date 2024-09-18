@@ -128,13 +128,15 @@ router.register('tutorats', TutoratViewSet, basename='admin-tutorat')
 router.register('users', UserViewSet, basename='users')
 #router.register('active', MissionActiveView, basename='mission_active')
 from mission.views import MissionViewSet, MissionActiveViewSet, SousMissionsActivationView
-from mission.views import MissionAddParentesSousMissionAffaireViewSet
+from mission.views import MissionAddParentesSousMissionAffaireViewSet, SousMissionToggleChildMissionView
 
 router.register('batiement_planaffaire', BatiementPlanAffaireViewset, basename='admin-plan-affaire-batiement')
 router.register('news_missions', MissionViewSet, basename="missions_actives_news")
 router.register('news_missions-active', MissionActiveViewSet, basename='mission_actives_active')
 #router.register('mission-state-management', SousMissionActiveViewSet, basename='mission_state_management')
 router.register('missions-parents-sous-mission', MissionAddParentesSousMissionAffaireViewSet, basename='missions-parents-sous-mission') 
+router.register('toggle-child-mission', SousMissionToggleChildMissionView, basename='toggle-child-mission')
+
 
 
 
@@ -330,6 +332,7 @@ urlpatterns = [
     path('recuperer_toutes_missions_actives_affaire/', AffaireMissionsView.as_view(), name='affaire-missions'),
     path('selected-mission-active/', ToggleMissionActiveView.as_view(), name='toggle-mission'),
     path('missions-state-management/<int:mission_id>/sous-missions/', SousMissionsActivationView.as_view(), name='sous-missions-activation'),
+
     
 
 

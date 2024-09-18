@@ -19,7 +19,7 @@ from RICT.models import MissionRICT
 from rest_framework import serializers, views, status
 from rest_framework.response import Response
 from .models import Mission, MissionActive
-from .serializers import MissionSerializer, MissionActiveSerializer, SousMissionActivationSerializer, MissionActiveSerializeresers
+from .serializers import MissionSerializer, MissionActiveSerializer, SousMissionActivationSerializer, MissionActiveSerializerMission
 from Dashbord.views import ActiveAffaireView
 
 
@@ -675,3 +675,201 @@ class MissionAddParentesSousMissionAffaireViewSet(viewsets.ModelViewSet):
 
         serializer = self.get_serializer(activated_missions, many=True)
         return Response(serializer.data)
+    
+    """@action(detail=True, methods=['PUT'])
+    def update_child_mission_activation(self, request, pk=None):
+        parent_mission = self.get_object()  # Get the parent mission
+        active_affaire = self.get_active_affaire()  # Get the active affaire
+
+        if not active_affaire:
+            return Response({"error": "Aucune affaire active trouvée"}, status=status.HTTP_404_NOT_FOUND)
+
+        # Get the is_active value from the request
+        is_active = request.data.get('is_active')
+
+        if is_active is None:
+            return Response({"error": "is_active est requis"}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Update parent mission's is_active status
+        mission_active, created = MissionActive.objects.get_or_create(
+            id_mission=parent_mission,
+            id_affaire=active_affaire,
+            defaults={'is_active': is_active}
+        )
+        
+        if not created:
+            mission_active.is_active = is_active
+            mission_active.save()
+
+        # Log parent mission update
+        logger.info(f"Mission parente {parent_mission.id} mise à jour, is_active: {is_active}")
+
+        # Retrieve and update all child missions
+        child_missions = Mission.objects.filter(mission_parent=parent_mission)
+        for child_mission in child_missions:
+            child_mission_active, created = MissionActive.objects.get_or_create(
+                id_mission=child_mission,
+                id_affaire=active_affaire,
+                defaults={'is_active': is_active}
+            )
+            
+            if not created:
+                child_mission_active.is_active = is_active
+                child_mission_active.save()
+
+            # Log each child mission update
+            logger.info(f"Sous-mission {child_mission.id} mise à jour, is_active: {is_active}")
+
+        return Response({
+            "parent_mission_id": parent_mission.id,
+            "is_active": mission_active.is_active,
+            "child_missions_updated": [child_mission.id for child_mission in child_missions],
+            "message": "Missions parente et sous-missions mises à jour avec succès"
+        })
+
+"""
+"""
+class UpdateSousMissionsView(APIView):
+    def post(self, request, mission_parent_id):
+        # Récupérer la mission parente
+        mission_parente = get_object_or_404(Mission, id=mission_parent_id)
+        
+        # Récupérer toutes les sous-missions liées à cette mission parente
+        sous_missions = mission_parente.sous_missions.all()
+        
+        # Mettre à jour chaque sous-mission
+        for sous_mission in sous_missions:
+            mission_active = MissionActive.objects.get(id_mission=sous_mission)
+            # Mettre à jour la valeur is_active
+            mission_active.is_active = request.data.get('is_active', False)
+            mission_active.save()
+        
+        return Response({"message": "Sous-missions mises à jour avec succès"}, status=status.HTTP_200_OK)"""
+
+"""class UpdateSousMissionView(APIView):
+    def patch(self, request, mission_id, affaire_id):
+        # Récupérer la mission à mettre à jour (sous-mission)
+        mission = get_object_or_404(Mission, id=mission_id)
+        
+        # Vérifier si la mission appartient à la mission parente si nécessaire (facultatif)
+        # Exemple : if mission.mission_parent != parent_mission: return Response(...)
+
+        try:
+            # Récupérer l'objet MissionActive correspondant à cette sous-mission et affaire
+            mission_active = MissionActive.objects.get(id_mission=mission, id_affaire=affaire_id)
+            
+            # Mettre à jour la valeur de is_active
+            mission_active.is_active = request.data.get('is_active', mission_active.is_active)
+            mission_active.save()
+
+            return Response({"message": "Sous-mission mise à jour avec succès"}, status=status.HTTP_200_OK)
+        
+        except MissionActive.DoesNotExist:
+            return Response({"error": "La sous-mission active n'existe pas pour cette affaire"}, status=status.HTTP_404_NOT_FOUND)"""
+
+from django.http import HttpRequest
+
+
+class SousMisToggleChildMissionView(viewsets.ViewSet):
+    queryset = Mission.objects.all()
+    serializer_class = MissionSerializer
+
+    def get_object(self, pk):
+        """
+        Récupère l'objet basé sur la clé primaire (pk).
+        """
+        try:
+            return Mission.objects.get(pk=pk)
+        except Mission.DoesNotExist:
+            raise Response({"error": "Mission non trouvée"}, status=status.HTTP_404_NOT_FOUND)
+
+    def get_active_affaire(self):
+        """
+        Utilise la logique de ActiveAffaireView pour obtenir l'affaire active.
+        """
+        view = ActiveAffaireView()
+        request = HttpRequest()  # Créez un objet de requête vide
+        response = view.get(request)  # Appelez la méthode get
+        if response.status_code == status.HTTP_200_OK:
+            return response.data['active_affaire_id']
+        else:
+            return None
+
+    @action(detail=True, methods=['put'])
+    def toggle_child_mission(self, request, pk=None):
+        parent_mission = self.get_object(pk)
+        
+        # Vérifiez à la fois dans request.data et request.query_params
+        child_mission_id = request.data.get('child_mission_id') or request.query_params.get('child_mission_id')
+
+        if not child_mission_id:
+            return Response({"error": "child_mission_id est requis"}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Obtenez l'affaire active
+        affaire_id = self.get_active_affaire()
+        if not affaire_id:
+            return Response({"error": "Aucune affaire active trouvée"}, status=status.HTTP_404_NOT_FOUND)
+
+        try:
+            child_mission = Mission.objects.get(id=child_mission_id, mission_parent=parent_mission)
+            affaire = Affaire.objects.get(id=affaire_id)
+        except (Mission.DoesNotExist, Affaire.DoesNotExist):
+            return Response({"error": "child_mission_id ou affaire_id invalide"}, status=status.HTTP_404_NOT_FOUND)
+
+        mission_active, created = MissionActive.objects.get_or_create(
+            id_mission=child_mission,
+            id_affaire=affaire
+        )
+
+        # Basculer la valeur de is_active
+        mission_active.is_active = not mission_active.is_active
+        mission_active.save()
+
+        serializer = MissionActiveSerializerMission(mission_active)
+        return Response(serializer.data)
+
+
+from rest_framework import viewsets, status
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
+from .models import Mission, MissionActive, Affaire
+from .serializers import MissionActiveSerializerMission
+
+class SousMissionToggleChildMissionView(viewsets.ViewSet):
+    queryset = Mission.objects.all()
+
+    def get_active_affaire(self):
+        """
+        Utilise la logique de ActiveAffaireView pour obtenir l'affaire active.
+        """
+        # Note: Cette méthode doit être implémentée selon votre logique d'affaire active
+        # Ceci est un exemple simplifié
+        return Affaire.objects.filter(is_active=True).first()
+
+    @action(detail=True, methods=['put'])
+    def toggle_child_mission(self, request, pk=None):
+        """
+        Bascule l'état actif d'une sous-mission spécifique.
+        """
+        # 'pk' est l'ID de la sous-mission qu'on veut basculer
+        child_mission = get_object_or_404(Mission, pk=pk)
+
+        # Obtenir l'affaire active
+        affaire = self.get_active_affaire()
+        if not affaire:
+            return Response({"error": "Aucune affaire active trouvée"}, status=status.HTTP_404_NOT_FOUND)
+
+        mission_active, created = MissionActive.objects.get_or_create(
+            id_mission=child_mission,
+            id_affaire=affaire
+        )
+
+        # Basculer la valeur de is_active
+        mission_active.is_active = not mission_active.is_active
+        mission_active.save()
+
+        serializer = MissionActiveSerializerMission(mission_active)
+        return Response(serializer.data)
+
+    # Vous pouvez ajouter d'autres méthodes si nécessaire, comme list(), retrieve(), etc.

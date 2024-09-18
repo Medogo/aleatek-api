@@ -148,29 +148,16 @@ class SousMissionActivationSerializer(serializers.Serializer):
 
 
 
+class SousMissionUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MissionActive
+        fields = ['is_active']
 
 
+class MissionActiveSerializerMission(serializers.ModelSerializer):
+    id_mission = MissionSerializer(read_only=True)
+    id_affaire = AffaireSerializer(read_only=True)
 
-
-"""class SousMissionActivationSerializer(serializers.Serializer):
-    sous_missions = serializers.ListField(
-        child=serializers.DictField(
-            child=serializers.BooleanField(),
-            allow_empty=False
-        ),
-        allow_empty=False
-    )
-    affaire_id = serializers.IntegerField()
-
-    def validate_sous_missions(self, value):
-        for item in value:
-            if len(item) != 1 or not isinstance(next(iter(item.keys())), int):
-                raise serializers.ValidationError("Chaque élément doit être un dictionnaire avec un ID de sous-mission comme clé et un booléen comme valeur.")
-        return value
-
-    def validate_affaire_id(self, value):
-        try:
-            Affaire.objects.get(id=value)
-        except Affaire.DoesNotExist:
-            raise serializers.ValidationError("L'affaire spécifiée n'existe pas.")
-        return value"""
+    class Meta:
+        model = MissionActive
+        fields = ['id', 'id_mission', 'id_affaire', 'is_active']
