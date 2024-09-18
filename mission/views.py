@@ -20,6 +20,7 @@ from rest_framework import serializers, views, status
 from rest_framework.response import Response
 from .models import Mission, MissionActive
 from .serializers import MissionSerializer, MissionActiveSerializer, SousMissionActivationSerializer, MissionActiveSerializeresers
+from Dashbord.views import ActiveAffaireView
 
 
 
@@ -572,93 +573,105 @@ class MissionAddParentesSousMissionAffaireViewSet(viewsets.ModelViewSet):
     serializer_class = MissionSerializer
     queryset = Mission.objects.all()
 
-    @action(detail=False, methods=['get'])
+    def get_active_affaire(self):
+        view = ActiveAffaireView()
+        response = view.get(self.request)
+        if response.status_code == status.HTTP_200_OK:
+            return Affaire.objects.get(id=response.data['active_affaire_id'])
+        return None
+
+    @action(detail=False, methods=['GET'])
     def active_parent_missions(self, request):
-        active_parents = Mission.objects.filter(
-            mission_parent__isnull=True,
-            missionactive__is_active=False
-        ).distinct()
-        serializer = self.get_serializer(active_parents, many=True)
+        active_affaire = self.get_active_affaire()
+        if not active_affaire:
+            return Response({"error": "Aucune affaire active trouvée"}, status=status.HTTP_404_NOT_FOUND)
+
+        parent_missions = Mission.objects.filter(mission_parent__isnull=True)
+        serializer = self.get_serializer(parent_missions, many=True)
+        
+        # Ajouter l'état d'activation pour chaque mission parente
+        for mission_data in serializer.data:
+            mission_data['is_active'] = MissionActive.objects.filter(
+                id_mission_id=mission_data['id'],
+                id_affaire=active_affaire,
+                is_active=True
+            ).exists()
+
         return Response(serializer.data)
 
-    @action(detail=False, methods=['post'])
-    def add_parent_missions(self, request):
-        affaire_id = request.query_params.get('affaire_id')
-        if not affaire_id:
-            return Response({"error": "affaire_id is required"}, status=status.HTTP_400_BAD_REQUEST)
-        
-        affaire = get_object_or_404(Affaire, pk=affaire_id)
-        mission_ids = request.data.get('mission_ids', [])
-        
-        added_missions = []
-        for mission_id in mission_ids:
-            mission = get_object_or_404(Mission, pk=mission_id)
-            if mission.mission_parent is None:
-                MissionActive.objects.get_or_create(
-                    id_mission=mission,
-                    id_affaire=affaire,
-                    defaults={'is_active': True}
-                )
-                added_missions.append(mission)
-
-        serializer = self.get_serializer(added_missions, many=True)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-    @action(detail=True, methods=['get'])
-    def active_child_missions(self, request, pk=None):
+    @action(detail=True, methods=['GET'])
+    def child_missions(self, request, pk=None):
         parent_mission = self.get_object()
-        active_children = Mission.objects.filter(
-            mission_parent=parent_mission,
-            missionactive__is_active=True
-        ).distinct()
-        serializer = self.get_serializer(active_children, many=True)
+        active_affaire = self.get_active_affaire()
+        if not active_affaire:
+            return Response({"error": "Aucune affaire active trouvée"}, status=status.HTTP_404_NOT_FOUND)
+
+        child_missions = Mission.objects.filter(mission_parent=parent_mission)
+        serializer = self.get_serializer(child_missions, many=True)
+
+        # Ajouter l'état d'activation pour chaque mission fille
+        for mission_data in serializer.data:
+            mission_data['is_active'] = MissionActive.objects.filter(
+                id_mission_id=mission_data['id'],
+                id_affaire=active_affaire,
+                is_active=True
+            ).exists()
+
         return Response(serializer.data)
 
     @action(detail=True, methods=['POST'])
-    def add_child_missions(self, request, pk=None):
-        logger.info(f"Début de add_child_missions pour la mission parente {pk}")
-        parent_mission = self.get_object()
-        logger.info(f"Mission parente récupérée: {parent_mission}")
+    def toggle_mission_activation(self, request, pk=None):
+        mission = self.get_object()
+        active_affaire = self.get_active_affaire()
+        if not active_affaire:
+            return Response({"error": "Aucune affaire active trouvée"}, status=status.HTTP_404_NOT_FOUND)
 
-        try:
-            active_affaire = Affaire.objects.get(is_active=True)
-            logger.info(f"Affaire active trouvée: {active_affaire.id}")
-        except Affaire.DoesNotExist:
-            logger.error("Aucune affaire active trouvée")
+        mission_active, created = MissionActive.objects.get_or_create(
+            id_mission=mission,
+            id_affaire=active_affaire,
+            defaults={'is_active': True}
+        )
+
+        if not created:
+            mission_active.is_active = not mission_active.is_active
+            mission_active.save()
+
+        status_message = "activée" if mission_active.is_active else "désactivée"
+        logger.info(f"Mission {mission.id} {status_message} pour l'affaire {active_affaire.id}")
+
+        return Response({
+            "mission_id": mission.id,
+            "is_active": mission_active.is_active,
+            "message": f"Mission {status_message} avec succès"
+        })
+
+    @action(detail=True, methods=['POST'])
+    def activate_child_missions(self, request, pk=None):
+        parent_mission = self.get_object()
+        active_affaire = self.get_active_affaire()
+        if not active_affaire:
             return Response({"error": "Aucune affaire active trouvée"}, status=status.HTTP_404_NOT_FOUND)
 
         mission_ids = request.data.get('mission_ids', [])
-        logger.info(f"Mission IDs reçus: {mission_ids}")
-
         if not mission_ids:
-            logger.warning("Aucun mission_ids fourni dans la requête")
             return Response({"error": "mission_ids est requis"}, status=status.HTTP_400_BAD_REQUEST)
 
-        added_missions = []
+        activated_missions = []
         for mission_id in mission_ids:
             try:
-                mission = Mission.objects.get(pk=mission_id)
-                logger.info(f"Mission trouvée: {mission.id}")
-                if mission.mission_parent == parent_mission:
-                    mission_active, created = MissionActive.objects.get_or_create(
-                        id_mission=mission,
-                        id_affaire=active_affaire,
-                        defaults={'is_active': True}
-                    )
-                    if created:
-                        logger.info(f"Nouvelle MissionActive créée pour la mission {mission.id}")
-                    else:
-                        logger.info(f"MissionActive existante mise à jour pour la mission {mission.id}")
-                    added_missions.append(mission)
-                else:
-                    logger.warning(f"La mission {mission.id} n'est pas une mission fille de {parent_mission.id}")
+                child_mission = Mission.objects.get(pk=mission_id, mission_parent=parent_mission)
+                mission_active, created = MissionActive.objects.get_or_create(
+                    id_mission=child_mission,
+                    id_affaire=active_affaire,
+                    defaults={'is_active': True}
+                )
+                if not created:
+                    mission_active.is_active = True
+                    mission_active.save()
+                activated_missions.append(child_mission)
+                logger.info(f"Sous-mission {child_mission.id} activée pour l'affaire {active_affaire.id}")
             except Mission.DoesNotExist:
-                logger.error(f"Mission avec l'id {mission_id} non trouvée")
+                logger.warning(f"Sous-mission {mission_id} non trouvée ou n'est pas une sous-mission valide de {parent_mission.id}")
 
-        if not added_missions:
-            logger.warning("Aucune mission valide n'a été ajoutée")
-            return Response({"error": "Aucune mission valide n'a été ajoutée"}, status=status.HTTP_400_BAD_REQUEST)
-
-        serializer = self.get_serializer(added_missions, many=True)
-        logger.info(f"Missions ajoutées avec succès: {[m.id for m in added_missions]}")
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        serializer = self.get_serializer(activated_missions, many=True)
+        return Response(serializer.data)
