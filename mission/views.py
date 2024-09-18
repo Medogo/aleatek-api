@@ -875,5 +875,34 @@ class SousMissionToggleChildMissionView(viewsets.ViewSet):
 
         serializer = MissionActiveSerializerMission(mission_active)
         return Response(serializer.data)
+    
+    @action(detail=True, methods=['get'])
+    def count_active_child_missions(self, request, pk=None):
+        """
+        Compte le nombre de sous-missions actives pour une mission parente spécifique.
+        """
+        parent_mission = get_object_or_404(Mission, pk=pk)
+        affaire = self.get_active_affaire()
+        
+        if not affaire:
+            return Response({"error": "Aucune affaire active trouvée"}, status=status.HTTP_404_NOT_FOUND)
 
-    # Vous pouvez ajouter d'autres méthodes si nécessaire, comme list(), retrieve(), etc.
+        # Assurez-vous que affaire est bien un objet Affaire
+        if isinstance(affaire, int):
+            affaire = get_object_or_404(Affaire, pk=affaire)
+
+        active_child_count = MissionActive.objects.filter(
+            id_mission__mission_parent=parent_mission,
+            id_affaire=affaire,
+            is_active=True
+        ).count()
+
+        total_child_count = Mission.objects.filter(mission_parent=parent_mission).count()
+
+        return Response({
+            "parent_mission_id": parent_mission.id,
+            "parent_mission_code": parent_mission.code_mission,
+            "active_child_missions_count": active_child_count,
+            "total_child_missions_count": total_child_count,
+            "affaire_id": affaire.id
+        })
