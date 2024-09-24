@@ -3,7 +3,7 @@ from Dashbord.models import Affaire, EntrepriseAffaire
 from collaborateurs.models import Collaborateurs
 from django.db.models import UniqueConstraint
 
-
+from entreprise.models import Entreprise
 class Ouvrage(models.Model):
     libelle = models.CharField(max_length=200)
     affaire = models.ForeignKey(Affaire, on_delete=models.CASCADE, null=True)
@@ -36,6 +36,14 @@ class RemarqueAso(models.Model):
     aso = models.ForeignKey(Aso, on_delete=models.CASCADE)
     redacteur = models.ForeignKey(Collaborateurs, on_delete=models.CASCADE)
     content = models.TextField()
+
+
+
+class EntrepriseOuvrage(models.Model):
+    entreprise = models.ForeignKey(Entreprise, on_delete=models.CASCADE)
+    ouvrage = models.ForeignKey(Ouvrage, on_delete=models.CASCADE)
+
+
 
 class EntrepriseAffaireOuvrage(models.Model):
     affaire_ouvrage = models.ForeignKey(AffaireOuvrage, on_delete=models.CASCADE)

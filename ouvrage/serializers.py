@@ -71,3 +71,7 @@ class EntrepriseAffaireOuvrageSerializerAdminisrator(serializers.ModelSerializer
     class Meta:
         model = EntrepriseAffaireOuvrage
         fields = ['id', 'diffusion', 'affaire_ouvrage', 'affaire_entreprise']
+
+
+
+

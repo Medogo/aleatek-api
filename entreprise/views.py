@@ -10,7 +10,7 @@ from django.forms.models import model_to_dict
 from django.db import transaction
 from rest_framework import status
 from Dashbord.models import EntrepriseAffaire
-
+from ouvrage.models import EntrepriseOuvrage
 class MultipleSerializerMixin:
     detail_serializer_class = None
 
@@ -142,4 +142,17 @@ class AddEntrepriseOnAffaire(APIView):
             return Response(str(e), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
         return Response(status=status.HTTP_200_OK)
-    
+
+from rest_framework import generics
+class EntreprisesForOuvrageView(generics.ListAPIView):
+    serializer_class = EntrepriseSerializer
+
+    def get_queryset(self):
+        ouvrage_id = self.kwargs.get('ouvrage_id')
+        entreprises_ouvrage = EntrepriseOuvrage.objects.filter(ouvrage_id=ouvrage_id).select_related('entreprise')
+        return [eo.entreprise for eo in entreprises_ouvrage]
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

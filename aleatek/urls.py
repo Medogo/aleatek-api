@@ -137,7 +137,7 @@ router.register('news_missions-active', MissionActiveViewSet, basename='mission_
 router.register('missions-parents-sous-mission', MissionAddParentesSousMissionAffaireViewSet, basename='missions-parents-sous-mission') 
 router.register('toggle-child-mission', SousMissionToggleChildMissionView, basename='toggle-child-mission')
 
-
+from entreprise.views import EntreprisesForOuvrageView
 
 
 schema_view = get_schema_view(
@@ -334,6 +334,8 @@ urlpatterns = [
     path('missions-state-management/<int:mission_id>/sous-missions/', SousMissionsActivationView.as_view(), name='sous-missions-activation'),
     path('les-affaire-ouvrages/', AffaireOuvrageAdminViewset.as_view(), name='affaire-ouvrage-lis-api'),
     path('les-entreprises-affaire-ouvrage/', EntrepriseAffaireOuvrageViewsetAdministration.as_view(), name='entreprise-affaire-ouvrage-lis-api'),
+    path('les-ouvrages/<int:ouvrage_id>/entreprises/', EntreprisesForOuvrageView.as_view(), name='entreprises-par-ouvrage'),
+
     
 
 

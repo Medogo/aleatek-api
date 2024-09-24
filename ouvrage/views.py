@@ -730,3 +730,6 @@ class GetOuvrageAffaireDetailEntreprise(APIView):
             final_data['entreprises'] = data_entreprise
             data.append(final_data)
         return Response(data)
+
+
+

@@ -1,9 +1,10 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Ouvrage, Documents, Aso, AffaireOuvrage
+from .models import Ouvrage, Documents, Aso, AffaireOuvrage, EntrepriseOuvrage
 
 admin.site.register(Ouvrage)
 admin.site.register(Documents)
 admin.site.register(Aso)
 admin.site.register(AffaireOuvrage)
+admin.site.register(EntrepriseOuvrage)
