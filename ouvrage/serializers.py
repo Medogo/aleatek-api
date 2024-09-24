@@ -81,3 +81,6 @@ class EntrepriseAffaireOuvrageSerializerAddline(serializers.ModelSerializer):
     class Meta:
         model = EntrepriseAffaireOuvrage
         fields = ['affaire_entreprise', 'diffusion']
+
+
+

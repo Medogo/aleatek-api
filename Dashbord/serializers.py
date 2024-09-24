@@ -83,3 +83,27 @@ class EntrepriseAffairesNewsSerializer(ModelSerializer):
     class Meta:
         model = EntrepriseAffaire
         fields = '__all__'
+
+
+
+
+class EntrepriseAffaireSerializerSecode(ModelSerializer):   
+    entreprise = EntrepriseSerializer()  # Sérialiser l'entreprise
+    affaire = AffaireSerializer()  # Sérialiser l'affaire
+
+    class Meta:
+        model = EntrepriseAffaire
+        fields = ['entreprise', 'affaire']  # Incluez les champs nécessaires
+
+
+
+
+
+
+class EntrepriseAffairesNewsSerializerSecond(ModelSerializer):
+    entreprise = EntrepriseSerializer()
+    # Autres champs de l'EntrepriseAffaire
+
+    class Meta:
+        model = EntrepriseAffaire
+        fields = ['id', 'entreprise', 'affaire']

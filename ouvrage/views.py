@@ -775,7 +775,7 @@ class EntreprisesByOuvrageViewAddOnline(generics.ListAPIView):
 
 
 from entreprise.serializers import EntrepriseSerializer
-
+"""
 class EntreprisesByOuvrageViewAddOnline(APIView):
     def get(self, request, ouvrage_id):
         try:
@@ -787,3 +787,25 @@ class EntreprisesByOuvrageViewAddOnline(APIView):
             return Response(serializer.data)
         except Ouvrage.DoesNotExist:
             return Response({"error": "Ouvrage non trouvé"}, status=status.HTTP_404_NOT_FOUND)
+        
+"""
+
+
+
+
+
+
+from Dashbord.serializers import EntrepriseAffairesNewsSerializerSecond
+class EntreprisesByOuvrageViewAddOnline(APIView):
+    """
+    Récupérer toutes les entreprises liées à un ouvrage spécifique.
+    """
+    def get(self, request, ouvrage_id):
+        try:
+            affaire_ouvrage = AffaireOuvrage.objects.get(id=ouvrage_id)
+        except AffaireOuvrage.DoesNotExist:
+            return Response({"error": "L'ouvrage spécifié n'existe pas."}, status=status.HTTP_404_NOT_FOUND)
+        entreprises_affaires_ouvrages = EntrepriseAffaireOuvrage.objects.filter(affaire_ouvrage=affaire_ouvrage)
+        entreprises = [eao.affaire_entreprise for eao in entreprises_affaires_ouvrages]
+        serializer = EntrepriseAffairesNewsSerializerSecond(entreprises, many=True)
+        return Response(serializer.data)

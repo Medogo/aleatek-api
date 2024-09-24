@@ -8,3 +8,6 @@ class AdresseSerializer(ModelSerializer):
         model = Adress
         fields = '__all__'
 
+
+
+

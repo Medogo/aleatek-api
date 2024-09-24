@@ -337,7 +337,7 @@ urlpatterns = [
     path('les-affaire-ouvrages/', AffaireOuvrageAdminViewset.as_view(), name='affaire-ouvrage-lis-api'),
     path('les-entreprises-affaire-ouvrage/', EntrepriseAffaireOuvrageViewsetAdministration.as_view(), name='entreprise-affaire-ouvrage-lis-api'),
     #path('les-ouvrages/<int:ouvrage_id>/entreprises/', EntreprisesForOuvrageView.as_view(), name='entreprises-par-ouvrage'),
-    path('ouvrages/<int:ouvrage_id>/entreprises/addOnline/', EntreprisesByOuvrageViewAddOnline.as_view(),name='entreprises-par-ouvrage-addOnline'),
+    path('ouvrages/<int:ouvrage_id>/entreprises/', EntreprisesByOuvrageViewAddOnline.as_view(),name='entreprises-par-ouvrage-addOnline'),
 
     
 

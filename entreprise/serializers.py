@@ -14,3 +14,9 @@ class EntrepriseSerializer(ModelSerializer):
     class Meta:
         model = Entreprise
         fields = ['id', 'raison_sociale', 'siret', 'activite', 'adresse']
+
+
+
+
+
+
