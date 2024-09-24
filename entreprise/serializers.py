@@ -13,4 +13,4 @@ class ResponsableSerializer(ModelSerializer):
 class EntrepriseSerializer(ModelSerializer):
     class Meta:
         model = Entreprise
-        fields = '__all__'
+        fields = ['id', 'raison_sociale', 'siret', 'activite', 'adresse']

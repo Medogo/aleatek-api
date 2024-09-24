@@ -64,6 +64,12 @@ class EntrepriseAffaireViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
     queryset = EntrepriseAffaire.objects.all()
     permission_classes = [IsAdminAuthenticated]
 
+from .serializers import EntrepriseAffairesNewsSerializer
+class EntrepriseAffairesNewsViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
+    serializer_class = EntrepriseAffairesNewsSerializer
+    queryset = EntrepriseAffaire.objects.all()
+    permission_classes = [IsAdminAuthenticated]
+
 
 class GetPlanAffaireDetail(APIView):
     def get(self, request):

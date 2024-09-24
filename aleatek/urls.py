@@ -71,7 +71,7 @@ from synthese.views import SyntheseAvisViewsetAdmin, CreateSyntheseAvis, AllSynt
     AllAvisOfSynthese, DevalidateSyntheseAvis
 
 from mission.views import GetCritereAboutDescriptionBati, HandleSelectCritere, GetCritereAboutCodeTravail, ToggleMissionActiveView, AffaireMissionsView
-
+from Dashbord.views import EntrepriseAffairesNewsViewsetAdmin
 # from ouvrage.views import CodificationplusBas
 
 router = routers.SimpleRouter()
@@ -81,6 +81,7 @@ router.register('synthese_commentaire_document', SyntheseCommentaireDocumentView
 router.register('synthese_commentaire_rv', SyntheseComentaireRVViewsetAdmin, basename='synthese_commentaire_rv')
 router.register('synthese_commentaire_article', SyntheseCommentaireArticleViewsetAdmin,
                 basename='synthese_commentaire_article')
+router.register('news-entreprise-affaire', EntrepriseAffairesNewsViewsetAdmin, basename='news-affaires')
 
 router.register('synthese_avis', SyntheseAvisViewsetAdmin, basename='synthese avis')
 
@@ -138,6 +139,7 @@ router.register('missions-parents-sous-mission', MissionAddParentesSousMissionAf
 router.register('toggle-child-mission', SousMissionToggleChildMissionView, basename='toggle-child-mission')
 
 from entreprise.views import EntreprisesForOuvrageView
+from ouvrage.views import EntreprisesByOuvrageViewAddOnline
 
 
 schema_view = get_schema_view(
@@ -334,7 +336,8 @@ urlpatterns = [
     path('missions-state-management/<int:mission_id>/sous-missions/', SousMissionsActivationView.as_view(), name='sous-missions-activation'),
     path('les-affaire-ouvrages/', AffaireOuvrageAdminViewset.as_view(), name='affaire-ouvrage-lis-api'),
     path('les-entreprises-affaire-ouvrage/', EntrepriseAffaireOuvrageViewsetAdministration.as_view(), name='entreprise-affaire-ouvrage-lis-api'),
-    path('les-ouvrages/<int:ouvrage_id>/entreprises/', EntreprisesForOuvrageView.as_view(), name='entreprises-par-ouvrage'),
+    #path('les-ouvrages/<int:ouvrage_id>/entreprises/', EntreprisesForOuvrageView.as_view(), name='entreprises-par-ouvrage'),
+    path('ouvrages/<int:ouvrage_id>/entreprises/addOnline/', EntreprisesByOuvrageViewAddOnline.as_view(),name='entreprises-par-ouvrage-addOnline'),
 
     
 

@@ -77,3 +77,9 @@ class BatimentPlanAffaireSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+
+
+class EntrepriseAffairesNewsSerializer(ModelSerializer):
+    class Meta:
+        model = EntrepriseAffaire
+        fields = '__all__'

@@ -74,4 +74,10 @@ class EntrepriseAffaireOuvrageSerializerAdminisrator(serializers.ModelSerializer
 
 
 
+from entreprise.serializers import EntrepriseSerializer
+class EntrepriseAffaireOuvrageSerializerAddline(serializers.ModelSerializer):
+    affaire_entreprise = EntrepriseSerializer()  # Utilise le serializer d'entreprise
 
+    class Meta:
+        model = EntrepriseAffaireOuvrage
+        fields = ['affaire_entreprise', 'diffusion']
