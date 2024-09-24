@@ -12,7 +12,7 @@ from django.db.models import UniqueConstraint
 # Create your models here.
 class Mission(models.Model):
     code_mission = models.CharField(max_length=10, unique=True)
-    libelle = models.CharField(max_length=100)
+    libelle = models.CharField(max_length=500)
     mission_parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE,
                                        related_name='sous_missions', limit_choices_to={'mission_parent__isnull': True})
 

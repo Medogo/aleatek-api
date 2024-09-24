@@ -1,5 +1,4 @@
 from django.db import models
-
 from Dashbord.models import Affaire, EntrepriseAffaire
 from collaborateurs.models import Collaborateurs
 from django.db.models import UniqueConstraint

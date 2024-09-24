@@ -52,9 +52,13 @@ class BatimentSerializer(ModelSerializer):
 
 
 class EntrepriseAffaireSerializer(ModelSerializer):
+    entreprise = EntrepriseSerializer(read_only=True)
+    affaire = AffaireSerializer(read_only=True)
+
     class Meta:
         model = EntrepriseAffaire
-        fields = '__all__'
+        fields = ['id', 'entreprise', 'affaire']
+    
 
 
 # serializers.py

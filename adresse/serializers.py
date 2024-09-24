@@ -7,3 +7,4 @@ class AdresseSerializer(ModelSerializer):
     class Meta:
         model = Adress
         fields = '__all__'
+

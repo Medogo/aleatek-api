@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-
+from ouvrage.views import AffaireOuvrageAdminViewset
 from Dashbord.serializers import BatimentSerializer
 from .views import get_csrf_token
 from rest_framework import routers
@@ -14,7 +14,7 @@ from Dashbord.views import AffaireListView, TutorialIDList, TutoratViewSet, Plan
     BatiementPlanAffaireViewset, ActiveAffaireView
 from django.conf import settings
 from django.conf.urls.static import static
-
+from ouvrage.views import EntrepriseAffaireOuvrageViewsetAdministration
 from mission.views import AddInterventionTechnique, AddMissionActive, DeleteArticleSelectForAffaire, \
     AddArticleSelectForAffaire, GetAllCritereForAffaire, ArticleSelectViewsetAdmin, GetAllArticleForMission, \
     GetAllMissionViewByChapitre, MissionAdminViewsetAdmin, ITAdminViewsetAdmin, \
@@ -332,6 +332,10 @@ urlpatterns = [
     path('recuperer_toutes_missions_actives_affaire/', AffaireMissionsView.as_view(), name='affaire-missions'),
     path('selected-mission-active/', ToggleMissionActiveView.as_view(), name='toggle-mission'),
     path('missions-state-management/<int:mission_id>/sous-missions/', SousMissionsActivationView.as_view(), name='sous-missions-activation'),
+    path('les-affaire-ouvrages/', AffaireOuvrageAdminViewset.as_view(), name='affaire-ouvrage-lis-api'),
+    path('les-entreprises-affaire-ouvrage/', EntrepriseAffaireOuvrageViewsetAdministration.as_view(), name='entreprise-affaire-ouvrage-lis-api'),
+    
+
 
     
 

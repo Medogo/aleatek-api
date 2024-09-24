@@ -45,6 +45,23 @@ class AffaireOuvrageAdminViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
     queryset = AffaireOuvrage.objects.all()
     permission_classes = [IsAdminAuthenticated]
 
+from rest_framework import generics
+from ouvrage.serializers import AffaireOuvrageSerializerAdmin
+class AffaireOuvrageAdminViewset(generics.ListAPIView):
+    serializer_class = AffaireOuvrageSerializerAdmin
+    queryset = AffaireOuvrage.objects.all()
+    permission_classes = [IsAdminAuthenticated]
+
+from ouvrage.serializers import EntrepriseAffaireOuvrageSerializerAdminisrator
+from rest_framework import generics
+class EntrepriseAffaireOuvrageViewsetAdministration(generics.ListAPIView):
+    serializer_class = EntrepriseAffaireOuvrageSerializerAdminisrator
+    queryset = EntrepriseAffaireOuvrage.objects.all()
+    permission_classes = [IsAdminAuthenticated]
+
+
+
+
 
 class OuvrageAdminViewsetAdmin(MultipleSerializerMixin, ModelViewSet):
     serializer_class = OuvrageSerializer
