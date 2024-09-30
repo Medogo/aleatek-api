@@ -94,13 +94,25 @@ class CollaborateurSerializersss(serializers.ModelSerializer):
 
 
 class AsoDetailSerializers(serializers.ModelSerializer):
-    statut = serializers.CharField(source='get_statut_display')
+    statut = serializers.SerializerMethodField()
     redacteur = serializers.CharField(source='redacteur.last_name')
     ouvrage = serializers.SerializerMethodField()
 
     class Meta:
         model = Aso
         fields = ['id', 'date', 'statut', 'redacteur', 'order_in_affaire', 'affaireouvrage', 'ouvrage']
+
+    def get_statut(self, obj):
+        statut_dict = dict(Aso.ETAPES)
+        statut_value = obj.statut
+        if isinstance(statut_value, int):
+            return statut_dict.get(statut_value, "Inconnu")
+        elif isinstance(statut_value, str):
+            try:
+                return statut_dict.get(int(statut_value), statut_value)
+            except ValueError:
+                return statut_value
+        return "Inconnu"
 
     def get_ouvrage(self, obj):
         ouvrage = obj.affaireouvrage.id_ouvrage
