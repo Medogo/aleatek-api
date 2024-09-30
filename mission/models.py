@@ -29,6 +29,8 @@ class MissionActive(models.Model):
     def get_current_affaire(self):
         return self.id_affaire
 
+    def __str__(self):
+        return f"{self.id_mission.code_mission} - {self.id_affaire.libelle}"
     
    
 

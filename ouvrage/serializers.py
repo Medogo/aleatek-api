@@ -84,3 +84,32 @@ class EntrepriseAffaireOuvrageSerializerAddline(serializers.ModelSerializer):
 
 
 
+from collaborateurs.models import Collaborateurs
+
+class CollaborateurSerializersss(serializers.ModelSerializer):
+    class Meta:
+        model = Collaborateurs
+        fields = ['id', 'username', 'last_name', 'first_name']
+
+
+
+class AsoDetailSerializers(serializers.ModelSerializer):
+    statut = serializers.CharField(source='get_statut_display')
+    redacteur = serializers.CharField(source='redacteur.last_name')
+    ouvrage = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Aso
+        fields = ['id', 'date', 'statut', 'redacteur', 'order_in_affaire', 'affaireouvrage', 'ouvrage']
+
+    def get_ouvrage(self, obj):
+        ouvrage = obj.affaireouvrage.id_ouvrage
+        return OuvrageSerializer(ouvrage).data
+
+class RemarqueAsoSerializers(serializers.ModelSerializer):
+    redacteur = CollaborateurSerializersss()
+    aso = AsoDetailSerializers()
+
+    class Meta:
+        model = RemarqueAso
+        fields = ['id', 'aso', 'redacteur', 'content']

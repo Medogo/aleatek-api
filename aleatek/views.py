@@ -10,3 +10,8 @@ def get_csrf_token(request):
     # response['Access-Control-Allow-Origin'] = 'http://localhost:3000'  # L'URL de votre application React
     response['Access-Control-Allow-Credentials'] = 'true'
     return response
+
+
+
+def get_cuurent_user(request):
+    return request.user

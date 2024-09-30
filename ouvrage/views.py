@@ -809,3 +809,23 @@ class EntreprisesByOuvrageViewAddOnline(APIView):
         entreprises = [eao.affaire_entreprise for eao in entreprises_affaires_ouvrages]
         serializer = EntrepriseAffairesNewsSerializerSecond(entreprises, many=True)
         return Response(serializer.data)
+
+
+
+
+from .serializers import RemarqueAsoSerializers
+from .models import RemarqueAso
+from .models import Affaire
+from .models import Aso
+
+
+class AffaireRemarquesView(APIView):
+    def get(self, request, affaire_id):
+        try:
+            affaire = Affaire.objects.get(id=affaire_id)
+        except Affaire.DoesNotExist:
+            return Response({"error": "Affaire not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        remarques = RemarqueAso.objects.filter(aso__affaireouvrage__id_affaire=affaire)
+        serializer = RemarqueAsoSerializers(remarques, many=True)
+        return Response(serializer.data)

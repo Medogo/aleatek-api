@@ -140,6 +140,7 @@ router.register('toggle-child-mission', SousMissionToggleChildMissionView, basen
 
 from entreprise.views import EntreprisesForOuvrageView
 from ouvrage.views import EntreprisesByOuvrageViewAddOnline
+from ouvrage.views import AffaireRemarquesView
 
 
 schema_view = get_schema_view(
@@ -155,6 +156,8 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 from mission.views import get_active_missions_for_affaire
+from .views import get_cuurent_user
+
 
 urlpatterns = [
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
@@ -338,6 +341,9 @@ urlpatterns = [
     path('les-entreprises-affaire-ouvrage/', EntrepriseAffaireOuvrageViewsetAdministration.as_view(), name='entreprise-affaire-ouvrage-lis-api'),
     #path('les-ouvrages/<int:ouvrage_id>/entreprises/', EntreprisesForOuvrageView.as_view(), name='entreprises-par-ouvrage'),
     path('ouvrages/<int:ouvrage_id>/entreprises/', EntreprisesByOuvrageViewAddOnline.as_view(),name='entreprises-par-ouvrage-addOnline'),
+    #path('aet_current_user/', get_cuurent_user, name='get-current-user'),
+    path('get_all_remarque_in_affaire/<int:affaire_id>/remarques/', AffaireRemarquesView.as_view(), name='affaire-remarques'),
+
 
     
 
