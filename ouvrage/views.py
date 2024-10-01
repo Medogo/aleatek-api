@@ -829,3 +829,13 @@ class AffaireRemarquesView(APIView):
         remarques = RemarqueAso.objects.filter(aso__affaireouvrage__id_affaire=affaire)
         serializer = RemarqueAsoSerializers(remarques, many=True)
         return Response(serializer.data)
+    
+from .serializers import EntrepriseAffaireOuvrageSerializerss
+class EntrepriseAffaireOuvrageListView(generics.ListAPIView):
+    serializer_class = EntrepriseAffaireOuvrageSerializerss
+
+    def get_queryset(self):
+        affaire_id = self.kwargs.get('affaire_id')
+        return EntrepriseAffaireOuvrage.objects.filter(
+            affaire_ouvrage__id_affaire__id=affaire_id
+        )

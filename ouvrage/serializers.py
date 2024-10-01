@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 from .models import Aso, AffaireOuvrage, Avis, Ouvrage, Documents, FichierAttache, EntrepriseAffaireOuvrage, DocumentAffectation, RemarqueAso
 from Dashbord.serializers import AffaireSerializer
-
+from Dashbord.models import EntrepriseAffaire
 
 class AsoSerializer(ModelSerializer):
     class Meta:
@@ -125,3 +125,33 @@ class RemarqueAsoSerializers(serializers.ModelSerializer):
     class Meta:
         model = RemarqueAso
         fields = ['id', 'aso', 'redacteur', 'content']
+
+
+
+
+
+
+
+class AffaireOuvrageSerializerss(serializers.ModelSerializer):
+    id_affaire = AffaireSerializer()
+    id_ouvrage = OuvrageSerializer()
+
+    class Meta:
+        model = AffaireOuvrage
+        fields = '__all__'
+
+class EntrepriseAffaireSerializerzerr(serializers.ModelSerializer):
+    entreprise = EntrepriseSerializer()
+    affaire = AffaireSerializer()
+
+    class Meta:
+        model = EntrepriseAffaire
+        fields = '__all__'
+
+class EntrepriseAffaireOuvrageSerializerss(serializers.ModelSerializer):
+    affaire_ouvrage = AffaireOuvrageSerializerss()
+    affaire_entreprise = EntrepriseAffaireSerializerzerr()
+
+    class Meta:
+        model = EntrepriseAffaireOuvrage
+        fields = '__all__'

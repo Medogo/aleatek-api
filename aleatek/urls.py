@@ -23,7 +23,7 @@ from mission.views import AddInterventionTechnique, AddMissionActive, DeleteArti
     AllIntervenantForAffaire, AllMissionForAffaire, ArticleMissionViewsetAdmin, MissionActiveView, \
     MissionActiveCreateAPIView, AddSousMissionView, \
     AffaireDetailView
-
+from ouvrage.views import AffaireRemarquesView, EntrepriseAffaireOuvrageListView
 from collaborateurs.views import UtilisateurConnecteView, CollaborateursAdminViewsetAdmin, AllCollabAssignToMission
 from entreprise.views import AddEntrepriseOnAffaire, CreateEntreprise, EditeDataEntreprise, \
     ResponsableAdminViewsetAdmin, EntrepriseAdminViewsetAdmin, GetEntrepriseWithCollaborateur
@@ -343,6 +343,12 @@ urlpatterns = [
     path('ouvrages/<int:ouvrage_id>/entreprises/', EntreprisesByOuvrageViewAddOnline.as_view(),name='entreprises-par-ouvrage-addOnline'),
     #path('aet_current_user/', get_cuurent_user, name='get-current-user'),
     path('get_all_remarque_in_affaire/<int:affaire_id>/remarques/', AffaireRemarquesView.as_view(), name='affaire-remarques'),
+    path(
+        'entreprise-affaire-ouvrage/affaire/<int:affaire_id>/',
+        EntrepriseAffaireOuvrageListView.as_view(),
+        name='entreprise-affaire-ouvrage-list',
+    ),
+
 
 
     
