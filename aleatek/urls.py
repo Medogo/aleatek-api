@@ -45,6 +45,7 @@ from ouvrage.views import AddEntrepriseOnOuvrage, AttachDocOnAso, DocumentSerial
     GenerateDataForAso, CheckAsoCurrentForAffaireOuvrage
 
 from commentaire.views import CommentaireAdminViewsetAdmin, GetAllCommentForAvis
+from ouvrage.views import AllAvisOnDocumentView 
 
 from rapport_visite.views import AddAvisOnRv, CreateRv, AllAvisFromRV, RapportVisiteSerializerAdminViewsetAdmin, \
     AvisOuvrageViewsetAdmin, CommentaireAvisOuvrageViewsetAdmin, \
@@ -157,7 +158,7 @@ schema_view = get_schema_view(
 )
 from mission.views import get_active_missions_for_affaire
 from .views import get_cuurent_user
-
+from ouvrage.views import AvisPlusDefavorableView
 
 urlpatterns = [
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
@@ -348,6 +349,8 @@ urlpatterns = [
         EntrepriseAffaireOuvrageListView.as_view(),
         name='entreprise-affaire-ouvrage-list',
     ),
+     path('get_all_avis_on_document/<int:document_id>/', AllAvisOnDocumentView.as_view(), name='get_all_avis_on_document'),
+     path('avis-plus-defavorable/<int:document_id>/', AvisPlusDefavorableView.as_view(), name='avis_plus_defavorable'),
 
 
 

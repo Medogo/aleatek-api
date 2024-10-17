@@ -731,68 +731,6 @@ class GetOuvrageAffaireDetailEntreprise(APIView):
             data.append(final_data)
         return Response(data)
 
-"""
-
-class EntreprisesByOuvrageViewAddOnline(APIView):
-    def get(self, request, ouvrage_id):
-        try:
-            # Récupérer toutes les entreprises associées à l'ouvrage donné
-            entreprises = EntrepriseAffaireOuvrage.objects.filter(affaire_ouvrage_id=ouvrage_id).select_related('affaire_entreprise')
-            serializer = EntrepriseSerializer([entreprise.affaire_entreprise for entreprise in entreprises], many=True)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        except Ouvrage.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-"""
-
-"""class EntreprisesByOuvrageViewAddOnline(APIView):
-    def get(self, request, ouvrage_id):
-        from entreprise.serializers import EntrepriseSerializer
-
-        try:
-            # Vérifie si l'ouvrage existe
-            ouvrage = Ouvrage.objects.get(id=ouvrage_id)
-
-            # Récupérer toutes les entreprises associées à l'ouvrage donné
-            entreprises_affaire = EntrepriseAffaireOuvrage.objects.filter(affaire_ouvrage_id=ouvrage_id).select_related('affaire_entreprise__entreprise')
-            
-            # Récupérer les instances d'Entreprise
-            entreprises = [entreprise.affaire_entreprise.entreprise for entreprise in entreprises_affaire]
-            
-            # Sérialise les entreprises
-            serializer = EntrepriseSerializer(entreprises, many=True)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        except Ouvrage.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)"""
-
-"""from .serializers import EntrepriseAffaireOuvrageSerializerAddline
-class EntreprisesByOuvrageViewAddOnline(generics.ListAPIView):
-    serializer_class = EntrepriseAffaireOuvrageSerializerAddline
-
-    def get_queryset(self):
-        ouvrage_id = self.kwargs['ouvrage_id']  # Récupère l'ID de l'ouvrage à partir de l'URL
-        return EntrepriseAffaireOuvrage.objects.filter(affaire_ouvrage__id_ouvrage=ouvrage_id)"""
-
-
-
-from entreprise.serializers import EntrepriseSerializer
-"""
-class EntreprisesByOuvrageViewAddOnline(APIView):
-    def get(self, request, ouvrage_id):
-        try:
-            entreprises = Entreprise.objects.filter(
-                entrepriseaffaire__entrepreiseaffaireouvrage__affaire_ouvrage__id_ouvrage=ouvrage_id
-            ).distinct()
-            
-            serializer = EntrepriseSerializer(entreprises, many=True)
-            return Response(serializer.data)
-        except Ouvrage.DoesNotExist:
-            return Response({"error": "Ouvrage non trouvé"}, status=status.HTTP_404_NOT_FOUND)
-        
-"""
-
-
-
-
 
 
 from Dashbord.serializers import EntrepriseAffairesNewsSerializerSecond
@@ -839,3 +777,48 @@ class EntrepriseAffaireOuvrageListView(generics.ListAPIView):
         return EntrepriseAffaireOuvrage.objects.filter(
             affaire_ouvrage__id_affaire__id=affaire_id
         )
+
+
+class AllAvisOnDocumentView(APIView):
+    def get(self, request, document_id):
+        all_avis = Avis.objects.all()
+        data = []
+        for avis in all_avis:
+            document = avis.id_document
+            if document.id == document_id:
+                data.append(model_to_dict(avis))
+        return Response(data)
+
+from django.db.models import Count
+
+class AvisPlusDefavorableView(APIView):
+    def get(self, request, document_id):
+        try:
+            document = Documents.objects.get(id=document_id)
+        except Documents.DoesNotExist:
+            return Response({"error": "Document non trouvé"}, status=status.HTTP_404_NOT_FOUND)
+
+        avis = Avis.objects.filter(id_document=document).values('codification').annotate(
+            count=Count('codification')
+        ).order_by('count', 'codification')
+
+        if not avis:
+            return Response({"message": "Aucun avis trouvé pour ce document"}, status=status.HTTP_404_NOT_FOUND)
+
+        # Définir l'ordre de défavorabilité
+        ordre_defavorabilite = ['VI', 'HM', 'RMQ', 'F']
+
+        # Cas où il n'y a qu'un seul type d'avis
+        if len(avis) == 1:
+            return Response({"codification_plus_defavorable": avis[0]['codification']}, status=status.HTTP_200_OK)
+
+        # Cas où il y a plusieurs avis avec le même compte minimal
+        avis_min_count = [a for a in avis if a['count'] == avis[0]['count']]
+        
+        if len(avis_min_count) > 1:
+            # En cas d'égalité, choisir l'avis le plus défavorable selon l'ordre prédéfini
+            avis_plus_defavorable = min(avis_min_count, key=lambda x: ordre_defavorabilite.index(x['codification']))['codification']
+        else:
+            avis_plus_defavorable = avis[0]['codification']
+
+        return Response({"codification_plus_defavorable": avis_plus_defavorable}, status=status.HTTP_200_OK)

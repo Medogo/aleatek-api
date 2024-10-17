@@ -120,3 +120,5 @@ class Avis(models.Model):
         constraints = [
             UniqueConstraint(fields=['id_document', 'collaborateurs'], name='unique_avis_collaborateur')
         ]
+
+
