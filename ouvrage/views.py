@@ -806,7 +806,7 @@ class AvisPlusDefavorableView(APIView):
             return Response({"message": "Aucun avis trouvé pour ce document"}, status=status.HTTP_404_NOT_FOUND)
 
         # Définir l'ordre de défavorabilité
-        ordre_defavorabilite = ['VI', 'HM', 'RMQ', 'F']
+        ordre_defavorabilite = ['RMQ', 'VI', 'HM', 'F']
 
         # Cas où il n'y a qu'un seul type d'avis
         if len(avis) == 1:
