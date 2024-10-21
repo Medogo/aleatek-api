@@ -75,8 +75,12 @@ from mission.views import GetCritereAboutDescriptionBati, HandleSelectCritere, G
 from Dashbord.views import EntrepriseAffairesNewsViewsetAdmin
 # from ouvrage.views import CodificationplusBas
 
+from mission.views import DocumentAffectationITSerializersView
+
+
 router = routers.SimpleRouter()
 
+router.register('document_affectation_it', DocumentAffectationITSerializersView, basename="document_affectation_it_news")
 router.register('synthese_commentaire_document', SyntheseCommentaireDocumentViewsetAdmin,
                 basename='synthese_commentaire_document')
 router.register('synthese_commentaire_rv', SyntheseComentaireRVViewsetAdmin, basename='synthese_commentaire_rv')

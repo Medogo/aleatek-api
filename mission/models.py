@@ -3,7 +3,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 from Dashbord.models import Affaire
-
+from ouvrage.models import Documents
 from collaborateurs.models import Collaborateurs
 from datetime import date
 from django.db.models import UniqueConstraint
@@ -39,6 +39,7 @@ class InterventionTechnique(models.Model):
     date = models.DateField(default=date.today, blank=True)
     id_mission_active = models.ForeignKey(MissionActive, on_delete=models.CASCADE)
     id_collaborateur = models.ForeignKey(Collaborateurs, on_delete=models.CASCADE, related_name='ITAffecter')
+    libelle = models.CharField(blank=True, null=True, max_length=120)
 
     class Meta:
         constraints = [
@@ -100,3 +101,7 @@ class ArticleSelect(models.Model):
         constraints = [
             UniqueConstraint(fields=['article', 'affaire'], name='unique_affaire_article')
         ]
+
+class DocumentAffectationIT(models.Model):
+    document = models.ForeignKey(Documents, on_delete=models.CASCADE)
+    InterventionTechnique = models.ForeignKey(InterventionTechnique, on_delete=models.CASCADE)

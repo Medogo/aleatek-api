@@ -25,8 +25,9 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-from .models import Mission, MissionActive, Affaire
+from .models import Mission, MissionActive, Affaire, DocumentAffectationIT
 from .serializers import MissionActiveSerializerMission
+from .serializers import DocumentAffectationITSerializers
 
 
 class MultipleSerializerMixin:
@@ -36,6 +37,14 @@ class MultipleSerializerMixin:
         if self.action == 'retrieve' and self.detail_serializer_class is not None:
             return self.detail_serializer_class
         return super().get_serializer_class()
+
+
+
+class DocumentAffectationITSerializersView(MultipleSerializerMixin, ModelViewSet):
+    serializer_class = DocumentAffectationITSerializers
+    queryset = DocumentAffectationIT.objects.all()
+    permission_classes = [IsAdminAuthenticated]
+
 
 
 class ArticleMissionViewsetAdmin(MultipleSerializerMixin, ModelViewSet):

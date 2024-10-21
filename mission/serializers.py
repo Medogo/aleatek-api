@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 
 from Dashbord.models import Affaire
-from .models import MissionActive, Mission, InterventionTechnique, Article, ArticleSelect, ArticleMission
+from .models import MissionActive, Mission, InterventionTechnique, Article, ArticleSelect, ArticleMission, DocumentAffectationIT
 from Dashbord.serializers import AffaireSerializer
 
 class MissionSerializer(ModelSerializer):
@@ -161,3 +161,9 @@ class MissionActiveSerializerMission(serializers.ModelSerializer):
     class Meta:
         model = MissionActive
         fields = ['id', 'id_mission', 'id_affaire', 'is_active']
+        
+        
+class DocumentAffectationITSerializers(serializers.ModelSerializer):
+    class meta:
+        model = DocumentAffectationIT
+        fields = '__all__'
