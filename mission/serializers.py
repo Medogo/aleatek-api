@@ -164,6 +164,6 @@ class MissionActiveSerializerMission(serializers.ModelSerializer):
         
         
 class DocumentAffectationITSerializers(serializers.ModelSerializer):
-    class meta:
+    class Meta:
         model = DocumentAffectationIT
         fields = '__all__'
