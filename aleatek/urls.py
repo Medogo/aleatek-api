@@ -356,13 +356,5 @@ urlpatterns = [
      path('get_all_avis_on_document/<int:document_id>/', AllAvisOnDocumentView.as_view(), name='get_all_avis_on_document'),
      path('avis-plus-defavorable/<int:document_id>/', AvisPlusDefavorableView.as_view(), name='avis_plus_defavorable'),
 
-
-
-    
-
-
-    
-
-
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
