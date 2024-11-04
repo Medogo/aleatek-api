@@ -100,6 +100,17 @@ router.register('avis_article', AvisArticleViewsetAdmin, basename='avis_article'
 router.register('commentaire_avis_article', CommentaireAvisArticleViewsetAdmin, basename='commentaire_avis_article')
 router.register('description_sommaire', DescriptionSommaireViewsetAdmin, basename='description_sommaire'),
 
+
+
+
+
+
+router.register(r'rapports_visite', RapportVisiteSerializerAdminViewsetAdmin, basename='rapport-visite')
+router.register(r'avis_sur_ouvrage', AvisOuvrageViewsetAdmin, basename='avis-ouvrage')
+router.register(r'commentaires_sur_RV', CommentaireAvisOuvrageViewsetAdmin, basename='commentaire-avis')
+
+
+
 router.register('avis_ouvrage', AvisOuvrageViewsetAdmin, basename='admin-avis_ouvrage')
 router.register('article', ArticleAdminViewsetAdmin, basename='admin-article')
 router.register('article_select', ArticleSelectViewsetAdmin, basename='admin-article-select')

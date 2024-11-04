@@ -11,9 +11,12 @@ class AvisOuvrageSerializer(ModelSerializer):
     class Meta:
         model = AvisOuvrage
         fields = '__all__'
+        depth = 2 
+
 
 class CommentaireAvisOuvrageSerializer(ModelSerializer):
     class Meta:
         model = CommentaireAvisOuvrage
         fields = '__all__'
+        depth = 2 
 
