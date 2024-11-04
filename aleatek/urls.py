@@ -105,9 +105,9 @@ router.register('description_sommaire', DescriptionSommaireViewsetAdmin, basenam
 
 
 
-router.register(r'rapports_visite', RapportVisiteSerializerAdminViewsetAdmin, basename='rapport-visite')
-router.register(r'avis_sur_ouvrage', AvisOuvrageViewsetAdmin, basename='avis-ouvrage')
-router.register(r'commentaires_sur_RV', CommentaireAvisOuvrageViewsetAdmin, basename='commentaire-avis')
+router.register('rapports_visite', RapportVisiteSerializerAdminViewsetAdmin, basename='rapport-visite_new')
+router.register('avis_sur_ouvrage', AvisOuvrageViewsetAdmin, basename='avis-ouvrage_news')
+router.register('commentaires_sur_RV', CommentaireAvisOuvrageViewsetAdmin, basename='commentaire-avis_news')
 
 
 
